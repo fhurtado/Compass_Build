@@ -1,0 +1,1373 @@
+***
+// code to drop all unneeded and unnecessary variables
+//    it is called by the "cleanup.do" program
+***
+drop se2aloop_morning_snack_se2a_1
+drop se2aloop_afternoon_snack_se2a_1
+drop se2aloop_after_dinner_se2a_1
+drop se2aloop_morning_snack1_se2a_1
+drop se2aloop_afternoon_snack1_se2a_1
+drop se2aloop_after_dinner1_se2a_1
+drop se2aloop_morning_snack2_se2a_1
+drop se2aloop_afternoon_snack2_se2a_1
+drop se2aloop_after_dinner2_se2a_1
+drop se2aloop_early_morning_se2a_2
+drop se2aloop_afternoon_snack_se2a_2
+drop se2aloop_after_dinner_se2a_2
+drop se2aloop_early_morning1_se2a_2
+drop se2aloop_afternoon_snack1_se2a_2
+drop se2aloop_after_dinner1_se2a_2
+drop se2aloop_early_morning2_se2a_2
+drop se2aloop_afternoon_snack2_se2a_2
+drop se2aloop_after_dinner2_se2a_2
+drop se2aloop_early_morning_se2a_3
+drop se2aloop_morning_snack_se2a_3
+drop se2aloop_after_dinner_se2a_3
+drop se2aloop_early_morning1_se2a_3
+drop se2aloop_morning_snack1_se2a_3
+drop se2aloop_after_dinner1_se2a_3
+drop se2aloop_early_morning2_se2a_3
+drop se2aloop_morning_snack2_se2a_3
+drop se2aloop_after_dinner2_se2a_3
+drop se2aloop_early_morning_se2a_4
+drop se2aloop_morning_snack_se2a_4
+drop se2aloop_afternoon_snack_se2a_4
+drop se2aloop_early_morning1_se2a_4
+drop se2aloop_morning_snack1_se2a_4
+drop se2aloop_afternoon_snack1_se2a_4
+drop se2aloop_early_morning2_se2a_4
+drop se2aloop_morning_snack2_se2a_4
+drop se2aloop_afternoon_snack2_se2a_4
+drop se6aloop_morning_snack_se6a_1
+drop se6aloop_afternoon_snack_se6a_1
+drop se6aloop_after_dinner_se6a_1
+drop se6aloop_morning_snack1_se6a_1
+drop se6aloop_afternoon_snack1_se6a_1
+drop se6aloop_after_dinner1_se6a_1
+drop se6aloop_morning_snack2_se6a_1
+drop se6aloop_afternoon_snack2_se6a_1
+drop se6aloop_after_dinner2_se6a_1
+drop se6aloop_early_morning_se6a_2
+drop se6aloop_afternoon_snack_se6a_2
+drop se6aloop_after_dinner_se6a_2
+drop se6aloop_early_morning1_se6a_2
+drop se6aloop_afternoon_snack1_se6a_2
+drop se6aloop_after_dinner1_se6a_2
+drop se6aloop_early_morning2_se6a_2
+drop se6aloop_afternoon_snack2_se6a_2
+drop se6aloop_after_dinner2_se6a_2
+drop se6aloop_early_morning_se6a_3
+drop se6aloop_morning_snack_se6a_3
+drop se6aloop_after_dinner_se6a_3
+drop se6aloop_early_morning1_se6a_3
+drop se6aloop_morning_snack1_se6a_3
+drop se6aloop_after_dinner1_se6a_3
+drop se6aloop_early_morning2_se6a_3
+drop se6aloop_morning_snack2_se6a_3
+drop se6aloop_after_dinner2_se6a_3
+drop se6aloop_early_morning_se6a_4
+drop se6aloop_morning_snack_se6a_4
+drop se6aloop_afternoon_snack_se6a_4
+drop se6aloop_early_morning1_se6a_4
+drop se6aloop_morning_snack1_se6a_4
+drop se6aloop_afternoon_snack1_se6a_4
+drop se6aloop_early_morning2_se6a_4
+drop se6aloop_morning_snack2_se6a_4
+drop se6aloop_afternoon_snack2_se6a_4
+
+* qb1e adjusted in SPRING 2018 to SINGLE BOX (Just like in 2012-2015). Was asked for Male and Female in 2016-2017
+drop eatingevent_occasion1_qb1e 
+drop eatingevent_occasion2_qb1e 
+drop eatingevent_occasion1_prog_grid_ 
+drop eatingevent_occasion1_prog_grid0 
+drop eatingevent_occasion2_prog_grid_ 
+drop eatingevent_occasion2_prog_grid0 
+drop eatingevent_occasion1_grid_qb1e0 
+drop eatingevent_occasion2_grid_qb1e0
+
+* New in 2019: QB5D empty variables
+drop eatingevent_occasion1_qb5d01
+drop eatingevent_occasion1_qb5d02
+drop eatingevent_occasion1_qb5d03
+drop eatingevent_occasion1_qb5d04
+drop eatingevent_occasion1_qb5d05
+drop eatingevent_occasion1_qb5d06
+drop eatingevent_occasion1_qb5d07
+drop eatingevent_occasion1_qb5d08
+drop eatingevent_occasion1_qb5d09
+drop eatingevent_occasion1_qb5d10
+drop eatingevent_occasion1_qb5d11
+drop eatingevent_occasion1_qb5d12
+drop eatingevent_occasion1_qb5d13
+drop eatingevent_occasion1_qb5d14
+drop eatingevent_occasion1_qb5d15
+drop eatingevent_occasion1_qb5d16
+drop eatingevent_occasion1_qb5d17
+drop eatingevent_occasion1_qb5d18
+drop eatingevent_occasion1_qb5d19
+drop eatingevent_occasion1_qb5d20
+drop eatingevent_occasion1_qb5d21
+drop eatingevent_occasion1_qb5d22
+drop eatingevent_occasion1_qb5d23
+drop eatingevent_occasion1_qb5d24
+drop eatingevent_occasion1_qb5d25
+drop eatingevent_occasion1_qb5d26
+drop eatingevent_occasion2_qb5d01
+drop eatingevent_occasion2_qb5d02
+drop eatingevent_occasion2_qb5d03
+drop eatingevent_occasion2_qb5d04
+drop eatingevent_occasion2_qb5d05
+drop eatingevent_occasion2_qb5d06
+drop eatingevent_occasion2_qb5d07
+drop eatingevent_occasion2_qb5d08
+drop eatingevent_occasion2_qb5d09
+drop eatingevent_occasion2_qb5d10
+drop eatingevent_occasion2_qb5d11
+drop eatingevent_occasion2_qb5d12
+drop eatingevent_occasion2_qb5d13
+drop eatingevent_occasion2_qb5d14
+drop eatingevent_occasion2_qb5d15
+drop eatingevent_occasion2_qb5d16
+drop eatingevent_occasion2_qb5d17
+drop eatingevent_occasion2_qb5d18
+drop eatingevent_occasion2_qb5d19
+drop eatingevent_occasion2_qb5d20
+drop eatingevent_occasion2_qb5d21
+drop eatingevent_occasion2_qb5d22
+drop eatingevent_occasion2_qb5d23
+drop eatingevent_occasion2_qb5d24
+drop eatingevent_occasion2_qb5d25
+drop eatingevent_occasion2_qb5d26
+
+drop eatingevent_occasion1_q2a01
+drop eatingevent_occasion1_q2a03
+drop eatingevent_occasion1_q2a06
+drop eatingevent_occasion1_q2a07
+drop eatingevent_occasion1_q2a09
+drop eatingevent_occasion1_q2a11
+drop eatingevent_occasion2_q2a01
+drop eatingevent_occasion2_q2a03
+drop eatingevent_occasion2_q2a06
+drop eatingevent_occasion2_q2a07
+drop eatingevent_occasion2_q2a09
+drop eatingevent_occasion2_q2a11
+drop eatingevent_occasion1_q413
+drop eatingevent_occasion1_q420
+drop eatingevent_occasion1_q424
+drop eatingevent_occasion1_q425
+drop eatingevent_occasion1_q426
+drop eatingevent_occasion1_q432
+drop eatingevent_occasion1_q438
+drop eatingevent_occasion2_q413
+drop eatingevent_occasion2_q420
+drop eatingevent_occasion2_q424
+drop eatingevent_occasion2_q425
+drop eatingevent_occasion2_q426
+drop eatingevent_occasion2_q432
+drop eatingevent_occasion2_q438
+drop eatingevent_occasion1_q52
+drop eatingevent_occasion1_q53
+drop eatingevent_occasion2_q52
+drop eatingevent_occasion2_q53
+drop eatingevent_occasion1_q5a_2_wher
+drop eatingevent_occasion1_q5a_3_wher
+drop eatingevent_occasion2_q5a_2_wher
+drop eatingevent_occasion2_q5a_3_wher
+drop eatingevent_occasion1_q1422
+drop eatingevent_occasion1_q1424
+drop eatingevent_occasion1_q1426
+drop eatingevent_occasion1_q1429
+drop eatingevent_occasion2_q1422
+drop eatingevent_occasion2_q1424
+drop eatingevent_occasion2_q1426
+drop eatingevent_occasion2_q1429
+drop eatingevent_occasion1_q14a_22_wh
+drop eatingevent_occasion1_q14a_24_wh
+drop eatingevent_occasion1_q14a_26_wh
+drop eatingevent_occasion1_q14a_29_wh
+drop eatingevent_occasion2_q14a_22_wh
+drop eatingevent_occasion2_q14a_24_wh
+drop eatingevent_occasion2_q14a_26_wh
+drop eatingevent_occasion2_q14a_29_wh
+drop eatingevent_occasion1_q17a_pizza
+drop eatingevent_occasion1_q17a_pizz0
+drop eatingevent_occasion1_q17a_take_
+drop eatingevent_occasion1_q17a_pizz1
+drop eatingevent_occasion2_q17a_pizza
+drop eatingevent_occasion2_q17a_pizz0
+drop eatingevent_occasion2_q17a_take_
+drop eatingevent_occasion2_q17a_pizz1
+
+* New in 2019: Drop Q31 - ENDED UP KEEPING FOR MASTER FILE 111119 *
+*drop eatingevent_occasion1_q31a_b_q31
+*drop eatingevent_occasion1_q31a_b_q30
+*drop eatingevent_occasion1_q31a_b_q32
+*drop eatingevent_occasion1_q31a_b_q33
+*drop eatingevent_occasion1_q31a_b_q34
+*drop eatingevent_occasion1_q31a_b_q35
+*drop eatingevent_occasion1_q31a_b_q36
+*drop eatingevent_occasion1_q31a_b_q37
+*drop eatingevent_occasion1_q31a_b_q38
+*drop eatingevent_occasion1_q31a_b_q39
+*drop eatingevent_occasion1_q31a_b_q00
+*drop eatingevent_occasion1_q31a_b_q01
+*drop eatingevent_occasion1_q31a_b_q02
+*drop eatingevent_occasion1_q31a_b_q03
+*drop eatingevent_occasion1_q31a_b_q04
+*drop eatingevent_occasion1_q31a_b_q05
+*drop eatingevent_occasion1_q31a_b_q06
+*drop eatingevent_occasion1_q31a_b_q07
+*drop eatingevent_occasion1_q31a_b_q08
+*drop eatingevent_occasion1_q31a_b_q09
+*drop eatingevent_occasion1_q31a_b_q10
+*drop eatingevent_occasion1_q31a_b_q11
+*drop eatingevent_occasion1_q31a_b_q12
+*drop eatingevent_occasion1_q31a_b_q13
+*drop eatingevent_occasion1_q31a_b_q14
+*drop eatingevent_occasion1_q31a_b_q15
+*drop eatingevent_occasion1_q31a_b_q16
+*drop eatingevent_occasion1_q31a_b_q17
+*drop eatingevent_occasion1_q31a_b_q18
+*drop eatingevent_occasion1_q31a_b_q19
+*drop eatingevent_occasion1_q31a_b_q20
+*drop eatingevent_occasion1_q31a_b_q21
+*drop eatingevent_occasion1_q31a_b_q22
+*drop eatingevent_occasion1_q31a_b_q23
+*drop eatingevent_occasion1_q31a_b_q24
+*drop eatingevent_occasion1_q31a_b_q25
+*drop eatingevent_occasion1_q31a_b_q26
+*drop eatingevent_occasion1_q31a_b_q27
+*drop eatingevent_occasion1_q31a_b_q28
+*drop eatingevent_occasion1_q31a_b_q29
+*drop eatingevent_occasion1_q31a_b_q40
+*drop eatingevent_occasion1_q31a_b_q41
+
+*drop eatingevent_occasion2_q31a_b_q31
+*drop eatingevent_occasion2_q31a_b_q30
+*drop eatingevent_occasion2_q31a_b_q32
+*drop eatingevent_occasion2_q31a_b_q33
+*drop eatingevent_occasion2_q31a_b_q34
+*drop eatingevent_occasion2_q31a_b_q35
+*drop eatingevent_occasion2_q31a_b_q36
+*drop eatingevent_occasion2_q31a_b_q37
+*drop eatingevent_occasion2_q31a_b_q38
+*drop eatingevent_occasion2_q31a_b_q39
+*drop eatingevent_occasion2_q31a_b_q00
+*drop eatingevent_occasion2_q31a_b_q01
+*drop eatingevent_occasion2_q31a_b_q02
+*drop eatingevent_occasion2_q31a_b_q03
+*drop eatingevent_occasion2_q31a_b_q04
+*drop eatingevent_occasion2_q31a_b_q05
+*drop eatingevent_occasion2_q31a_b_q06
+*drop eatingevent_occasion2_q31a_b_q07
+*drop eatingevent_occasion2_q31a_b_q08
+*drop eatingevent_occasion2_q31a_b_q09
+*drop eatingevent_occasion2_q31a_b_q10
+*drop eatingevent_occasion2_q31a_b_q11
+*drop eatingevent_occasion2_q31a_b_q12
+*drop eatingevent_occasion2_q31a_b_q13
+*drop eatingevent_occasion2_q31a_b_q14
+*drop eatingevent_occasion2_q31a_b_q15
+*drop eatingevent_occasion2_q31a_b_q16
+*drop eatingevent_occasion2_q31a_b_q17
+*drop eatingevent_occasion2_q31a_b_q18
+*drop eatingevent_occasion2_q31a_b_q19
+*drop eatingevent_occasion2_q31a_b_q20
+*drop eatingevent_occasion2_q31a_b_q21
+*drop eatingevent_occasion2_q31a_b_q22
+*drop eatingevent_occasion2_q31a_b_q23
+*drop eatingevent_occasion2_q31a_b_q24
+*drop eatingevent_occasion2_q31a_b_q25
+*drop eatingevent_occasion2_q31a_b_q26
+*drop eatingevent_occasion2_q31a_b_q27
+*drop eatingevent_occasion2_q31a_b_q28
+*drop eatingevent_occasion2_q31a_b_q29
+*drop eatingevent_occasion2_q31a_b_q40
+*drop eatingevent_occasion2_q31a_b_q41
+*drop eatingevent_occasion1_q31a_b_q42
+*drop eatingevent_occasion2_q31a_b_q42
+
+* New in 2019: Drop Q31C blank variables *
+drop eatingevent_occasion1_q31a_c_q33
+drop eatingevent_occasion1_q31a_c_q34
+drop eatingevent_occasion1_q31a_c_q28
+drop eatingevent_occasion1_q31a_c_q42
+drop eatingevent_occasion1_q31a_c_q44
+drop eatingevent_occasion1_q31a_c_q45
+drop eatingevent_occasion1_q31a_c_q47
+drop eatingevent_occasion1_q31a_c_q50
+drop eatingevent_occasion1_q31a_c_q51
+drop eatingevent_occasion1_q31a_c_q55
+drop eatingevent_occasion1_q31a_c_q56
+drop eatingevent_occasion1_q31a_c_q59
+drop eatingevent_occasion1_q31a_c_q60
+drop eatingevent_occasion1_q31a_c_q61
+drop eatingevent_occasion1_q31a_c_q63
+
+drop eatingevent_occasion2_q31a_c_q33
+drop eatingevent_occasion2_q31a_c_q34
+drop eatingevent_occasion2_q31a_c_q28
+drop eatingevent_occasion2_q31a_c_q42
+drop eatingevent_occasion2_q31a_c_q44
+drop eatingevent_occasion2_q31a_c_q45
+drop eatingevent_occasion2_q31a_c_q47
+drop eatingevent_occasion2_q31a_c_q50
+drop eatingevent_occasion2_q31a_c_q51
+drop eatingevent_occasion2_q31a_c_q55
+drop eatingevent_occasion2_q31a_c_q56
+drop eatingevent_occasion2_q31a_c_q59
+drop eatingevent_occasion2_q31a_c_q60
+drop eatingevent_occasion2_q31a_c_q61
+drop eatingevent_occasion2_q31a_c_q63
+
+* New in 2019: Drop Q31D blank variables *
+*drop eatingevent_occasion1_q31a_butte
+*drop eatingevent_occasion1_q31a_marga
+*drop eatingevent_occasion1_q31a_herbs
+*drop eatingevent_occasion2_q31a_butte
+*drop eatingevent_occasion2_q31a_marga
+*drop eatingevent_occasion2_q31a_herbs
+drop eatingevent_occasion1_q31a_45_wh
+drop eatingevent_occasion1_q31a_47_wh
+drop eatingevent_occasion1_q31a_48_wh
+drop eatingevent_occasion1_q31a_50_wh
+drop eatingevent_occasion1_q31a_53_wh
+drop eatingevent_occasion1_q31a_54_wh
+drop eatingevent_occasion1_q31a_58_wh
+drop eatingevent_occasion1_q31a_59_wh
+drop eatingevent_occasion1_q31a_62_wh
+drop eatingevent_occasion1_q31a_63_wh
+drop eatingevent_occasion1_q31a_64_wh
+drop eatingevent_occasion1_q31a_66_wh
+drop eatingevent_occasion2_q31a_45_wh
+drop eatingevent_occasion2_q31a_47_wh
+drop eatingevent_occasion2_q31a_48_wh
+drop eatingevent_occasion2_q31a_50_wh
+drop eatingevent_occasion2_q31a_53_wh
+drop eatingevent_occasion2_q31a_54_wh
+drop eatingevent_occasion2_q31a_58_wh
+drop eatingevent_occasion2_q31a_59_wh
+drop eatingevent_occasion2_q31a_62_wh
+drop eatingevent_occasion2_q31a_63_wh
+drop eatingevent_occasion2_q31a_64_wh
+drop eatingevent_occasion2_q31a_66_wh
+
+drop eatingevent_occasion1_q3309
+drop eatingevent_occasion1_q3324
+drop eatingevent_occasion2_q3309
+drop eatingevent_occasion2_q3324
+drop eatingevent_occasion1_q33a_9_whe
+drop eatingevent_occasion1_q33a_24_1_
+drop eatingevent_occasion2_q33a_9_whe
+drop eatingevent_occasion2_q33a_24_1_
+
+* Removed from Compass 2019 (asked 2012-2015) - ENDED UP KEEPING FOR MASTER FILE 111119 *
+*drop eatingevent_occasion1_q33a_water
+*drop eatingevent_occasion1_q33a_tap_w
+*drop eatingevent_occasion2_q33a_water
+*drop eatingevent_occasion2_q33a_tap_w
+
+* New in 2019 - ENDED UP KEEPING FOR MASTER FILE 111119 *
+*drop eatingevent_occasion1_q36a1
+*drop eatingevent_occasion2_q36a1
+
+* Removed from Compass, as of 2015
+drop eatingevent_occasion1_q37_microw
+drop eatingevent_occasion1_q37_bagged
+drop eatingevent_occasion1_q37_carame
+drop eatingevent_occasion1_q37_seeds_
+drop eatingevent_occasion1_q37_bars_r
+drop eatingevent_occasion1_q37_oberto
+drop eatingevent_occasion1_q37_jerky_
+drop eatingevent_occasion1_q37_kettle
+drop eatingevent_occasion2_q37_microw
+drop eatingevent_occasion2_q37_bagged
+drop eatingevent_occasion2_q37_carame
+drop eatingevent_occasion2_q37_seeds_
+drop eatingevent_occasion2_q37_bars_r
+drop eatingevent_occasion2_q37_oberto
+drop eatingevent_occasion2_q37_jerky_
+drop eatingevent_occasion2_q37_kettle
+drop eatingevent_occasion1_q40c
+drop eatingevent_occasion2_q40c
+drop eatingevent_occasion1_q40c_oth
+drop eatingevent_occasion2_q40c_oth
+
+* Removed from Compass 2019 (asked 2012-2015) - ENDED UP KEEPING FOR MASTER FILE 111119 *
+*drop eatingevent_occasion1_q40a 
+*drop eatingevent_occasion2_q40a
+*drop eatingevent_occasion1_q40a_oth
+*drop eatingevent_occasion2_q40a_oth
+*drop eatingevent_occasion1_q40b
+*drop eatingevent_occasion2_q40b
+*drop eatingevent_occasion1_q40b_oth
+*drop eatingevent_occasion2_q40b_oth
+*drop eatingevent_occasion1_q40d
+*drop eatingevent_occasion2_q40d
+*drop eatingevent_occasion1_q40d_oth
+*drop eatingevent_occasion2_q40d_oth
+
+* Removed from Compass 2019 *
+drop eatingevent_occasion1_q45e_ins
+drop eatingevent_occasion2_q45e_ins
+
+*Q50 Code variables are empty and introduced in Spring 2016
+* Codes
+   drop eatingevent_occasion1_grid_q5018
+   drop eatingevent_occasion1_grid_q5019
+   drop eatingeventoccasion1_grid_q50_ve
+   drop eatingevent_occasion1_grid_q5020
+   drop eatingevent_occasion1_grid_q5021
+   drop eatingeventoccasion1grid_q50_ver
+   drop eatingevent_occasion1_grid_q5022
+   drop eatingevent_occasion1_grid_q5023
+   drop eatingevent_occasion1_grid_q5024
+   drop eatingevent_occasion1_grid_q5025
+   drop eatingevent_occasion1_grid_q5026
+   drop eatingevent_occasion1_grid_q5027
+   drop eatingevent_occasion1grid_q50_ve
+   drop eatingevent_occasion1_grid_q5028
+   drop eatingevent_occasion1grid_q50_v0
+   drop eatingevent_occasion1_grid_q5029
+   drop eatingevent_occasion1_grid_q5030
+   drop eatingevent_occasion1_grid_q5031
+   drop eatingevent_occasion1_grid_q5032
+   drop eatingevent_occasion1_grid_q5033
+   drop eatingevent_occasion1_grid_q5034
+   drop eatingeventoccasion1grid_q50_ve0
+   drop eatingeventoccasion1_grid_q50_v0
+   drop eatingevent_occasion1_grid_q5035
+   drop eatingevent_occasion1_grid_q5036
+   drop eatingevent_occasion1_grid_q5037
+   drop eatingevent_occasion1_grid_q5038
+   drop eatingeventoccasion1_grid_q50_v1
+   drop eatingevent_occasion1_grid_q5039
+
+   drop eatingevent_occasion2_grid_q5018
+   drop eatingevent_occasion2_grid_q5019
+   drop eatingeventoccasion2_grid_q50_ve
+   drop eatingevent_occasion2_grid_q5020
+   drop eatingevent_occasion2_grid_q5021
+   drop eatingeventoccasion2grid_q50_ver
+   drop eatingevent_occasion2_grid_q5022
+   drop eatingevent_occasion2_grid_q5023
+   drop eatingevent_occasion2_grid_q5024
+   drop eatingevent_occasion2_grid_q5025
+   drop eatingevent_occasion2_grid_q5026
+   drop eatingevent_occasion2_grid_q5027
+   drop eatingevent_occasion2grid_q50_ve
+   drop eatingevent_occasion2_grid_q5028
+   drop eatingevent_occasion2grid_q50_v0
+   drop eatingevent_occasion2_grid_q5029
+   drop eatingevent_occasion2_grid_q5030
+   drop eatingevent_occasion2_grid_q5031
+   drop eatingevent_occasion2_grid_q5032
+   drop eatingevent_occasion2_grid_q5033
+   drop eatingevent_occasion2_grid_q5034
+   drop eatingeventoccasion2grid_q50_ve0
+   drop eatingeventoccasion2_grid_q50_v0
+   drop eatingevent_occasion2_grid_q5035
+   drop eatingevent_occasion2_grid_q5036
+   drop eatingevent_occasion2_grid_q5037
+   drop eatingevent_occasion2_grid_q5038
+   drop eatingeventoccasion2_grid_q50_v1
+   drop eatingevent_occasion2_grid_q5039
+   
+   drop eatingevent_occasion1_grid_q5069
+   drop eatingevent_occasion1_grid_q5070
+   drop eatingeventoccasion1_grid_q50_v2
+   drop eatingevent_occasion1_grid_q5071
+   drop eatingevent_occasion1_grid_q5072
+   drop eatingeventoccasion1grid_q50_ve1
+   drop eatingevent_occasion1_grid_q5073
+   drop eatingevent_occasion1_grid_q5074
+   drop eatingevent_occasion1_grid_q5075
+   drop eatingevent_occasion1_grid_q5076
+   drop eatingevent_occasion1_grid_q5077
+   drop eatingevent_occasion1_grid_q5078
+   drop eatingevent_occasion1grid_q50_v1
+   drop eatingevent_occasion1_grid_q5079
+   drop eatingevent_occasion1grid_q50_v2
+   drop eatingevent_occasion1_grid_q5080
+   drop eatingevent_occasion1_grid_q5081
+   drop eatingevent_occasion1_grid_q5082
+   drop eatingevent_occasion1_grid_q5083
+   drop eatingevent_occasion1_grid_q5084
+   drop eatingevent_occasion1_grid_q5085
+   drop eatingeventoccasion1grid_q50_ve2
+   drop eatingeventoccasion1_grid_q50_v3
+   drop eatingevent_occasion1_grid_q5086
+   drop eatingevent_occasion1_grid_q5087
+   drop eatingevent_occasion1_grid_q5088
+   drop eatingevent_occasion1_grid_q5089
+   drop eatingeventoccasion1_grid_q50_v4
+   drop eatingevent_occasion1_grid_q5090
+   
+   drop eatingevent_occasion2_grid_q5069
+   drop eatingevent_occasion2_grid_q5070
+   drop eatingeventoccasion2_grid_q50_v2
+   drop eatingevent_occasion2_grid_q5071
+   drop eatingevent_occasion2_grid_q5072
+   drop eatingeventoccasion2grid_q50_ve1
+   drop eatingevent_occasion2_grid_q5073
+   drop eatingevent_occasion2_grid_q5074
+   drop eatingevent_occasion2_grid_q5075
+   drop eatingevent_occasion2_grid_q5076
+   drop eatingevent_occasion2_grid_q5077
+   drop eatingevent_occasion2_grid_q5078
+   drop eatingevent_occasion2grid_q50_v1
+   drop eatingevent_occasion2_grid_q5079
+   drop eatingevent_occasion2grid_q50_v2
+   drop eatingevent_occasion2_grid_q5080
+   drop eatingevent_occasion2_grid_q5081
+   drop eatingevent_occasion2_grid_q5082
+   drop eatingevent_occasion2_grid_q5083
+   drop eatingevent_occasion2_grid_q5084
+   drop eatingevent_occasion2_grid_q5085
+   drop eatingeventoccasion2grid_q50_ve2
+   drop eatingeventoccasion2_grid_q50_v3
+   drop eatingevent_occasion2_grid_q5086
+   drop eatingevent_occasion2_grid_q5087
+   drop eatingevent_occasion2_grid_q5088
+   drop eatingevent_occasion2_grid_q5089
+   drop eatingeventoccasion2_grid_q50_v4
+   drop eatingevent_occasion2_grid_q5090
+   
+   drop eatingevent_occasion1_grid_q5120
+   drop eatingevent_occasion1_grid_q5121
+   drop eatingeventoccasion1_grid_q50_v5
+   drop eatingevent_occasion1_grid_q5122
+   drop eatingevent_occasion1_grid_q5123
+   drop eatingeventoccasion1grid_q50_ve3
+   drop eatingevent_occasion1_grid_q5124
+   drop eatingevent_occasion1_grid_q5125
+   drop eatingevent_occasion1_grid_q5126
+   drop eatingevent_occasion1_grid_q5127
+   drop eatingevent_occasion1_grid_q5128
+   drop eatingevent_occasion1_grid_q5129
+   drop eatingevent_occasion1grid_q50_v3
+   drop eatingevent_occasion1_grid_q5130
+   drop eatingevent_occasion1grid_q50_v4
+   drop eatingevent_occasion1_grid_q5131
+   drop eatingevent_occasion1_grid_q5132
+   drop eatingevent_occasion1_grid_q5133
+   drop eatingevent_occasion1_grid_q5134
+   drop eatingevent_occasion1_grid_q5135
+   drop eatingevent_occasion1_grid_q5136
+   drop eatingeventoccasion1grid_q50_ve4
+   drop eatingeventoccasion1_grid_q50_v6
+   drop eatingevent_occasion1_grid_q5137
+   drop eatingevent_occasion1_grid_q5138
+   drop eatingevent_occasion1_grid_q5139
+   drop eatingevent_occasion1_grid_q5140
+   drop eatingeventoccasion1_grid_q50_v7
+   drop eatingevent_occasion1_grid_q5141
+   
+   drop eatingevent_occasion2_grid_q5120
+   drop eatingevent_occasion2_grid_q5121
+   drop eatingeventoccasion2_grid_q50_v5
+   drop eatingevent_occasion2_grid_q5122
+   drop eatingevent_occasion2_grid_q5123
+   drop eatingeventoccasion2grid_q50_ve3
+   drop eatingevent_occasion2_grid_q5124
+   drop eatingevent_occasion2_grid_q5125
+   drop eatingevent_occasion2_grid_q5126
+   drop eatingevent_occasion2_grid_q5127
+   drop eatingevent_occasion2_grid_q5128
+   drop eatingevent_occasion2_grid_q5129
+   drop eatingevent_occasion2grid_q50_v3
+   drop eatingevent_occasion2_grid_q5130
+   drop eatingevent_occasion2grid_q50_v4
+   drop eatingevent_occasion2_grid_q5131
+   drop eatingevent_occasion2_grid_q5132
+   drop eatingevent_occasion2_grid_q5133
+   drop eatingevent_occasion2_grid_q5134
+   drop eatingevent_occasion2_grid_q5135
+   drop eatingevent_occasion2_grid_q5136
+   drop eatingeventoccasion2grid_q50_ve4
+   drop eatingeventoccasion2_grid_q50_v6
+   drop eatingevent_occasion2_grid_q5137
+   drop eatingevent_occasion2_grid_q5138
+   drop eatingevent_occasion2_grid_q5139
+   drop eatingevent_occasion2_grid_q5140
+   drop eatingeventoccasion2_grid_q50_v7
+   drop eatingevent_occasion2_grid_q5141
+
+   drop eatinevent_occasion1gridq50_vers
+   drop eatingeventoccasion1_gridq50_ve0
+   drop eatingevent_occasion1grid_q50_00
+   drop eatingevent_occasion1_grid_q5264
+   drop eatineventoccasion1gridq50versio
+   drop eatingeventoccasion1_grid_q50_05
+   drop eatineventoccasion1gridq50versi0
+   drop eatineventoccasion1gridq50_versi
+   drop eatingevent_occasion1grid_q50_01
+   drop eatingeventoccasion1grid_q50_v02
+   drop eatingevent_occasion1grid_q50_02
+   drop eatingeventoccasion1grid_q50_v03
+   drop eatinevent_occasion1gridq50_ver0
+   drop eatingeventoccasion1grid_q50_v04
+   drop eatineventoccasion1gridq50versi1
+   drop eatingevent_occasion1_grid_q5265
+   drop eatingevent_occasion1_grid_q5266
+   drop eatineventoccasion1gridq50versi2
+   drop eatingevent_occasion1_grid_q5267
+   drop eatingeventoccasion1grid_q50_v05
+   drop eatinevent_occasiongrid_q50versi
+   drop eatingeventoccasion1_grid_q50_06
+   drop eatingeventoccasion1_gridq50_ve1
+   drop eatineventoccasion1gridq50versi3
+   drop eatinevent_occasion1grid_q50ver1
+   drop eatinevent_occasion1grid_q50ver2
+   drop eatingeventoccasion1_grid_q50_07
+   drop eatingevent_occasion1grid_q50_03
+   
+   drop eatinevent_occasion2gridq50_vers
+   drop eatingeventoccasion2_gridq50_ve0
+   drop eatingevent_occasion2grid_q50_00
+   drop eatingevent_occasion2_grid_q5264
+   drop eatineventoccasion2gridq50versio
+   drop eatingeventoccasion2_grid_q50_05
+   drop eatineventoccasion2gridq50versi0
+   drop eatineventoccasion2gridq50_versi
+   drop eatingevent_occasion2grid_q50_01
+   drop eatingeventoccasion2grid_q50_v02
+   drop eatingevent_occasion2grid_q50_02
+   drop eatingeventoccasion2grid_q50_v03
+   drop eatinevent_occasion2gridq50_ver0
+   drop eatingeventoccasion2grid_q50_v04
+   drop eatineventoccasion2gridq50versi1
+   drop eatingevent_occasion2_grid_q5265
+   drop eatingevent_occasion2_grid_q5266
+   drop eatineventoccasion2gridq50versi2
+   drop eatingevent_occasion2_grid_q5267
+   drop eatingeventoccasion2grid_q50_v05
+   drop eatineventoccasion2gridq50_vers0
+   drop eatingeventoccasion2_grid_q50_06
+   drop eatingeventoccasion2_gridq50_ve1
+   drop eatineventoccasion2gridq50versi3
+   drop eatinevent_occasion2grid_q50ver1
+   drop eatinevent_occasion2grid_q50ver2
+   drop eatingeventoccasion2_grid_q50_07
+   drop eatingevent_occasion2grid_q50_03
+
+   drop eatinevent_occasion1gridq50_ver1
+   drop eatingeventoccasion1_gridq50_ve3
+   drop eatingevent_occasion1grid_q50_05
+   drop eatingevent_occasion1_grid_q5288
+   drop eatineventoccasion1gridq50versi4
+   drop eatingeventoccasion1_grid_q50_09
+   drop eatineventoccasion1gridq50versi5
+   drop eatineventoccasion1gridq50_vers0
+   drop eatingevent_occasion1grid_q50_06
+   drop eatingeventoccasion1grid_q50_v09
+   drop eatingevent_occasion1grid_q50_07
+   drop eatingeventoccasion1grid_q50_v10
+   drop eatinevent_occasion1gridq50_ver2
+   drop eatingeventoccasion1grid_q50_v11
+   drop eatineventoccasion1gridq50versi6
+   drop eatingevent_occasion1_grid_q5289
+   drop eatingevent_occasion1_grid_q5290
+   drop eatineventoccasion1gridq50versi7
+   drop eatingevent_occasion1_grid_q5291
+   drop eatingeventoccasion1grid_q50_v12
+   drop eatinevent_occasiongrid_q50vers0
+   drop eatingeventoccasion1_grid_q50_10
+   drop eatingeventoccasion1_gridq50_ve4
+   drop eatineventoccasion1gridq50versi8
+   drop eatinevent_occasion1grid_q50ver5
+   drop eatinevent_occasion1grid_q50ver6
+   drop eatingeventoccasion1_grid_q50_11
+   drop eatingevent_occasion1grid_q50_08
+   
+   drop eatinevent_occasion2gridq50_ver1
+   drop eatingeventoccasion2_gridq50_ve3
+   drop eatingevent_occasion2grid_q50_05
+   drop eatingevent_occasion2_grid_q5288
+   drop eatineventoccasion2gridq50versi4
+   drop eatingeventoccasion2_grid_q50_09
+   drop eatineventoccasion2gridq50versi5
+   drop eatineventoccasion2gridq50_vers1
+   drop eatingevent_occasion2grid_q50_06
+   drop eatingeventoccasion2grid_q50_v09
+   drop eatingevent_occasion2grid_q50_07
+   drop eatingeventoccasion2grid_q50_v10
+   drop eatinevent_occasion2gridq50_ver2
+   drop eatingeventoccasion2grid_q50_v11
+   drop eatineventoccasion2gridq50versi6
+   drop eatingevent_occasion2_grid_q5289
+   drop eatingevent_occasion2_grid_q5290
+   drop eatineventoccasion2gridq50versi7
+   drop eatingevent_occasion2_grid_q5291
+   drop eatingeventoccasion2grid_q50_v12
+   drop eatineventoccasion2gridq50_vers2
+   drop eatingeventoccasion2_grid_q50_10
+   drop eatingeventoccasion2_gridq50_ve4
+   drop eatineventoccasion2gridq50versi8
+   drop eatinevent_occasion2grid_q50ver5
+   drop eatinevent_occasion2grid_q50ver6
+   drop eatingeventoccasion2_grid_q50_11
+   drop eatingevent_occasion2grid_q50_08
+   
+   drop eatinevent_occasion1gridq50_ver3
+   drop eatingeventoccasion1_gridq50_ve6
+   drop eatingevent_occasion1grid_q50_10
+   drop eatingevent_occasion1_grid_q5312
+   drop eatineventoccasion1gridq50versi9
+   drop eatingeventoccasion1_grid_q50_13
+   drop eatineventoccasion1gridq50vers00
+   drop eatineventoccasion1gridq50_vers1
+   drop eatingevent_occasion1grid_q50_11
+   drop eatingeventoccasion1grid_q50_v16
+   drop eatingevent_occasion1grid_q50_12
+   drop eatingeventoccasion1grid_q50_v17
+   drop eatinevent_occasion1gridq50_ver4
+   drop eatingeventoccasion1grid_q50_v18
+   drop eatineventoccasion1gridq50vers01
+   drop eatingevent_occasion1_grid_q5313
+   drop eatingevent_occasion1_grid_q5314
+   drop eatineventoccasion1gridq50vers02
+   drop eatingevent_occasion1_grid_q5315
+   drop eatingeventoccasion1grid_q50_v19
+   drop eatinevent_occasiongrid_q50vers1
+   drop eatingeventoccasion1_grid_q50_14
+   drop eatingeventoccasion1_gridq50_ve7
+   drop eatineventoccasion1gridq50vers03
+   drop eatinevent_occasion1grid_q50ver9
+   drop eatinevent_occasion1grid_q50ve00
+   drop eatingeventoccasion1_grid_q50_15
+   drop eatingevent_occasion1grid_q50_13
+   
+   drop eatinevent_occasion2gridq50_ver3
+   drop eatingeventoccasion2_gridq50_ve6
+   drop eatingevent_occasion2grid_q50_10
+   drop eatingevent_occasion2_grid_q5312
+   drop eatineventoccasion2gridq50versi9
+   drop eatingeventoccasion2_grid_q50_13
+   drop eatineventoccasion2gridq50vers00
+   drop eatineventoccasion2gridq50_vers3
+   drop eatingevent_occasion2grid_q50_11
+   drop eatingeventoccasion2grid_q50_v16
+   drop eatingevent_occasion2grid_q50_12
+   drop eatingeventoccasion2grid_q50_v17
+   drop eatinevent_occasion2gridq50_ver4
+   drop eatingeventoccasion2grid_q50_v18
+   drop eatineventoccasion2gridq50vers01
+   drop eatingevent_occasion2_grid_q5313
+   drop eatingevent_occasion2_grid_q5314
+   drop eatineventoccasion2gridq50vers02
+   drop eatingevent_occasion2_grid_q5315
+   drop eatingeventoccasion2grid_q50_v19
+   drop eatineventoccasion2gridq50_vers4
+   drop eatingeventoccasion2_grid_q50_14
+   drop eatingeventoccasion2_gridq50_ve7
+   drop eatineventoccasion2gridq50vers03
+   drop eatinevent_occasion2grid_q50ver9
+   drop eatinevent_occasion2grid_q50ve00
+   drop eatingeventoccasion2_grid_q50_15
+   drop eatingevent_occasion2grid_q50_13
+
+drop eatingevent_occasion1_grid_q5171
+drop eatingevent_occasion1_grid_q5172
+drop eatingeventoccasion1_grid_q50_v8
+drop eatingevent_occasion1_grid_q5173
+drop eatingevent_occasion1_grid_q5174
+drop eatingeventoccasion1grid_q50_ve5
+drop eatingevent_occasion1_grid_q5175
+drop eatingevent_occasion1_grid_q5176
+drop eatingevent_occasion1_grid_q5177
+drop eatingevent_occasion1_grid_q5178
+drop eatingevent_occasion1_grid_q5179
+drop eatingevent_occasion1_grid_q5180
+drop eatingevent_occasion1grid_q50_v5
+drop eatingevent_occasion1_grid_q5181
+drop eatingevent_occasion1grid_q50_v6
+drop eatingevent_occasion1_grid_q5182
+drop eatingevent_occasion1_grid_q5183
+drop eatingevent_occasion1_grid_q5184
+drop eatingevent_occasion1_grid_q5185
+drop eatingevent_occasion1_grid_q5186
+drop eatingevent_occasion1_grid_q5187
+drop eatingeventoccasion1grid_q50_ve6
+drop eatingeventoccasion1_grid_q50_v9
+drop eatingevent_occasion1_grid_q5188
+drop eatingevent_occasion1_grid_q5189
+drop eatingevent_occasion1_grid_q5190
+drop eatingevent_occasion1_grid_q5191
+drop eatingeventoccasion1_grid_q50_00
+drop eatingevent_occasion1_grid_q5192
+drop eatingevent_occasion2_grid_q5171
+drop eatingevent_occasion2_grid_q5172
+drop eatingeventoccasion2_grid_q50_v8
+drop eatingevent_occasion2_grid_q5173
+drop eatingevent_occasion2_grid_q5174
+drop eatingeventoccasion2grid_q50_ve5
+drop eatingevent_occasion2_grid_q5175
+drop eatingevent_occasion2_grid_q5176
+drop eatingevent_occasion2_grid_q5177
+drop eatingevent_occasion2_grid_q5178
+drop eatingevent_occasion2_grid_q5179
+drop eatingevent_occasion2_grid_q5180
+drop eatingevent_occasion2grid_q50_v5
+drop eatingevent_occasion2_grid_q5181
+drop eatingevent_occasion2grid_q50_v6
+drop eatingevent_occasion2_grid_q5182
+drop eatingevent_occasion2_grid_q5183
+drop eatingevent_occasion2_grid_q5184
+drop eatingevent_occasion2_grid_q5185
+drop eatingevent_occasion2_grid_q5186
+drop eatingevent_occasion2_grid_q5187
+drop eatingeventoccasion2grid_q50_ve6
+drop eatingeventoccasion2_grid_q50_v9
+drop eatingevent_occasion2_grid_q5188
+drop eatingevent_occasion2_grid_q5189
+drop eatingevent_occasion2_grid_q5190
+drop eatingevent_occasion2_grid_q5191
+drop eatingeventoccasion2_grid_q50_00
+drop eatingevent_occasion2_grid_q5192
+drop eatingevent_occasion1_grid_q5222
+drop eatingevent_occasion1_grid_q5223
+drop eatingeventoccasion1_grid_q50_01
+drop eatingevent_occasion1_grid_q5224
+drop eatingevent_occasion1_grid_q5225
+drop eatingeventoccasion1grid_q50_ve7
+drop eatingevent_occasion1_grid_q5226
+drop eatingevent_occasion1_grid_q5227
+drop eatingevent_occasion1_grid_q5228
+drop eatingevent_occasion1_grid_q5229
+drop eatingevent_occasion1_grid_q5230
+drop eatingevent_occasion1_grid_q5231
+drop eatingevent_occasion1grid_q50_v7
+drop eatingevent_occasion1_grid_q5232
+drop eatingevent_occasion1grid_q50_v8
+drop eatingevent_occasion1_grid_q5233
+drop eatingevent_occasion1_grid_q5234
+drop eatingevent_occasion1_grid_q5235
+drop eatingevent_occasion1_grid_q5236
+drop eatingevent_occasion1_grid_q5237
+drop eatingevent_occasion1_grid_q5238
+drop eatingeventoccasion1grid_q50_ve8
+drop eatingeventoccasion1_grid_q50_02
+drop eatingevent_occasion1_grid_q5239
+drop eatingevent_occasion1_grid_q5240
+drop eatingevent_occasion1_grid_q5241
+drop eatingevent_occasion1_grid_q5242
+drop eatingeventoccasion1_grid_q50_03
+drop eatingevent_occasion1_grid_q5243
+drop eatingevent_occasion2_grid_q5222
+drop eatingevent_occasion2_grid_q5223
+drop eatingeventoccasion2_grid_q50_01
+drop eatingevent_occasion2_grid_q5224
+drop eatingevent_occasion2_grid_q5225
+drop eatingeventoccasion2grid_q50_ve7
+drop eatingevent_occasion2_grid_q5226
+drop eatingevent_occasion2_grid_q5227
+drop eatingevent_occasion2_grid_q5228
+drop eatingevent_occasion2_grid_q5229
+drop eatingevent_occasion2_grid_q5230
+drop eatingevent_occasion2_grid_q5231
+drop eatingevent_occasion2grid_q50_v7
+drop eatingevent_occasion2_grid_q5232
+drop eatingevent_occasion2grid_q50_v8
+drop eatingevent_occasion2_grid_q5233
+drop eatingevent_occasion2_grid_q5234
+drop eatingevent_occasion2_grid_q5235
+drop eatingevent_occasion2_grid_q5236
+drop eatingevent_occasion2_grid_q5237
+drop eatingevent_occasion2_grid_q5238
+drop eatingeventoccasion2grid_q50_ve8
+drop eatingeventoccasion2_grid_q50_02
+drop eatingevent_occasion2_grid_q5239
+drop eatingevent_occasion2_grid_q5240
+drop eatingevent_occasion2_grid_q5241
+drop eatingevent_occasion2_grid_q5242
+drop eatingeventoccasion2_grid_q50_03
+drop eatingevent_occasion2_grid_q5243
+drop eatinevent_occasion1gridq50_ver5
+drop eatingeventoccasion1_gridq50_ve9
+drop eatingevent_occasion1grid_q50_15
+drop eatingevent_occasion1_grid_q5336
+drop eatineventoccasion1gridq50vers04
+drop eatingeventoccasion1_grid_q50_17
+drop eatineventoccasion1gridq50vers05
+drop eatineventoccasion1gridq50_vers2
+drop eatingevent_occasion1grid_q50_16
+drop eatingeventoccasion1grid_q50_v23
+drop eatingevent_occasion1grid_q50_17
+drop eatingeventoccasion1grid_q50_v24
+drop eatinevent_occasion1gridq50_ver6
+drop eatingeventoccasion1grid_q50_v25
+drop eatineventoccasion1gridq50vers06
+drop eatingevent_occasion1_grid_q5337
+drop eatingevent_occasion1_grid_q5338
+drop eatineventoccasion1gridq50vers07
+drop eatingevent_occasion1_grid_q5339
+drop eatingeventoccasion1grid_q50_v26
+drop eatinevent_occasiongrid_q50vers2
+drop eatingeventoccasion1_grid_q50_18
+drop eatingeventoccasion1_gridq50_v00
+drop eatineventoccasion1gridq50vers08
+drop eatinevent_occasion1grid_q50ve03
+drop eatinevent_occasion1grid_q50ve04
+drop eatingeventoccasion1_grid_q50_19
+drop eatingevent_occasion1grid_q50_18
+drop eatinevent_occasion2gridq50_ver5
+drop eatingeventoccasion2_gridq50_ve9
+drop eatingevent_occasion2grid_q50_15
+drop eatingevent_occasion2_grid_q5336
+drop eatineventoccasion2gridq50vers04
+drop eatingeventoccasion2_grid_q50_17
+drop eatineventoccasion2gridq50vers05
+drop eatineventoccasion2gridq50_vers5
+drop eatingevent_occasion2grid_q50_16
+drop eatingeventoccasion2grid_q50_v23
+drop eatingevent_occasion2grid_q50_17
+drop eatingeventoccasion2grid_q50_v24
+drop eatinevent_occasion2gridq50_ver6
+drop eatingeventoccasion2grid_q50_v25
+drop eatineventoccasion2gridq50vers06
+drop eatingevent_occasion2_grid_q5337
+drop eatingevent_occasion2_grid_q5338
+drop eatineventoccasion2gridq50vers07
+drop eatingevent_occasion2_grid_q5339
+drop eatingeventoccasion2grid_q50_v26
+drop eatineventoccasion2gridq50_vers6
+drop eatingeventoccasion2_grid_q50_18
+drop eatingeventoccasion2_gridq50_v00
+drop eatineventoccasion2gridq50vers08
+drop eatinevent_occasion2grid_q50ve03
+drop eatinevent_occasion2grid_q50ve04
+drop eatingeventoccasion2_grid_q50_19
+drop eatingevent_occasion2grid_q50_18
+drop eatinevent_occasion1gridq50_ver7
+drop eatingeventoccasion1_gridq50_v02
+drop eatingevent_occasion1grid_q50_20
+drop eatingevent_occasion1_grid_q5360
+drop eatineventoccasion1gridq50vers09
+drop eatingeventoccasion1_grid_q50_21
+drop eatineventoccasion1gridq50vers10
+drop eatineventoccasion1gridq50_vers3
+drop eatingevent_occasion1grid_q50_21
+drop eatingeventoccasion1grid_q50_v30
+drop eatingevent_occasion1grid_q50_22
+drop eatingeventoccasion1grid_q50_v31
+drop eatinevent_occasion1gridq50_ver8
+drop eatingeventoccasion1grid_q50_v32
+drop eatineventoccasion1gridq50vers11
+drop eatingevent_occasion1_grid_q5361
+drop eatingevent_occasion1_grid_q5362
+drop eatineventoccasion1gridq50vers12
+drop eatingevent_occasion1_grid_q5363
+drop eatingeventoccasion1grid_q50_v33
+drop eatinevent_occasiongrid_q50vers3
+drop eatingeventoccasion1_grid_q50_22
+drop eatingeventoccasion1_gridq50_v03
+drop eatineventoccasion1gridq50vers13
+drop eatinevent_occasion1grid_q50ve07
+drop eatinevent_occasion1grid_q50ve08
+drop eatingeventoccasion1_grid_q50_23
+drop eatingevent_occasion1grid_q50_23
+drop eatinevent_occasion2gridq50_ver7
+drop eatingeventoccasion2_gridq50_v02
+drop eatingevent_occasion2grid_q50_20
+drop eatingevent_occasion2_grid_q5360
+drop eatineventoccasion2gridq50vers09
+drop eatingeventoccasion2_grid_q50_21
+drop eatineventoccasion2gridq50vers10
+drop eatineventoccasion2gridq50_vers7
+drop eatingevent_occasion2grid_q50_21
+drop eatingeventoccasion2grid_q50_v30
+drop eatingevent_occasion2grid_q50_22
+drop eatingeventoccasion2grid_q50_v31
+drop eatinevent_occasion2gridq50_ver8
+drop eatingeventoccasion2grid_q50_v32
+drop eatineventoccasion2gridq50vers11
+drop eatingevent_occasion2_grid_q5361
+drop eatingevent_occasion2_grid_q5362
+drop eatineventoccasion2gridq50vers12
+drop eatingevent_occasion2_grid_q5363
+drop eatingeventoccasion2grid_q50_v33
+drop eatineventoccasion2gridq50_vers8
+drop eatingeventoccasion2_grid_q50_22
+drop eatingeventoccasion2_gridq50_v03
+drop eatineventoccasion2gridq50vers13
+drop eatinevent_occasion2grid_q50ve07
+drop eatinevent_occasion2grid_q50ve08
+drop eatingeventoccasion2_grid_q50_23
+drop eatingevent_occasion2grid_q50_23
+
+*Q50 Version 1 Dropping only for NON Spring 2016 wave
+if `yyyy'!=2016 | "`sesn'"!="Spring" {
+   drop eatingevent_occasion1_grid_q50_v
+   drop eatingevent_occasion1_grid_q50_0
+   drop eatingevent_occasion1_grid_q50_1
+   drop eatingevent_occasion1_grid_q50_2
+   drop eatingevent_occasion1_grid_q50_3
+   drop eatingevent_occasion1_grid_q50_4
+   drop eatingevent_occasion1_grid_q50_5
+   drop eatingevent_occasion1_grid_q50_6
+   drop eatingevent_occasion1_grid_q50_7
+   drop eatingevent_occasion1_grid_q50_8
+   drop eatingevent_occasion1_grid_q50_9
+   drop eatingevent_occasion1_grid_q5000
+   drop eatingevent_occasion1_grid_q5001
+   drop eatingevent_occasion1_grid_q5002
+   drop eatingevent_occasion1_grid_q5003
+   drop eatingevent_occasion1_grid_q5004
+   drop eatingevent_occasion1_grid_q5005
+   drop eatingevent_occasion1_grid_q5006
+   drop eatingevent_occasion1_grid_q5007
+   drop eatingevent_occasion1_grid_q5008
+   drop eatingevent_occasion1_grid_q5009
+   drop eatingevent_occasion1_grid_q5010
+   drop eatingevent_occasion1_grid_q5011
+   drop eatingevent_occasion1_grid_q5012
+   drop eatingevent_occasion1_grid_q5013
+   drop eatingevent_occasion1_grid_q5014
+   drop eatingevent_occasion1_grid_q5015
+   drop eatingevent_occasion1_grid_q5016
+   drop eatingevent_occasion1_grid_q5017
+   drop eatingevent_occasion2_grid_q50_v
+   drop eatingevent_occasion2_grid_q50_0
+   drop eatingevent_occasion2_grid_q50_1
+   drop eatingevent_occasion2_grid_q50_2
+   drop eatingevent_occasion2_grid_q50_3
+   drop eatingevent_occasion2_grid_q50_4
+   drop eatingevent_occasion2_grid_q50_5
+   drop eatingevent_occasion2_grid_q50_6
+   drop eatingevent_occasion2_grid_q50_7
+   drop eatingevent_occasion2_grid_q50_8
+   drop eatingevent_occasion2_grid_q50_9
+   drop eatingevent_occasion2_grid_q5000
+   drop eatingevent_occasion2_grid_q5001
+   drop eatingevent_occasion2_grid_q5002
+   drop eatingevent_occasion2_grid_q5003
+   drop eatingevent_occasion2_grid_q5004
+   drop eatingevent_occasion2_grid_q5005
+   drop eatingevent_occasion2_grid_q5006
+   drop eatingevent_occasion2_grid_q5007
+   drop eatingevent_occasion2_grid_q5008
+   drop eatingevent_occasion2_grid_q5009
+   drop eatingevent_occasion2_grid_q5010
+   drop eatingevent_occasion2_grid_q5011
+   drop eatingevent_occasion2_grid_q5012
+   drop eatingevent_occasion2_grid_q5013
+   drop eatingevent_occasion2_grid_q5014
+   drop eatingevent_occasion2_grid_q5015
+   drop eatingevent_occasion2_grid_q5016
+   drop eatingevent_occasion2_grid_q5017
+
+   drop eatingevent_occasion1_grid_q5040
+   drop eatingevent_occasion1_grid_q5041
+   drop eatingevent_occasion1_grid_q5042
+   drop eatingevent_occasion1_grid_q5043
+   drop eatingevent_occasion1_grid_q5044
+   drop eatingevent_occasion1_grid_q5045
+   drop eatingevent_occasion1_grid_q5046
+   drop eatingevent_occasion1_grid_q5047
+   drop eatingevent_occasion1_grid_q5048
+   drop eatingevent_occasion1_grid_q5049
+   drop eatingevent_occasion1_grid_q5050
+   drop eatingevent_occasion1_grid_q5051
+   drop eatingevent_occasion1_grid_q5052
+   drop eatingevent_occasion1_grid_q5053
+   drop eatingevent_occasion1_grid_q5054
+   drop eatingevent_occasion1_grid_q5055
+   drop eatingevent_occasion1_grid_q5056
+   drop eatingevent_occasion1_grid_q5057
+   drop eatingevent_occasion1_grid_q5058
+   drop eatingevent_occasion1_grid_q5059
+   drop eatingevent_occasion1_grid_q5060
+   drop eatingevent_occasion1_grid_q5061
+   drop eatingevent_occasion1_grid_q5062
+   drop eatingevent_occasion1_grid_q5063
+   drop eatingevent_occasion1_grid_q5064
+   drop eatingevent_occasion1_grid_q5065
+   drop eatingevent_occasion1_grid_q5066
+   drop eatingevent_occasion1_grid_q5067
+   drop eatingevent_occasion1_grid_q5068
+   drop eatingevent_occasion2_grid_q5040
+   drop eatingevent_occasion2_grid_q5041
+   drop eatingevent_occasion2_grid_q5042
+   drop eatingevent_occasion2_grid_q5043
+   drop eatingevent_occasion2_grid_q5044
+   drop eatingevent_occasion2_grid_q5045
+   drop eatingevent_occasion2_grid_q5046
+   drop eatingevent_occasion2_grid_q5047
+   drop eatingevent_occasion2_grid_q5048
+   drop eatingevent_occasion2_grid_q5049
+   drop eatingevent_occasion2_grid_q5050
+   drop eatingevent_occasion2_grid_q5051
+   drop eatingevent_occasion2_grid_q5052
+   drop eatingevent_occasion2_grid_q5053
+   drop eatingevent_occasion2_grid_q5054
+   drop eatingevent_occasion2_grid_q5055
+   drop eatingevent_occasion2_grid_q5056
+   drop eatingevent_occasion2_grid_q5057
+   drop eatingevent_occasion2_grid_q5058
+   drop eatingevent_occasion2_grid_q5059
+   drop eatingevent_occasion2_grid_q5060
+   drop eatingevent_occasion2_grid_q5061
+   drop eatingevent_occasion2_grid_q5062
+   drop eatingevent_occasion2_grid_q5063
+   drop eatingevent_occasion2_grid_q5064
+   drop eatingevent_occasion2_grid_q5065
+   drop eatingevent_occasion2_grid_q5066
+   drop eatingevent_occasion2_grid_q5067
+   drop eatingevent_occasion2_grid_q5068
+
+   drop eatingevent_occasion1_grid_q5091
+   drop eatingevent_occasion1_grid_q5092
+   drop eatingevent_occasion1_grid_q5093
+   drop eatingevent_occasion1_grid_q5094
+   drop eatingevent_occasion1_grid_q5095
+   drop eatingevent_occasion1_grid_q5096
+   drop eatingevent_occasion1_grid_q5097
+   drop eatingevent_occasion1_grid_q5098
+   drop eatingevent_occasion1_grid_q5099
+   drop eatingevent_occasion1_grid_q5100
+   drop eatingevent_occasion1_grid_q5101
+   drop eatingevent_occasion1_grid_q5102
+   drop eatingevent_occasion1_grid_q5103
+   drop eatingevent_occasion1_grid_q5104
+   drop eatingevent_occasion1_grid_q5105
+   drop eatingevent_occasion1_grid_q5106
+   drop eatingevent_occasion1_grid_q5107
+   drop eatingevent_occasion1_grid_q5108
+   drop eatingevent_occasion1_grid_q5109
+   drop eatingevent_occasion1_grid_q5110
+   drop eatingevent_occasion1_grid_q5111
+   drop eatingevent_occasion1_grid_q5112
+   drop eatingevent_occasion1_grid_q5113
+   drop eatingevent_occasion1_grid_q5114
+   drop eatingevent_occasion1_grid_q5115
+   drop eatingevent_occasion1_grid_q5116
+   drop eatingevent_occasion1_grid_q5117
+   drop eatingevent_occasion1_grid_q5118
+   drop eatingevent_occasion1_grid_q5119
+   drop eatingevent_occasion2_grid_q5091
+   drop eatingevent_occasion2_grid_q5092
+   drop eatingevent_occasion2_grid_q5093
+   drop eatingevent_occasion2_grid_q5094
+   drop eatingevent_occasion2_grid_q5095
+   drop eatingevent_occasion2_grid_q5096
+   drop eatingevent_occasion2_grid_q5097
+   drop eatingevent_occasion2_grid_q5098
+   drop eatingevent_occasion2_grid_q5099
+   drop eatingevent_occasion2_grid_q5100
+   drop eatingevent_occasion2_grid_q5101
+   drop eatingevent_occasion2_grid_q5102
+   drop eatingevent_occasion2_grid_q5103
+   drop eatingevent_occasion2_grid_q5104
+   drop eatingevent_occasion2_grid_q5105
+   drop eatingevent_occasion2_grid_q5106
+   drop eatingevent_occasion2_grid_q5107
+   drop eatingevent_occasion2_grid_q5108
+   drop eatingevent_occasion2_grid_q5109
+   drop eatingevent_occasion2_grid_q5110
+   drop eatingevent_occasion2_grid_q5111
+   drop eatingevent_occasion2_grid_q5112
+   drop eatingevent_occasion2_grid_q5113
+   drop eatingevent_occasion2_grid_q5114
+   drop eatingevent_occasion2_grid_q5115
+   drop eatingevent_occasion2_grid_q5116
+   drop eatingevent_occasion2_grid_q5117
+   drop eatingevent_occasion2_grid_q5118
+   drop eatingevent_occasion2_grid_q5119
+
+   drop eatingevent_occasion1_grid_q5244
+   drop eatingevent_occasion1_grid_q5245
+   drop eatingevent_occasion1_grid_q5246
+   drop eatingevent_occasion1_grid_q5247
+   drop eatingeventoccasion1grid_q50_ve9
+   drop eatingevent_occasion1_grid_q5248
+   drop eatingeventoccasion1grid_q50_v00
+   drop eatingeventoccasion1_gridq50_ver
+   drop eatingevent_occasion1_grid_q5249
+   drop eatingevent_occasion1_grid_q5250
+   drop eatingevent_occasion1_grid_q5251
+   drop eatingevent_occasion1_grid_q5252
+   drop eatingevent_occasion1grid_q50_v9
+   drop eatingevent_occasion1_grid_q5253
+   drop eatinevent_occasion1grid_q50vers
+   drop eatingevent_occasion1_grid_q5254
+   drop eatingevent_occasion1_grid_q5255
+   drop eatingeventoccasion1grid_q50_v01
+   drop eatingevent_occasion1_grid_q5256
+   drop eatingevent_occasion1_grid_q5257
+   drop eatingeventoccasion1_grid_q50_04
+   drop eatingevent_occasion1_grid_q5258
+   drop eatingevent_occasion1_grid_q5259
+   drop eatinevent_occasion1grid_q50ver0
+   drop eatingevent_occasion1_grid_q5260
+   drop eatingevent_occasion1_grid_q5261
+   drop eatingevent_occasion1_grid_q5262
+   drop eatingevent_occasion1_grid_q5263
+   drop eatingevent_occasion2_grid_q5244
+   drop eatingevent_occasion2_grid_q5245
+   drop eatingevent_occasion2_grid_q5246
+   drop eatingevent_occasion2_grid_q5247
+   drop eatingeventoccasion2grid_q50_ve9
+   drop eatingevent_occasion2_grid_q5248
+   drop eatingeventoccasion2grid_q50_v00
+   drop eatingeventoccasion2_gridq50_ver
+   drop eatingevent_occasion2_grid_q5249
+   drop eatingevent_occasion2_grid_q5250
+   drop eatingevent_occasion2_grid_q5251
+   drop eatingevent_occasion2_grid_q5252
+   drop eatingevent_occasion2grid_q50_v9
+   drop eatingevent_occasion2_grid_q5253
+   drop eatinevent_occasion2grid_q50vers
+   drop eatingevent_occasion2_grid_q5254
+   drop eatingevent_occasion2_grid_q5255
+   drop eatingeventoccasion2grid_q50_v01
+   drop eatingevent_occasion2_grid_q5256
+   drop eatingevent_occasion2_grid_q5257
+   drop eatingeventoccasion2_grid_q50_04
+   drop eatingevent_occasion2_grid_q5258
+   drop eatingevent_occasion2_grid_q5259
+   drop eatinevent_occasion2grid_q50ver0
+   drop eatingevent_occasion2_grid_q5260
+   drop eatingevent_occasion2_grid_q5261
+   drop eatingevent_occasion2_grid_q5262
+   drop eatingevent_occasion2_grid_q5263
+
+   drop eatingevent_occasion1_grid_q5268
+   drop eatingevent_occasion1_grid_q5269
+   drop eatingevent_occasion1_grid_q5270
+   drop eatingevent_occasion1_grid_q5271
+   drop eatingeventoccasion1grid_q50_v06
+   drop eatingevent_occasion1_grid_q5272
+   drop eatingeventoccasion1grid_q50_v07
+   drop eatingeventoccasion1_gridq50_ve2
+   drop eatingevent_occasion1_grid_q5273
+   drop eatingevent_occasion1_grid_q5274
+   drop eatingevent_occasion1_grid_q5275
+   drop eatingevent_occasion1_grid_q5276
+   drop eatingevent_occasion1grid_q50_04
+   drop eatingevent_occasion1_grid_q5277
+   drop eatinevent_occasion1grid_q50ver3
+   drop eatingevent_occasion1_grid_q5278
+   drop eatingevent_occasion1_grid_q5279
+   drop eatingeventoccasion1grid_q50_v08
+   drop eatingevent_occasion1_grid_q5280
+   drop eatingevent_occasion1_grid_q5281
+   drop eatingeventoccasion1_grid_q50_08
+   drop eatingevent_occasion1_grid_q5282
+   drop eatingevent_occasion1_grid_q5283
+   drop eatinevent_occasion1grid_q50ver4
+   drop eatingevent_occasion1_grid_q5284
+   drop eatingevent_occasion1_grid_q5285
+   drop eatingevent_occasion1_grid_q5286
+   drop eatingevent_occasion1_grid_q5287
+   drop eatingevent_occasion2_grid_q5268
+   drop eatingevent_occasion2_grid_q5269
+   drop eatingevent_occasion2_grid_q5270
+   drop eatingevent_occasion2_grid_q5271
+   drop eatingeventoccasion2grid_q50_v06
+   drop eatingevent_occasion2_grid_q5272
+   drop eatingeventoccasion2grid_q50_v07
+   drop eatingeventoccasion2_gridq50_ve2
+   drop eatingevent_occasion2_grid_q5273
+   drop eatingevent_occasion2_grid_q5274
+   drop eatingevent_occasion2_grid_q5275
+   drop eatingevent_occasion2_grid_q5276
+   drop eatingevent_occasion2grid_q50_04
+   drop eatingevent_occasion2_grid_q5277
+   drop eatinevent_occasion2grid_q50ver3
+   drop eatingevent_occasion2_grid_q5278
+   drop eatingevent_occasion2_grid_q5279
+   drop eatingeventoccasion2grid_q50_v08
+   drop eatingevent_occasion2_grid_q5280
+   drop eatingevent_occasion2_grid_q5281
+   drop eatingeventoccasion2_grid_q50_08
+   drop eatingevent_occasion2_grid_q5282
+   drop eatingevent_occasion2_grid_q5283
+   drop eatinevent_occasion2grid_q50ver4
+   drop eatingevent_occasion2_grid_q5284
+   drop eatingevent_occasion2_grid_q5285
+   drop eatingevent_occasion2_grid_q5286
+   drop eatingevent_occasion2_grid_q5287
+
+   drop eatingevent_occasion1_grid_q5292
+   drop eatingevent_occasion1_grid_q5293
+   drop eatingevent_occasion1_grid_q5294
+   drop eatingevent_occasion1_grid_q5295
+   drop eatingeventoccasion1grid_q50_v13
+   drop eatingevent_occasion1_grid_q5296
+   drop eatingeventoccasion1grid_q50_v14
+   drop eatingeventoccasion1_gridq50_ve5
+   drop eatingevent_occasion1_grid_q5297
+   drop eatingevent_occasion1_grid_q5298
+   drop eatingevent_occasion1_grid_q5299
+   drop eatingevent_occasion1_grid_q5300
+   drop eatingevent_occasion1grid_q50_09
+   drop eatingevent_occasion1_grid_q5301
+   drop eatinevent_occasion1grid_q50ver7
+   drop eatingevent_occasion1_grid_q5302
+   drop eatingevent_occasion1_grid_q5303
+   drop eatingeventoccasion1grid_q50_v15
+   drop eatingevent_occasion1_grid_q5304
+   drop eatingevent_occasion1_grid_q5305
+   drop eatingeventoccasion1_grid_q50_12
+   drop eatingevent_occasion1_grid_q5306
+   drop eatingevent_occasion1_grid_q5307
+   drop eatinevent_occasion1grid_q50ver8
+   drop eatingevent_occasion1_grid_q5308
+   drop eatingevent_occasion1_grid_q5309
+   drop eatingevent_occasion1_grid_q5310
+   drop eatingevent_occasion1_grid_q5311
+   drop eatingevent_occasion2_grid_q5292
+   drop eatingevent_occasion2_grid_q5293
+   drop eatingevent_occasion2_grid_q5294
+   drop eatingevent_occasion2_grid_q5295
+   drop eatingeventoccasion2grid_q50_v13
+   drop eatingevent_occasion2_grid_q5296
+   drop eatingeventoccasion2grid_q50_v14
+   drop eatingeventoccasion2_gridq50_ve5
+   drop eatingevent_occasion2_grid_q5297
+   drop eatingevent_occasion2_grid_q5298
+   drop eatingevent_occasion2_grid_q5299
+   drop eatingevent_occasion2_grid_q5300
+   drop eatingevent_occasion2grid_q50_09
+   drop eatingevent_occasion2_grid_q5301
+   drop eatinevent_occasion2grid_q50ver7
+   drop eatingevent_occasion2_grid_q5302
+   drop eatingevent_occasion2_grid_q5303
+   drop eatingeventoccasion2grid_q50_v15
+   drop eatingevent_occasion2_grid_q5304
+   drop eatingevent_occasion2_grid_q5305
+   drop eatingeventoccasion2_grid_q50_12
+   drop eatingevent_occasion2_grid_q5306
+   drop eatingevent_occasion2_grid_q5307
+   drop eatinevent_occasion2grid_q50ver8
+   drop eatingevent_occasion2_grid_q5308
+   drop eatingevent_occasion2_grid_q5309
+   drop eatingevent_occasion2_grid_q5310
+   drop eatingevent_occasion2_grid_q5311
+}   
+
+capture drop dchild
+capture drop hhcmp*
+capture drop v4*
+capture drop ushhi2   // Not used starting in SPRING 2017. Use ushhi3 instead
+
+* set varabbrev off, perm  - so abreviations not pulled into following loop command
+
+foreach v in record   se1a_a se1a_c se1a_e se1a_g se2_?_text se5_i se5_i_text se5_j se5b_a se5b_c se5b_e se5b_g se6_?_text qb0a_16_text q06_23_text {
+   capture drop `v'
+}
+
+* New in 2018 *
+drop caethn401 - caethn435
+drop datacollection_status1 datacollection_status2 datacollection_status3 datacollection_status4 datacollection_status5 datacollection_status6 datacollection_status7 datacollection_status8 datacollection_status9
+drop usedu2
+
+* New in 2019 *
+drop quota_q50_version_pick1 
+drop quota_q50_version_pick2
+
+
+* Maybe dkids01_1_dkids01_gender - dkids01_12_dkids01_rel
+
+

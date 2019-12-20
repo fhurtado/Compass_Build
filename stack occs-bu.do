@@ -1,0 +1,3754 @@
+***
+// code to stack the two occasions once the pop weights are constructed
+//    it is called by the "reform vars.do" program
+***
+* first, get rid of the first event data and give the second event vars a generic name
+*  in preparation for stacking (we save these data for appending later)
+
+tempfile occ2
+
+preserve
+drop  q04a_1 - q36ea_7_text
+drop  event_a - q46a
+rename event_b       occ2var
+
+* New in 2019 *
+rename qa1b          qa1
+
+rename qb0b          qb0
+rename qb0ab_1       qb0a_1
+rename qb0ab_2       qb0a_2
+rename qb0ab_3       qb0a_3
+rename qb0ab_4       qb0a_4
+rename qb0ab_5       qb0a_5
+rename qb0ab_6       qb0a_6
+rename qb0ab_7       qb0a_7
+rename qb0ab_8       qb0a_8
+rename qb0ab_9       qb0a_9
+rename qb0ab_10      qb0a_10
+rename qb0ab_11      qb0a_11
+rename qb0ab_12      qb0a_12
+rename qb0ab_13      qb0a_13
+rename qb0ab_14      qb0a_14
+rename qb0ab_15      qb0a_15
+rename qb0ab_16      qb0a_16
+rename qb0ab_17      qb0a_17
+rename qb0ab_17_text qb0a_17_text
+rename qb0ab_18      qb0a_18
+rename qb1ab_1       qb1a_1
+rename qb1ab_2       qb1a_2
+rename qb1ab_3       qb1a_3
+rename qb1ab_4       qb1a_4
+rename qb1ab_4_text  qb1a_4_text
+rename qb1bb         qb1b
+rename qb1cb         qb1c
+rename qb1db_1       qb1d_1
+rename qb1db_2       qb1d_2
+rename qb1db_3       qb1d_3
+rename qb1db_4       qb1d_4
+rename qb1db_5       qb1d_5
+rename qb1db_6       qb1d_6
+rename qb1eb         qb1e
+rename qb1fb_1       qb1f_1
+rename qb1fb_2       qb1f_2
+rename qb1fb_3       qb1f_3
+rename qb1fb_4       qb1f_4
+rename qb1fb_5       qb1f_5
+rename qb1fb_5_text  qb1f_5_text
+rename qb1gb         qb1g
+rename qb1hb_1       qb1h_1
+rename qb1hb_2       qb1h_2
+rename qb1hb_3       qb1h_3
+* qb1i added in SPRING 2016
+rename qb1ib_1		 qb1i_1
+rename qb1ib_2		 qb1i_2
+rename qb1ib_3		 qb1i_3
+rename qb1ib_4		 qb1i_4
+rename qb1ib_5		 qb1i_5
+rename qb1ib_6		 qb1i_6
+rename qb2ab         qb2a
+rename qb2bb_1       qb2b_1
+rename qb2bb_2       qb2b_2
+rename qb2bb_3       qb2b_3
+rename qb2bb_4       qb2b_4
+rename qb2bb_5       qb2b_5
+rename qb2bb_6       qb2b_6
+rename qb2bb_7       qb2b_7
+rename qb2bb_8       qb2b_8
+rename qb2bb_9       qb2b_9
+rename qb2bb_10      qb2b_10
+rename qb2bb_10_text qb2b_10_text
+
+* New in 2019 *
+rename qb2bb_12      qb2b_12
+
+rename qb2bb_11      qb2b_11
+rename qb2cb         qb2c
+rename qb2cb_text    qb2c_text
+rename qb2db_1       qb2d_1
+rename qb2db_2       qb2d_2
+rename qb2db_3       qb2d_3
+rename qb2db_4       qb2d_4
+rename qb2db_5       qb2d_5
+rename qb2db_6       qb2d_6
+rename qb2db_7       qb2d_7
+rename qb2db_8       qb2d_8
+rename qb2db_9       qb2d_9
+rename qb2db_10      qb2d_10
+rename qb2db_10_text qb2d_10_text
+rename qb2db_11      qb2d_11
+rename qb2eb         qb2e
+rename qb2eb_text    qb2e_text
+rename qb2fb         qb2f
+rename qb2fb_text    qb2f_text
+rename qb2gb         qb2g
+rename qb2gb_text    qb2g_text
+rename qb2hb         qb2h
+rename qb2hb_text    qb2h_text
+rename qb2ib         qb2i
+rename qb2ib_text    qb2i_text
+* New in 2018
+rename qb2jb_1       qb2j_1
+rename qb2jb_2       qb2j_2
+rename qb2jb_3       qb2j_3
+rename qb2jb_4       qb2j_4
+rename qb2jb_5       qb2j_5
+rename qb2jb_6       qb2j_6
+rename qb2jb_7       qb2j_7
+rename qb2jb_8       qb2j_8
+rename qb2jb_9       qb2j_9
+rename qb2jb_10      qb2j_10
+rename qb2jb_11      qb2j_11
+rename qb2jb_12      qb2j_12
+rename qb2jb_13      qb2j_13
+rename qb2jb_14      qb2j_14
+rename qb2jb_15      qb2j_15
+rename qb2jb_16      qb2j_16
+rename qb2jb_16_text qb2j_16_text
+rename qb2jb_17      qb2j_17
+rename qb3ab         qb3a
+rename qb3ab_text    qb3a_text
+rename qb3bb         qb3b
+rename qb3bb_text    qb3b_text
+rename qb3cb         qb3c
+rename qb3db_1       qb3d_1
+rename qb3db_2       qb3d_2
+rename qb3db_3       qb3d_3
+rename qb3db_4       qb3d_4
+rename qb3db_5       qb3d_5
+rename qb3db_6       qb3d_6
+rename qb3db_7       qb3d_7
+rename qb3db_8       qb3d_8
+rename qb3db_9       qb3d_9
+rename qb3db_10      qb3d_10
+rename qb3db_10_text qb3d_10_text
+* New in 2016
+rename qb3eb         qb3e
+rename qb4ab         qb4a
+rename qb4bb         qb4b
+rename qb4cb_1       qb4c_1
+rename qb4cb_2       qb4c_2
+rename qb4cb_3       qb4c_3
+rename qb4cb_4       qb4c_4
+rename qb4cb_5       qb4c_5
+rename qb4cb_6       qb4c_6
+rename qb4cb_7       qb4c_7
+rename qb4cb_8       qb4c_8
+rename qb4cb_9       qb4c_9
+rename qb4cb_10      qb4c_10
+rename qb4cb_11      qb4c_11
+rename qb4cb_12      qb4c_12
+rename qb4cb_13      qb4c_13
+
+* New in 2019 *
+rename qb4db         qb4d
+rename qb5ab         qb5a
+rename qb5bb         qb5b
+rename qb5cb_1       qb5c_1
+rename qb5cb_2       qb5c_2
+rename qb5cb_3       qb5c_3
+rename qb5cb_4       qb5c_4
+rename qb5cb_5       qb5c_5
+rename qb5db_43      qb5d_43
+rename qb5db_44      qb5d_44
+rename qb5db_45      qb5d_45
+rename qb5db_46      qb5d_46
+rename qb5db_47      qb5d_47
+rename qb5db_48      qb5d_48
+rename qb5db_49      qb5d_49
+rename qb5db_50      qb5d_50
+rename qb5db_51      qb5d_51
+rename qb5db_52      qb5d_52
+rename qb5db_53      qb5d_53
+rename qb5db_54      qb5d_54
+rename qb5db_55      qb5d_55
+rename qb5db_56      qb5d_56
+rename qb5db_57      qb5d_57
+rename qb5db_42      qb5d_42
+rename qb5db_3       qb5d_3
+rename qb5db_58      qb5d_58
+rename qb5db_21      qb5d_21
+rename qb5db_35      qb5d_35
+rename qb5db_59      qb5d_59
+rename qb5db_60      qb5d_60
+rename qb5db_62      qb5d_62
+rename qb5db_17      qb5d_17
+rename qb5db_19      qb5d_19
+rename qb5db_20      qb5d_20
+rename qb5db_63      qb5d_63
+rename qb5db_64      qb5d_64
+rename qb5db_26      qb5d_26
+rename qb5db_28      qb5d_28
+rename qb5db_2       qb5d_2
+rename qb5db_30      qb5d_30
+rename qb5db_31      qb5d_31
+rename qb5db_65      qb5d_65
+rename qb5db_34      qb5d_34
+rename qb5db_22      qb5d_22
+rename qb5db_66      qb5d_66
+rename qb5db_37      qb5d_37
+rename qb5db_38      qb5d_38
+rename qb5db_37_text qb5d_37_text
+
+rename q01b_1        q01_1
+rename q01b_2        q01_2
+rename q01b_3        q01_3
+rename q01b_4        q01_4
+rename q01b_5        q01_5
+rename q01b_6        q01_6
+rename q02b_1        q02_1
+rename q02b_2        q02_2
+rename q02b_3        q02_3
+rename q02b_4        q02_4
+rename q02b_5        q02_5
+rename q02b_6        q02_6
+rename q02b_7        q02_7
+rename q02b_8        q02_8
+rename q02b_9        q02_9
+rename q02b_10       q02_10
+rename q02b_11       q02_11
+rename q02b_12       q02_12
+rename q02b_13       q02_13
+rename q02b_14       q02_14
+rename q02b_15       q02_15
+rename q02b_15_text  q02_15_text
+rename q02b_16       q02_16
+rename q02b_17       q02_17
+rename q02b_18       q02_18
+rename q02b_19       q02_19
+rename q02b_20       q02_20
+rename q02ab_2       q02a_2
+rename q02ab_3       q02a_3
+rename q02ab_4       q02a_4
+rename q02ab_6       q02a_6
+rename q02ab_8       q02a_8
+rename q02ab_10      q02a_10
+rename q02ab_11      q02a_11
+rename q02ab_12      q02a_12
+rename q02ab_13      q02a_13
+rename q02ab_14      q02a_14
+rename q02ab_15      q02a_15
+rename q02ab_16      q02a_16
+rename q02ab_17      q02a_17
+rename q02ab_18      q02a_18
+rename q02ab_15_text q02a_15_text
+rename q02bb_1       q02b_1
+rename q02bb_2       q02b_2
+rename q02bb_3       q02b_3
+rename q02bb_4       q02b_4
+rename q02bb_5       q02b_5
+rename q02bb_6       q02b_6
+rename q02bb_6_text  q02b_6_text
+rename q02bb_7       q02b_7
+rename q03b_1        q03_1
+rename q03b_2        q03_2
+rename q03b_3        q03_3
+rename q03b_4        q03_4
+rename q03b_5        q03_5
+rename q03b_6        q03_6
+rename q03b_7        q03_7
+rename q03b_8        q03_8
+rename q03b_9        q03_9
+rename q03b_10       q03_10
+rename q03b_11       q03_11
+rename q03b_12       q03_12
+rename q03b_13       q03_13
+rename q03b_14       q03_14
+rename q03b_15       q03_15
+rename q03b_16       q03_16
+rename q03b_17       q03_17
+rename q03b_18       q03_18
+rename q03b_19       q03_19
+* New in 2018 *
+rename q03b_20       q03_20
+rename q03b_21       q03_21
+rename q03b_22       q03_22
+rename q03b_23       q03_23
+rename q03b_24       q03_24
+rename q03b_25       q03_25
+rename q03ab_1       q03a_1
+rename q03ab_2       q03a_2
+rename q03ab_3       q03a_3
+rename q03ab_4       q03a_4
+rename q03ab_5       q03a_5
+rename q03ab_6       q03a_6
+rename q03ab_7       q03a_7
+rename q03ab_8       q03a_8
+rename q03ab_9       q03a_9
+rename q03ab_10      q03a_10
+rename q03ab_11      q03a_11
+rename q03ab_12      q03a_12
+rename q03ab_13      q03a_13
+rename q03ab_14      q03a_14
+rename q03ab_15      q03a_15
+rename q03ab_16      q03a_16
+rename q03ab_17      q03a_17
+
+* New in 2018 *
+rename q03ab_18      q03a_18
+
+rename q03bb_1       q03b_1
+rename q03bb_2       q03b_2
+rename q03bb_3       q03b_3
+rename q03bb_4       q03b_4
+rename q03bb_5       q03b_5
+rename q03bb_6       q03b_6
+rename q03bb_7       q03b_7
+rename q03bb_8       q03b_8
+rename q03cb_1       q03c_1
+rename q03cb_2       q03c_2
+rename q03cb_3       q03c_3
+rename q03cb_4       q03c_4
+rename q03cb_5       q03c_5
+rename q03cb_6       q03c_6
+rename q03cb_7       q03c_7
+rename q03cb_8       q03c_8
+rename q03cb_9       q03c_9
+rename q03cb_10      q03c_10
+rename q03cb_11      q03c_11
+rename q03cb_12      q03c_12
+rename q03cb_13      q03c_13
+rename q03cb_14      q03c_14
+rename q03db_1       q03d_1
+rename q03db_2       q03d_2
+rename q03db_3       q03d_3
+rename q03db_4       q03d_4
+rename q03db_5       q03d_5
+rename q03db_6       q03d_6
+rename q03db_7       q03d_7
+rename q03db_8       q03d_8
+rename q03db_9       q03d_9
+rename q03db_10      q03d_10
+rename q03db_11      q03d_11
+rename q03eb_1       q03e_1
+rename q03eb_2       q03e_2
+rename q03eb_3       q03e_3
+rename q03eb_4       q03e_4
+rename q03eb_5       q03e_5
+rename q03eb_6       q03e_6
+rename q03eb_7       q03e_7
+rename q03fb_1       q03f_1
+rename q03fb_2       q03f_2
+rename q03fb_3       q03f_3
+rename q03fb_4       q03f_4
+rename q03fb_5       q03f_5
+rename q03fb_6       q03f_6
+rename q03fb_7       q03f_7
+rename q03fb_8       q03f_8
+rename q03fb_9       q03f_9
+rename q03fb_10      q03f_10
+rename q03gb_1       q03g_1
+rename q03gb_2       q03g_2
+rename q03gb_3       q03g_3
+rename q03gb_4       q03g_4
+rename q03gb_5       q03g_5
+rename q03gb_6       q03g_6
+rename q03gb_7       q03g_7
+rename q03gb_8       q03g_8
+rename q03gb_9       q03g_9
+rename q03hb_1       q03h_1
+rename q03hb_2       q03h_2
+rename q03hb_3       q03h_3
+rename q03hb_4       q03h_4
+rename q03hb_5       q03h_5
+rename q03hb_6       q03h_6
+rename q03hb_7       q03h_7
+rename q03ib_1       q03i_1
+rename q03ib_2       q03i_2
+rename q03ib_3       q03i_3
+rename q03ib_4       q03i_4
+rename q03ib_5       q03i_5
+
+* New in 2016 *
+rename q03ib_6       q03i_6
+
+* New in 2018 *
+rename q03jb_1       q03j_1
+rename q03jb_2       q03j_2
+rename q03jb_3       q03j_3
+rename q03jb_4       q03j_4
+rename q03jb_5       q03j_5
+rename q03jb_6       q03j_6
+rename q03jb_7       q03j_7
+rename q03jb_8       q03j_8
+rename q03jb_9       q03j_9
+rename q03jb_10      q03j_10
+rename q03jb_11      q03j_11
+rename q03jb_12      q03j_12
+rename q03jb_12_text q03j_12_text
+rename q03kb_1       q03k_1
+rename q03kb_2       q03k_2
+rename q03kb_3       q03k_3
+rename q03kb_4       q03k_4
+rename q03kb_5       q03k_5
+rename q03kb_6       q03k_6
+rename q03kb_7       q03k_7
+rename q03kb_8       q03k_8
+rename q03kb_9       q03k_9
+rename q03kb_10      q03k_10
+rename q03kb_11      q03k_11
+rename q03kb_12      q03k_12
+rename q03kb_13      q03k_13
+rename q03kb_14      q03k_14
+
+rename q04ab         q04a
+rename q04bb         q04b
+rename q04cb         q04c
+
+* New in 2016 *
+rename q04fb         q04f
+
+rename q04b_1        q04_1
+rename q04b_2        q04_2
+rename q04b_3        q04_3
+rename q04b_4        q04_4
+rename q04b_5        q04_5
+rename q04b_6        q04_6
+rename q04b_7        q04_7
+rename q04b_8        q04_8
+rename q04b_9        q04_9
+rename q04b_10       q04_10
+rename q04b_11       q04_11
+rename q04b_12       q04_12
+rename q04b_14       q04_14
+rename q04b_15       q04_15
+rename q04b_16       q04_16
+rename q04b_17       q04_17
+rename q04b_18       q04_18
+rename q04b_19       q04_19
+rename q04b_21       q04_21
+rename q04b_22       q04_22
+rename q04b_23       q04_23
+rename q04b_27       q04_27
+rename q04b_28       q04_28
+rename q04b_29       q04_29
+rename q04b_30       q04_30
+rename q04b_31       q04_31
+rename q04b_33       q04_33
+rename q04b_34       q04_34
+rename q04b_35       q04_35
+rename q04b_36       q04_36
+rename q04b_37       q04_37
+rename q04b_39       q04_39
+rename q04b_40       q04_40
+rename q04b_41       q04_41
+rename q04b_42       q04_42
+rename q04b_43       q04_43
+rename q04db_1       q04d_1
+rename q04db_2       q04d_2
+rename q04db_3       q04d_3
+rename q04db_4       q04d_4
+rename q04db_5       q04d_5
+rename q04eb_1       q04e_1
+rename q04eb_2       q04e_2
+rename q04eb_3       q04e_3
+rename q04eb_4       q04e_4
+rename q04eb_5       q04e_5
+rename q04eb_6       q04e_6
+rename q04eb_6_text  q04e_6_text
+rename q05b_1        q05_1
+rename q05b_4        q05_4
+rename q05b_5        q05_5
+rename q05b_6        q05_6
+rename q05b_6_text   q05_6_text
+rename q05ab_1       q05a_1
+rename q05ab_4       q05a_4
+rename q05ab_5       q05a_5
+rename q05ab_6       q05a_6
+rename q06b_1        q06_1
+rename q06b_2        q06_2
+rename q06b_3        q06_3
+rename q06b_4        q06_4
+rename q06b_5        q06_5
+rename q06b_6        q06_6
+rename q06b_7        q06_7
+rename q06b_8        q06_8
+rename q06b_9        q06_9
+rename q06b_10       q06_10
+rename q06b_11       q06_11
+rename q06b_12       q06_12
+rename q06b_13       q06_13
+rename q06b_14       q06_14
+rename q06b_15       q06_15
+rename q06b_16       q06_16
+rename q06b_17       q06_17
+rename q06b_18       q06_18
+rename q06b_19       q06_19
+rename q06b_20       q06_20
+rename q06b_21       q06_21
+rename q06b_22       q06_22
+rename q06b_23       q06_23
+rename q06b_24       q06_24
+rename q06b_25       q06_25
+rename q06b_25_text  q06_25_text
+rename q06ab_1       q06a_1
+rename q06ab_2       q06a_2
+rename q06ab_3       q06a_3
+rename q06ab_4       q06a_4
+rename q06ab_5       q06a_5
+rename q06ab_6       q06a_6
+rename q06ab_7       q06a_7
+rename q06ab_8       q06a_8
+rename q06ab_9       q06a_9
+rename q06ab_10      q06a_10
+rename q06ab_11      q06a_11
+rename q06ab_12      q06a_12
+rename q06ab_13      q06a_13
+rename q06ab_14      q06a_14
+rename q06ab_15      q06a_15
+rename q06ab_16      q06a_16
+rename q06ab_17      q06a_17
+rename q06ab_18      q06a_18
+rename q06ab_19      q06a_19
+rename q06ab_20      q06a_20
+rename q06ab_21      q06a_21
+rename q06ab_22      q06a_22
+rename q06ab_23      q06a_23
+rename q06ab_24      q06a_24
+rename q06ab_25      q06a_25
+rename q07b_1        q07_1
+rename q07b_2        q07_2
+rename q07b_3        q07_3
+rename q07b_4        q07_4
+rename q07b_5        q07_5
+rename q07b_6        q07_6
+rename q07b_7        q07_7
+rename q07b_8        q07_8
+rename q07b_9        q07_9
+rename q07b_10       q07_10
+rename q07b_10_text  q07_10_text
+rename q07ab_1       q07a_1
+rename q07ab_2       q07a_2
+rename q07ab_3       q07a_3
+rename q07ab_4       q07a_4
+rename q07ab_5       q07a_5
+rename q07ab_6       q07a_6
+rename q07ab_7       q07a_7
+rename q07ab_8       q07a_8
+rename q07ab_9       q07a_9
+rename q07ab_10      q07a_10
+rename q08b_1        q08_1
+rename q08b_2        q08_2
+rename q08b_3        q08_3
+rename q08b_4        q08_4
+rename q08b_5        q08_5
+rename q08b_6        q08_6
+rename q08b_7        q08_7
+rename q08b_8        q08_8
+rename q08b_9        q08_9
+rename q08b_10       q08_10
+rename q08b_11       q08_11
+rename q08b_12       q08_12
+rename q08b_13       q08_13
+rename q08b_13_text  q08_13_text
+rename q08ab_1       q08a_1
+rename q08ab_2       q08a_2
+rename q08ab_3       q08a_3
+rename q08ab_4       q08a_4
+rename q08ab_5       q08a_5
+rename q08ab_6       q08a_6
+rename q08ab_7       q08a_7
+rename q08ab_8       q08a_8
+rename q08ab_9       q08a_9
+rename q08ab_10      q08a_10
+rename q08ab_11      q08a_11
+rename q08ab_12      q08a_12
+rename q08ab_13      q08a_13
+rename q10b_1        q10_1
+rename q10b_2        q10_2
+rename q10b_3        q10_3
+rename q10b_4        q10_4
+rename q10b_5        q10_5
+rename q10b_5_text   q10_5_text
+rename q10ab_1       q10a_1
+rename q10ab_2       q10a_2
+rename q10ab_3       q10a_3
+rename q10ab_4       q10a_4
+rename q10ab_5       q10a_5
+rename q11b_1        q11_1
+rename q11b_2        q11_2
+rename q11b_3        q11_3
+rename q11b_4        q11_4
+rename q11b_5        q11_5
+rename q11b_6        q11_6
+rename q11b_7        q11_7
+rename q11b_8        q11_8
+rename q11b_9        q11_9
+rename q11b_10       q11_10
+rename q11b_11       q11_11
+rename q11b_12       q11_12
+rename q11b_13       q11_13
+rename q11b_14       q11_14
+rename q11b_15       q11_15
+rename q11b_16       q11_16
+rename q11b_17       q11_17
+rename q11b_18       q11_18
+rename q11b_19       q11_19
+rename q11b_20       q11_20
+rename q11b_20_text  q11_20_text
+rename q11ab_1       q11a_1
+rename q11ab_2       q11a_2
+rename q11ab_3       q11a_3
+rename q11ab_4       q11a_4
+rename q11ab_5       q11a_5
+rename q11ab_6       q11a_6
+rename q11ab_7       q11a_7
+rename q11ab_8       q11a_8
+rename q11ab_9       q11a_9
+rename q11ab_10      q11a_10
+rename q11ab_11      q11a_11
+rename q11ab_12      q11a_12
+rename q11ab_13      q11a_13
+rename q11ab_14      q11a_14
+rename q11ab_15      q11a_15
+rename q11ab_16      q11a_16
+rename q11ab_17      q11a_17
+rename q11ab_18      q11a_18
+rename q11ab_19      q11a_19
+rename q11ab_20      q11a_20
+
+* New in 2018 *
+rename q11bb_1       q11b_1
+rename q11bb_2       q11b_2
+rename q11bb_3       q11b_3
+rename q11bb_4       q11b_4
+rename q11bb_5       q11b_5
+rename q11bb_6       q11b_6
+rename q11bb_7       q11b_7
+rename q11bb_8       q11b_8
+rename q11bb_9       q11b_9
+rename q11bb_10      q11b_10
+rename q11bb_10_text q11b_10_text
+rename q11bb_11      q11b_11
+
+rename q12b_1        q12_1
+rename q12b_2        q12_2
+rename q12b_3        q12_3
+rename q12b_4        q12_4
+rename q12b_5        q12_5
+rename q12b_6        q12_6
+rename q12b_7        q12_7
+rename q12b_8        q12_8
+rename q12b_9        q12_9
+rename q12b_10       q12_10
+rename q12b_11       q12_11
+rename q12b_12       q12_12
+rename q12b_12_text  q12_12_text
+rename q13b_1        q13_1
+rename q13b_2        q13_2
+rename q13b_3        q13_3
+rename q13b_4        q13_4
+rename q13b_5        q13_5
+rename q13b_6        q13_6
+rename q13b_7        q13_7
+rename q13b_8        q13_8
+rename q13b_9        q13_9
+rename q13b_10       q13_10
+rename q13b_11       q13_11
+rename q13b_12       q13_12
+rename q13b_13       q13_13
+rename q13b_13_text  q13_13_text
+rename q14b_1        q14_1
+rename q14b_2        q14_2
+rename q14b_3        q14_3
+rename q14b_4        q14_4
+rename q14b_5        q14_5
+rename q14b_6        q14_6
+rename q14b_7        q14_7
+rename q14b_8        q14_8
+rename q14b_9        q14_9
+rename q14b_10       q14_10
+rename q14b_11       q14_11
+rename q14b_12       q14_12
+rename q14b_13       q14_13
+rename q14b_14       q14_14
+rename q14b_15       q14_15
+rename q14b_16       q14_16
+rename q14b_17       q14_17
+rename q14b_18       q14_18
+rename q14b_19       q14_19
+rename q14b_20       q14_20
+rename q14b_21       q14_21
+rename q14b_23       q14_23
+rename q14b_25       q14_25
+rename q14b_27       q14_27
+rename q14b_28       q14_28
+rename q14b_30       q14_30
+rename q14b_30_text  q14_30_text
+rename q14b_31       q14_31
+rename q14ab_1       q14a_1
+rename q14ab_2       q14a_2
+rename q14ab_3       q14a_3
+rename q14ab_4       q14a_4
+rename q14ab_5       q14a_5
+rename q14ab_6       q14a_6
+rename q14ab_7       q14a_7
+rename q14ab_8       q14a_8
+rename q14ab_9       q14a_9
+rename q14ab_10      q14a_10
+rename q14ab_11      q14a_11
+rename q14ab_12      q14a_12
+rename q14ab_13      q14a_13
+rename q14ab_14      q14a_14
+rename q14ab_15      q14a_15
+rename q14ab_16      q14a_16
+rename q14ab_17      q14a_17
+rename q14ab_18      q14a_18
+rename q14ab_19      q14a_19
+rename q14ab_20      q14a_20
+rename q14ab_21      q14a_21
+rename q14ab_23      q14a_23
+rename q14ab_25      q14a_25
+rename q14ab_27      q14a_27
+rename q14ab_28      q14a_28
+rename q14ab_30      q14a_30
+rename q14ab_31      q14a_31
+rename q15b_1        q15_1
+rename q15b_2        q15_2
+rename q15b_3        q15_3
+rename q15b_4        q15_4
+rename q15b_5        q15_5
+rename q15b_6        q15_6
+rename q15b_7        q15_7
+rename q15b_7_text   q15_7_text
+rename q15ab_1       q15a_1
+rename q15ab_2       q15a_2
+rename q15ab_3       q15a_3
+rename q15ab_4       q15a_4
+rename q15ab_5       q15a_5
+rename q15ab_6       q15a_6
+rename q15ab_7       q15a_7
+rename q16b_1        q16_1
+rename q16b_2        q16_2
+rename q16b_3        q16_3
+rename q16b_4        q16_4
+rename q16b_5        q16_5
+rename q16b_6        q16_6
+rename q16b_7        q16_7
+rename q16b_8        q16_8
+rename q16b_9        q16_9
+rename q16b_10       q16_10
+rename q16b_11       q16_11
+rename q16b_11_text  q16_11_text
+rename q16ab_1       q16a_1
+rename q16ab_2       q16a_2
+rename q16ab_3       q16a_3
+rename q16ab_4       q16a_4
+rename q16ab_5       q16a_5
+rename q16ab_6       q16a_6
+rename q16ab_7       q16a_7
+rename q16ab_8       q16a_8
+rename q16ab_9       q16a_9
+rename q16ab_10      q16a_10
+rename q16ab_11      q16a_11
+rename q17b_1        q17_1
+rename q17b_2        q17_2
+rename q17b_3        q17_3
+rename q17b_4        q17_4
+rename q17b_5        q17_5
+rename q17b_6        q17_6
+rename q17b_7        q17_7
+
+* New in 2018 *
+rename q17b_13       q17_13
+
+rename q17b_8        q17_8
+rename q17b_9        q17_9
+rename q17b_10       q17_10
+rename q17b_11       q17_11
+rename q17b_12       q17_12
+rename q17b_12_text  q17_12_text
+rename q17ab_1       q17a_1
+rename q17ab_2       q17a_2
+rename q17ab_3       q17a_3
+rename q17ab_4       q17a_4
+rename q17ab_5       q17a_5
+rename q17ab_10      q17a_10
+rename q17ab_11      q17a_11
+rename q17ab_12      q17a_12
+rename q18b_1        q18_1
+rename q18b_2        q18_2
+rename q18b_3        q18_3
+rename q18b_4        q18_4
+rename q18b_5        q18_5
+rename q18b_5_text   q18_5_text
+rename q18ab_1       q18a_1
+rename q18ab_2       q18a_2
+rename q18ab_3       q18a_3
+rename q18ab_4       q18a_4
+rename q18ab_5       q18a_5
+rename q19b_1        q19_1
+rename q19b_2        q19_2
+rename q19b_3        q19_3
+rename q19b_4        q19_4
+rename q19b_5        q19_5
+rename q19b_6        q19_6
+rename q19b_7        q19_7
+rename q19b_7_text   q19_7_text
+rename q19ab_1       q19a_1
+rename q19ab_2       q19a_2
+rename q19ab_3       q19a_3
+rename q19ab_4       q19a_4
+rename q19ab_5       q19a_5
+rename q19ab_6       q19a_6
+rename q19ab_7       q19a_7
+rename q20b_1        q20_1
+rename q20b_2        q20_2
+rename q20b_3        q20_3
+rename q20b_4        q20_4
+rename q20b_5        q20_5
+rename q20b_6        q20_6
+rename q20b_7        q20_7
+rename q20b_8        q20_8
+rename q20b_9        q20_9
+rename q20b_10       q20_10
+rename q20b_10_text  q20_10_text
+rename q20ab_1       q20a_1
+rename q20ab_2       q20a_2
+rename q20ab_3       q20a_3
+rename q20ab_4       q20a_4
+rename q20ab_5       q20a_5
+rename q20ab_6       q20a_6
+rename q20ab_7       q20a_7
+rename q20ab_8       q20a_8
+rename q20ab_9       q20a_9
+rename q20ab_10      q20a_10
+rename q21b_1        q21_1
+rename q21b_2        q21_2
+rename q21b_3        q21_3
+
+* New in 2019 *
+rename q21b_9        q21_9
+
+rename q21b_4        q21_4
+rename q21b_5        q21_5
+rename q21b_6        q21_6
+rename q21b_7        q21_7
+rename q21b_8        q21_8
+rename q21b_8_text   q21_8_text
+rename q22b_1        q22_1
+rename q22b_2        q22_2
+rename q22b_3        q22_3
+rename q22b_4        q22_4
+rename q22b_5        q22_5
+rename q22b_6        q22_6
+rename q22b_7        q22_7
+rename q22b_8        q22_8
+rename q22b_9        q22_9
+rename q22b_9_text   q22_9_text
+rename q22b_10       q22_10
+rename q22ab_1       q22a_1
+rename q22ab_2       q22a_2
+rename q22ab_3       q22a_3
+rename q22ab_4       q22a_4
+rename q22ab_5       q22a_5
+rename q22ab_6       q22a_6
+rename q22ab_7       q22a_7
+rename q22ab_8       q22a_8
+rename q22ab_9       q22a_9
+rename q23b          q23
+rename q23ab         q23a
+rename q25b_1        q25_1
+rename q25b_2        q25_2
+rename q25b_3        q25_3
+rename q25b_4        q25_4
+rename q25b_5        q25_5
+rename q25b_5_text   q25_5_text
+rename q25ab_1       q25a_1
+rename q25ab_2       q25a_2
+rename q25ab_3       q25a_3
+rename q25ab_4       q25a_4
+rename q25ab_5       q25a_5
+rename q26b_1        q26_1
+rename q26b_2        q26_2
+rename q26b_3        q26_3
+rename q26ab_1       q26a_1
+rename q26ab_2       q26a_2
+rename q26ab_3       q26a_3
+rename q27b_1        q27_1
+rename q27b_2        q27_2
+rename q27b_3        q27_3
+rename q27b_4        q27_4
+rename q27b_5        q27_5
+rename q27b_6        q27_6
+rename q27b_7        q27_7
+rename q27b_8        q27_8
+rename q27b_9        q27_9
+rename q27b_10       q27_10
+rename q27b_11       q27_11
+rename q27b_12       q27_12
+rename q27b_13       q27_13
+rename q27b_14       q27_14
+rename q27b_15       q27_15
+rename q27b_16       q27_16
+rename q27b_17       q27_17
+rename q27b_18       q27_18
+rename q27b_19       q27_19
+rename q27b_20       q27_20
+rename q27b_21       q27_21
+rename q27b_22       q27_22
+rename q27b_23       q27_23
+rename q27b_24       q27_24
+rename q27b_24_text  q27_24_text
+rename q27ab_1       q27a_1
+rename q27ab_3       q27a_3
+rename q27ab_4       q27a_4
+rename q27ab_9       q27a_9
+rename q27ab_10      q27a_10
+rename q27ab_11      q27a_11
+rename q27ab_17      q27a_17
+rename q27ab_18      q27a_18
+rename q27ab_19      q27a_19
+rename q27ab_20      q27a_20
+rename q27ab_21      q27a_21
+rename q27ab_22      q27a_22
+rename q27ab_23      q27a_23
+rename q27ab_24      q27a_24
+rename q28b_1        q28_1
+rename q28b_2        q28_2
+rename q28b_3        q28_3
+rename q28b_4        q28_4
+rename q28b_5        q28_5
+rename q28b_6        q28_6
+rename q28b_7        q28_7
+rename q28b_8        q28_8
+rename q28b_9        q28_9
+rename q28b_10       q28_10
+rename q28b_11       q28_11
+rename q28b_12       q28_12
+rename q28b_13       q28_13
+rename q28b_14       q28_14
+rename q28b_15       q28_15
+rename q28b_16       q28_16
+rename q28b_17       q28_17
+rename q28b_18       q28_18
+rename q28b_19       q28_19
+rename q28b_20       q28_20
+rename q28b_21       q28_21
+rename q28b_22       q28_22
+rename q28b_23       q28_23
+rename q28b_24       q28_24
+rename q28b_24_text  q28_24_text
+rename q28ab_1       q28a_1
+rename q28ab_2       q28a_2
+rename q28ab_3       q28a_3
+rename q28ab_4       q28a_4
+rename q28ab_5       q28a_5
+rename q28ab_6       q28a_6
+rename q28ab_7       q28a_7
+rename q28ab_8       q28a_8
+rename q28ab_9       q28a_9
+rename q28ab_10      q28a_10
+rename q28ab_11      q28a_11
+rename q28ab_12      q28a_12
+rename q28ab_13      q28a_13
+rename q28ab_14      q28a_14
+rename q28ab_15      q28a_15
+rename q28ab_16      q28a_16
+rename q28ab_17      q28a_17
+rename q28ab_18      q28a_18
+rename q28ab_19      q28a_19
+rename q28ab_20      q28a_20
+rename q28ab_21      q28a_21
+rename q28ab_22      q28a_22
+rename q28ab_23      q28a_23
+rename q28ab_24      q28a_24
+rename q29b_1        q29_1
+rename q29b_2        q29_2
+rename q29b_3        q29_3
+rename q29b_4        q29_4
+rename q29b_5        q29_5
+rename q29b_6        q29_6
+rename q29b_7        q29_7
+rename q29b_8        q29_8
+rename q29b_9        q29_9
+rename q29b_10       q29_10
+rename q29b_11       q29_11
+rename q29b_12       q29_12
+rename q29b_13       q29_13
+rename q29b_14       q29_14
+rename q29b_15       q29_15
+rename q29b_16       q29_16
+rename q29b_17       q29_17
+rename q29b_17_text  q29_17_text
+rename q29ab_1       q29a_1
+rename q29ab_2       q29a_2
+rename q29ab_3       q29a_3
+rename q29ab_4       q29a_4
+rename q29ab_5       q29a_5
+rename q29ab_6       q29a_6
+rename q29ab_7       q29a_7
+rename q29ab_8       q29a_8
+rename q29ab_9       q29a_9
+rename q29ab_10      q29a_10
+rename q29ab_11      q29a_11
+rename q29ab_12      q29a_12
+rename q29ab_13      q29a_13
+rename q29ab_14      q29a_14
+rename q29ab_15      q29a_15
+rename q29ab_16      q29a_16
+rename q29ab_17      q29a_17
+rename q30b_1        q30_1
+rename q30b_2        q30_2
+rename q30b_3        q30_3
+rename q30b_4        q30_4
+rename q30b_5        q30_5
+rename q30b_6        q30_6
+rename q30b_6_text   q30_6_text
+rename q30ab_1       q30a_1
+rename q30ab_2       q30a_2
+rename q30ab_3       q30a_3
+rename q30ab_4       q30a_4
+rename q30ab_5       q30a_5
+rename q30ab_6       q30a_6
+rename q30ab_7       q30a_7
+rename q30ab_8       q30a_8
+rename q30ab_9       q30a_9
+rename q30ab_10      q30a_10
+rename q30ab_11      q30a_11
+rename q30ab_12      q30a_12
+rename q30ab_13      q30a_13
+rename q30ab_14      q30a_14
+rename q30ab_15      q30a_15
+rename q30ab_16      q30a_16
+rename q30ab_17      q30a_17
+rename q30ab_18      q30a_18
+rename q30ab_19      q30a_19
+rename q30ab_20      q30a_20
+rename q30ab_21      q30a_21
+rename q30ab_22      q30a_22
+
+* New in 2019 *
+rename q30ab_28      q30a_28
+
+rename q30ab_23      q30a_23
+rename q30ab_24      q30a_24
+rename q30ab_25      q30a_25
+rename q30ab_26      q30a_26
+rename q30ab_27      q30a_27
+
+* New in 2019 *
+rename q31cb       	 q31c
+
+rename q31b_1        q31_1
+rename q31b_2        q31_2
+rename q31b_3        q31_3
+rename q31b_4        q31_4
+rename q31b_5        q31_5
+rename q31b_6        q31_6
+rename q31b_7        q31_7
+rename q31b_8        q31_8
+rename q31b_9        q31_9
+rename q31b_10       q31_10
+rename q31b_11       q31_11
+rename q31b_12       q31_12
+rename q31b_13       q31_13
+rename q31b_14       q31_14
+rename q31b_15       q31_15
+rename q31b_16       q31_16
+rename q31b_17       q31_17
+rename q31b_18       q31_18
+rename q31b_19       q31_19
+rename q31b_20       q31_20
+rename q31b_21       q31_21
+rename q31b_22       q31_22
+rename q31b_23       q31_23
+rename q31b_24       q31_24
+rename q31b_25       q31_25
+rename q31b_26       q31_26
+rename q31b_27       q31_27
+rename q31b_28       q31_28
+rename q31b_29       q31_29
+rename q31b_30       q31_30
+rename q31b_31       q31_31
+rename q31b_32       q31_32
+rename q31b_33       q31_33
+rename q31b_34       q31_34
+rename q31b_35       q31_35
+rename q31b_36       q31_36
+rename q31b_37       q31_37
+rename q31b_37_text  q31_37_text
+rename q31b_38       q31_38
+rename q31b_39       q31_39
+* New in 2018 *
+rename q31b_40       q31_40
+rename q31b_41       q31_41
+rename q31b_42       q31_42
+
+* New in 2019 *
+rename q31db_1       q31d_1
+rename q31db_2       q31d_2
+rename q31db_3       q31d_3
+rename q31db_6       q31d_6
+rename q31db_7       q31d_7
+rename q31db_39      q31d_39
+rename q31db_8       q31d_8
+rename q31db_9       q31d_9
+rename q31db_10      q31d_10
+rename q31db_11      q31d_11
+rename q31db_12      q31d_12
+rename q31db_13      q31d_13
+rename q31db_14      q31d_14
+rename q31db_15      q31d_15
+rename q31db_16      q31d_16
+rename q31db_17      q31d_17
+rename q31db_18      q31d_18
+rename q31db_19      q31d_19
+rename q31db_20      q31d_20
+rename q31db_21      q31d_21
+rename q31db_22      q31d_22
+rename q31db_23      q31d_23
+rename q31db_24      q31d_24
+rename q31db_25      q31d_25
+rename q31db_26      q31d_26
+rename q31db_27      q31d_27
+rename q31db_28      q31d_28
+rename q31db_29      q31d_29
+rename q31db_30      q31d_30
+rename q31db_31      q31d_31
+rename q31db_32      q31d_32
+rename q31db_33      q31d_33
+rename q31db_34      q31d_34
+rename q31db_35      q31d_35
+rename q31db_36      q31d_36
+rename q31db_40      q31d_40
+rename q31db_42      q31d_42
+rename q31db_43      q31d_43
+rename q31db_44      q31d_44
+rename q31db_46      q31d_46
+rename q31db_49      q31d_49
+rename q31db_51      q31d_51
+rename q31db_52      q31d_52
+rename q31db_55      q31d_55
+rename q31db_56      q31d_56
+rename q31db_57      q31d_57
+rename q31db_60      q31d_60
+rename q31db_61      q31d_61
+rename q31db_65      q31d_65
+rename q31db_37      q31d_37
+rename q31db_38      q31d_38
+rename q31db_37_text q31d_37_text
+
+rename q31ab_1       q31a_1
+rename q31ab_2       q31a_2
+rename q31ab_3       q31a_3
+rename q31ab_4       q31a_4
+rename q31ab_5       q31a_5
+rename q31ab_6       q31a_6
+rename q31ab_7       q31a_7
+rename q31ab_8       q31a_8
+rename q31ab_9       q31a_9
+rename q31ab_10      q31a_10
+rename q31ab_11      q31a_11
+rename q31ab_12      q31a_12
+rename q31ab_13      q31a_13
+rename q31ab_14      q31a_14
+rename q31ab_15      q31a_15
+rename q31ab_16      q31a_16
+rename q31ab_17      q31a_17
+rename q31ab_18      q31a_18
+rename q31ab_19      q31a_19
+rename q31ab_20      q31a_20
+rename q31ab_21      q31a_21
+rename q31ab_22      q31a_22
+rename q31ab_23      q31a_23
+rename q31ab_24      q31a_24
+rename q31ab_25      q31a_25
+rename q31ab_26      q31a_26
+rename q31ab_27      q31a_27
+rename q31ab_28      q31a_28
+rename q31ab_29      q31a_29
+rename q31ab_30      q31a_30
+rename q31ab_31      q31a_31
+rename q31ab_32      q31a_32
+rename q31ab_33      q31a_33
+rename q31ab_34      q31a_34
+rename q31ab_35      q31a_35
+rename q31ab_36      q31a_36
+rename q31ab_37      q31a_37
+rename q31ab_39      q31a_39
+* New in 2018 *
+rename q31ab_40      q31a_40
+rename q31ab_41      q31a_41
+rename q31ab_42      q31a_42
+
+* New in 2019 *
+rename q31ab_43      q31a_43
+rename q31ab_44      q31a_44
+rename q31ab_46      q31a_46
+rename q31ab_49      q31a_49
+rename q31ab_51      q31a_51
+rename q31ab_52      q31a_52
+rename q31ab_55      q31a_55
+rename q31ab_56      q31a_56
+rename q31ab_57      q31a_57
+rename q31ab_60      q31a_60
+rename q31ab_61      q31a_61
+rename q31ab_65      q31a_65
+
+* New in 2018 *
+rename q31bb_1       q31b_1
+rename q31bb_2       q31b_2
+rename q31bb_3       q31b_3
+rename q31bb_4       q31b_4
+rename q31bb_5       q31b_5
+rename q31bb_6       q31b_6
+rename q31bb_7       q31b_7
+rename q31bb_7_text  q31b_7_text
+rename q32b          q32
+rename q33b_1        q33_1
+rename q33b_2        q33_2
+rename q33b_3        q33_3
+rename q33b_4        q33_4
+rename q33b_5        q33_5
+rename q33b_6        q33_6
+rename q33b_7        q33_7
+rename q33b_8        q33_8
+rename q33b_10       q33_10
+rename q33b_11       q33_11
+rename q33b_12       q33_12
+rename q33b_13       q33_13
+rename q33b_14       q33_14
+rename q33b_15       q33_15
+rename q33b_16       q33_16
+rename q33b_17       q33_17
+rename q33b_18       q33_18
+rename q33b_19       q33_19
+rename q33b_20       q33_20
+rename q33b_21       q33_21
+rename q33b_22       q33_22
+rename q33b_23       q33_23
+rename q33b_25       q33_25
+rename q33b_26       q33_26
+rename q33b_27       q33_27
+rename q33b_28       q33_28
+rename q33b_29       q33_29
+rename q33b_30       q33_30
+rename q33b_31       q33_31
+rename q33ab_1       q33a_1
+rename q33ab_2       q33a_2
+rename q33ab_3       q33a_3
+rename q33ab_4       q33a_4
+rename q33ab_5       q33a_5
+rename q33ab_6       q33a_6
+rename q33ab_7       q33a_7
+rename q33ab_8       q33a_8
+rename q33ab_10      q33a_10
+rename q33ab_11      q33a_11
+rename q33ab_12      q33a_12
+rename q33ab_13      q33a_13
+rename q33ab_14      q33a_14
+rename q33ab_15      q33a_15
+rename q33ab_16      q33a_16
+rename q33ab_17      q33a_17
+rename q33ab_18      q33a_18
+rename q33ab_19      q33a_19
+rename q33ab_20      q33a_20
+rename q33ab_21      q33a_21
+rename q33ab_22      q33a_22
+rename q33ab_23      q33a_23
+rename q33ab_25      q33a_25
+rename q33ab_26      q33a_26
+rename q33ab_27      q33a_27
+rename q33ab_28      q33a_28
+rename q33ab_29      q33a_29
+rename q33ab_30      q33a_30
+rename q33ab_31      q33a_31
+rename q33ab_32      q33a_32
+rename q33ab_33      q33a_33
+rename q33ab_34      q33a_34
+rename q33ab_35      q33a_35
+rename q33ab_36      q33a_36
+
+* New in 2019 *
+rename q33ab_37      q33a_37
+rename q33ab_38      q33a_38
+rename q33ab_39      q33a_39
+
+rename q33bb_1       q33b_1
+rename q33bb_2       q33b_2
+rename q33bb_3       q33b_3
+rename q33bb_4       q33b_4
+rename q33bb_5       q33b_5
+rename q33bb_6       q33b_6
+rename q33bb_7       q33b_7
+rename q33bb_8       q33b_8
+rename q33bb_9       q33b_9
+rename q33bb_10      q33b_10
+rename q33bb_11      q33b_11
+rename q33bb_12      q33b_12
+rename q33bb_13      q33b_13
+rename q33bb_14      q33b_14
+rename q33bb_15      q33b_15
+rename q33bb_16      q33b_16
+rename q33cb_1       q33c_1
+rename q33cb_2       q33c_2
+rename q33cb_3       q33c_3
+rename q33cb_4       q33c_4
+rename q33cb_5       q33c_5
+rename q33cb_6       q33c_6
+rename q33cb_7       q33c_7
+rename q33cb_8       q33c_8
+rename q33cb_9       q33c_9
+rename q33cb_10      q33c_10
+rename q33cb_11      q33c_11
+rename q33cb_12      q33c_12
+rename q33cb_13      q33c_13
+rename q33cb_13_text q33c_13_text
+
+* New in 2019 *
+rename q33cb_14      q33c_14
+rename q33cb_15      q33c_15
+rename q33cb_16      q33c_16
+
+rename q34b_1        q34_1
+rename q34b_2        q34_2
+rename q34b_3        q34_3
+rename q34b_4        q34_4
+rename q34b_5        q34_5
+rename q34b_6        q34_6
+rename q34b_7        q34_7
+rename q34b_8        q34_8
+rename q34b_9        q34_9
+rename q34b_10       q34_10
+rename q34b_10_text  q34_10_text
+* New in 2018 *
+rename q34b_11       q34_12
+rename q34b_12       q34_13
+rename q34b_13       q34_14
+rename q35b_1        q35_1
+rename q35b_2        q35_2
+rename q35b_3        q35_3
+rename q35b_4        q35_4
+rename q35b_5        q35_5
+rename q35b_6        q35_6
+rename q35b_7        q35_7
+rename q35b_8        q35_8
+rename q35b_9        q35_9
+rename q35b_10       q35_10
+rename q35b_11       q35_11
+rename q35b_12       q35_12
+rename q35b_13       q35_13
+rename q35b_14       q35_14
+rename q35b_15       q35_15
+rename q35b_15_text  q35_15_text
+rename q36ab_1       q36a_1
+rename q36ab_2       q36a_2
+rename q36ab_3       q36a_3
+rename q36ab_4       q36a_4
+rename q36ab_5       q36a_5
+rename q36ab_6       q36a_6
+rename q36ab_6_text  q36a_6_text
+
+* New in 2019 *
+rename q36ab_7       q36a_7
+rename q36ab_8       q36a_8
+rename q36ab_9       q36a_9
+
+rename q36bb_1       q36b_1
+rename q36bb_2       q36b_2
+rename q36bb_3       q36b_3
+rename q36bb_4       q36b_4
+rename q36bb_5       q36b_5
+rename q36bb_6       q36b_6
+rename q36bb_7       q36b_7
+rename q36bb_8       q36b_8
+rename q36bb_8_text  q36b_8_text
+rename q36cb_1       q36c_1
+rename q36cb_2       q36c_2
+rename q36cb_3       q36c_3
+rename q36cb_4       q36c_4
+rename q36cb_5       q36c_5
+rename q36cb_6       q36c_6
+rename q36cb_7       q36c_7
+rename q36cb_8       q36c_8
+rename q36cb_9       q36c_9
+rename q36cb_10      q36c_10
+rename q36cb_11      q36c_11
+rename q36cb_12      q36c_12
+rename q36cb_13      q36c_13
+rename q36cb_14      q36c_14
+rename q36cb_15      q36c_15
+rename q36cb_15_text q36c_15_text
+rename q36db_1       q36d_1
+rename q36db_14      q36d_14
+rename q36db_15      q36d_15
+rename q36db_26      q36d_26
+rename q36db_27      q36d_27
+rename q36eb_1       q36e_1
+rename q36eb_2       q36e_2
+rename q36eb_3       q36e_3
+rename q36eb_4       q36e_4
+rename q36eb_5       q36e_5
+rename q36eb_6       q36e_6
+rename q36eb_7       q36e_7
+rename q36eb_7_text  q36e_7_text
+
+*Q50 added Spring 2016
+*Q50 Version 1 Reformating only for Spring 2016 wave
+if `yyyy'==2016 & "`sesn'"=="Spring" {
+   rename q50fpb_1 q50fp_1
+   rename q50fpb_2 q50fp_2
+   rename q50fpb_3 q50fp_3
+   rename q50fpb_4 q50fp_4
+   rename q50fpb_5 q50fp_5
+   rename q50fpb_6 q50fp_6
+   rename q50fpb_7 q50fp_7
+   rename q50fpb_8 q50fp_8
+   rename q50fpb_9 q50fp_9
+   rename q50fpb_10 q50fp_10
+   rename q50fpb_11 q50fp_11
+   rename q50fpb_12 q50fp_12
+   rename q50fpb_13 q50fp_13
+   rename q50fpb_14 q50fp_14
+   rename q50fpb_15 q50fp_15
+   rename q50fpb_16 q50fp_16
+   rename q50fpb_17 q50fp_17
+   rename q50fpb_18 q50fp_18
+   rename q50fpb_19 q50fp_19
+   rename q50fpb_20 q50fp_20
+   rename q50fpb_21 q50fp_21
+   rename q50fpb_22 q50fp_22
+   rename q50fpb_23 q50fp_23
+   rename q50fpb_24 q50fp_24
+   rename q50fpb_25 q50fp_25
+   rename q50fpb_26 q50fp_26
+   rename q50fpb_27 q50fp_27
+   rename q50fpb_28 q50fp_28
+   rename q50fpb_29 q50fp_29
+   rename q50fob_1 q50fo_1
+   rename q50fob_2 q50fo_2
+   rename q50fob_3 q50fo_3
+   rename q50fob_4 q50fo_4
+   rename q50fob_5 q50fo_5
+   rename q50fob_6 q50fo_6
+   rename q50fob_7 q50fo_7
+   rename q50fob_8 q50fo_8
+   rename q50fob_9 q50fo_9
+   rename q50fob_10 q50fo_10
+   rename q50fob_11 q50fo_11
+   rename q50fob_12 q50fo_12
+   rename q50fob_13 q50fo_13
+   rename q50fob_14 q50fo_14
+   rename q50fob_15 q50fo_15
+   rename q50fob_16 q50fo_16
+   rename q50fob_17 q50fo_17
+   rename q50fob_18 q50fo_18
+   rename q50fob_19 q50fo_19
+   rename q50fob_20 q50fo_20
+   rename q50fob_21 q50fo_21
+   rename q50fob_22 q50fo_22
+   rename q50fob_23 q50fo_23
+   rename q50fob_24 q50fo_24
+   rename q50fob_25 q50fo_25
+   rename q50fob_26 q50fo_26
+   rename q50fob_27 q50fo_27
+   rename q50fob_28 q50fo_28
+   rename q50fob_29 q50fo_29
+   rename q50fpdb_1 q50fpd_1
+   rename q50fpdb_2 q50fpd_2
+   rename q50fpdb_3 q50fpd_3
+   rename q50fpdb_4 q50fpd_4
+   rename q50fpdb_5 q50fpd_5
+   rename q50fpdb_6 q50fpd_6
+   rename q50fpdb_7 q50fpd_7
+   rename q50fpdb_8 q50fpd_8
+   rename q50fpdb_9 q50fpd_9
+   rename q50fpdb_10 q50fpd_10
+   rename q50fpdb_11 q50fpd_11
+   rename q50fpdb_12 q50fpd_12
+   rename q50fpdb_13 q50fpd_13
+   rename q50fpdb_14 q50fpd_14
+   rename q50fpdb_15 q50fpd_15
+   rename q50fpdb_16 q50fpd_16
+   rename q50fpdb_17 q50fpd_17
+   rename q50fpdb_18 q50fpd_18
+   rename q50fpdb_19 q50fpd_19
+   rename q50fpdb_20 q50fpd_20
+   rename q50fpdb_21 q50fpd_21
+   rename q50fpdb_22 q50fpd_22
+   rename q50fpdb_23 q50fpd_23
+   rename q50fpdb_24 q50fpd_24
+   rename q50fpdb_25 q50fpd_25
+   rename q50fpdb_26 q50fpd_26
+   rename q50fpdb_27 q50fpd_27
+   rename q50fpdb_28 q50fpd_28
+   rename q50fpdb_29 q50fpd_29
+   rename q50bpb_1 q50bp_1
+   rename q50bpb_2 q50bp_2
+   rename q50bpb_3 q50bp_3
+   rename q50bpb_4 q50bp_4
+   rename q50bpb_5 q50bp_5
+   rename q50bpb_6 q50bp_6
+   rename q50bpb_7 q50bp_7
+   rename q50bpb_8 q50bp_8
+   rename q50bpb_9 q50bp_9
+   rename q50bpb_10 q50bp_10
+   rename q50bpb_11 q50bp_11
+   rename q50bpb_12 q50bp_12
+   rename q50bpb_13 q50bp_13
+   rename q50bpb_14 q50bp_14
+   rename q50bpb_15 q50bp_15
+   rename q50bpb_16 q50bp_16
+   rename q50bpb_17 q50bp_17
+   rename q50bpb_18 q50bp_18
+   rename q50bpb_19 q50bp_19
+   rename q50bpb_20 q50bp_20
+   rename q50bpb_21 q50bp_21
+   rename q50bpb_22 q50bp_22
+   rename q50bpb_23 q50bp_23
+   rename q50bpb_24 q50bp_24
+   rename q50bpb_25 q50bp_25
+   rename q50bpb_26 q50bp_26
+   rename q50bpb_27 q50bp_27
+   rename q50bpb_28 q50bp_28
+   rename q50bob_1 q50bo_1
+   rename q50bob_2 q50bo_2
+   rename q50bob_3 q50bo_3
+   rename q50bob_4 q50bo_4
+   rename q50bob_5 q50bo_5
+   rename q50bob_6 q50bo_6
+   rename q50bob_7 q50bo_7
+   rename q50bob_8 q50bo_8
+   rename q50bob_9 q50bo_9
+   rename q50bob_10 q50bo_10
+   rename q50bob_11 q50bo_11
+   rename q50bob_12 q50bo_12
+   rename q50bob_13 q50bo_13
+   rename q50bob_14 q50bo_14
+   rename q50bob_15 q50bo_15
+   rename q50bob_16 q50bo_16
+   rename q50bob_17 q50bo_17
+   rename q50bob_18 q50bo_18
+   rename q50bob_19 q50bo_19
+   rename q50bob_20 q50bo_20
+   rename q50bob_21 q50bo_21
+   rename q50bob_22 q50bo_22
+   rename q50bob_23 q50bo_23
+   rename q50bob_24 q50bo_24
+   rename q50bob_25 q50bo_25
+   rename q50bob_26 q50bo_26
+   rename q50bob_27 q50bo_27
+   rename q50bob_28 q50bo_28
+   rename q50bpdb_1 q50bpd_1
+   rename q50bpdb_2 q50bpd_2
+   rename q50bpdb_3 q50bpd_3
+   rename q50bpdb_4 q50bpd_4
+   rename q50bpdb_5 q50bpd_5
+   rename q50bpdb_6 q50bpd_6
+   rename q50bpdb_7 q50bpd_7
+   rename q50bpdb_8 q50bpd_8
+   rename q50bpdb_9 q50bpd_9
+   rename q50bpdb_10 q50bpd_10
+   rename q50bpdb_11 q50bpd_11
+   rename q50bpdb_12 q50bpd_12
+   rename q50bpdb_13 q50bpd_13
+   rename q50bpdb_14 q50bpd_14
+   rename q50bpdb_15 q50bpd_15
+   rename q50bpdb_16 q50bpd_16
+   rename q50bpdb_17 q50bpd_17
+   rename q50bpdb_18 q50bpd_18
+   rename q50bpdb_19 q50bpd_19
+   rename q50bpdb_20 q50bpd_20
+   rename q50bpdb_21 q50bpd_21
+   rename q50bpdb_22 q50bpd_22
+   rename q50bpdb_23 q50bpd_23
+   rename q50bpdb_24 q50bpd_24
+   rename q50bpdb_25 q50bpd_25
+   rename q50bpdb_26 q50bpd_26
+   rename q50bpdb_27 q50bpd_27
+   rename q50bpdb_28 q50bpd_28
+}
+
+rename q50fb_1       q50f_1
+rename q50fb_2       q50f_2
+rename q50fb_3       q50f_3
+rename q50fb_4       q50f_4
+rename q50fb_5       q50f_5
+rename q50fb_6       q50f_6
+rename q50fb_7       q50f_7
+rename q50fb_8       q50f_8
+rename q50fb_9       q50f_9
+rename q50fb_10      q50f_10
+rename q50fb_11      q50f_11
+rename q50fb_12      q50f_12
+rename q50fb_13      q50f_13
+rename q50fb_14      q50f_14
+rename q50fb_15      q50f_15
+rename q50fb_16      q50f_16
+rename q50fb_17      q50f_17
+rename q50fb_18      q50f_18
+rename q50fb_19      q50f_19
+rename q50fb_20      q50f_20
+rename q50fb_21      q50f_21
+rename q50fb_22      q50f_22
+rename q50fb_23      q50f_23
+rename q50fb_24      q50f_24
+rename q50fb_25      q50f_25
+rename q50fb_26      q50f_26
+rename q50fb_27      q50f_27
+rename q50fb_28      q50f_28
+rename q50fb_29      q50f_29
+rename q50fdb_1      q50fd_1
+rename q50fdb_2      q50fd_2
+rename q50fdb_3      q50fd_3
+rename q50fdb_4      q50fd_4
+rename q50fdb_5      q50fd_5
+rename q50fdb_6      q50fd_6
+rename q50fdb_7      q50fd_7
+rename q50fdb_8      q50fd_8
+rename q50fdb_9      q50fd_9
+rename q50fdb_10     q50fd_10
+rename q50fdb_11     q50fd_11
+rename q50fdb_12     q50fd_12
+rename q50fdb_13     q50fd_13
+rename q50fdb_14     q50fd_14
+rename q50fdb_15     q50fd_15
+rename q50fdb_16     q50fd_16
+rename q50fdb_17     q50fd_17
+rename q50fdb_18     q50fd_18
+rename q50fdb_19     q50fd_19
+rename q50fdb_20     q50fd_20
+rename q50fdb_21     q50fd_21
+rename q50fdb_22     q50fd_22
+rename q50fdb_23     q50fd_23
+rename q50fdb_24     q50fd_24
+rename q50fdb_25     q50fd_25
+rename q50fdb_26     q50fd_26
+rename q50fdb_27     q50fd_27
+rename q50fdb_28     q50fd_28
+rename q50fdb_29     q50fd_29
+rename q50bb_1       q50b_1
+rename q50bb_2       q50b_2
+rename q50bb_3       q50b_3
+rename q50bb_4       q50b_4
+rename q50bb_5       q50b_5
+rename q50bb_6       q50b_6
+rename q50bb_7       q50b_7
+rename q50bb_8       q50b_8
+rename q50bb_9       q50b_9
+rename q50bb_10      q50b_10
+rename q50bb_11      q50b_11
+rename q50bb_12      q50b_12
+rename q50bb_13      q50b_13
+rename q50bb_14      q50b_14
+rename q50bb_15      q50b_15
+rename q50bb_16      q50b_16
+rename q50bb_17      q50b_17
+rename q50bb_18      q50b_18
+rename q50bb_19      q50b_19
+rename q50bb_20      q50b_20
+rename q50bb_21      q50b_21
+rename q50bb_22      q50b_22
+rename q50bb_23      q50b_23
+rename q50bb_24      q50b_24
+rename q50bb_25      q50b_25
+rename q50bb_26      q50b_26
+rename q50bb_27      q50b_27
+rename q50bb_28      q50b_28
+rename q50bdb_1      q50bd_1
+rename q50bdb_2      q50bd_2
+rename q50bdb_3      q50bd_3
+rename q50bdb_4      q50bd_4
+rename q50bdb_5      q50bd_5
+rename q50bdb_6      q50bd_6
+rename q50bdb_7      q50bd_7
+rename q50bdb_8      q50bd_8
+rename q50bdb_9      q50bd_9
+rename q50bdb_10     q50bd_10
+rename q50bdb_11     q50bd_11
+rename q50bdb_12     q50bd_12
+rename q50bdb_13     q50bd_13
+rename q50bdb_14     q50bd_14
+rename q50bdb_15     q50bd_15
+rename q50bdb_16     q50bd_16
+rename q50bdb_17     q50bd_17
+rename q50bdb_18     q50bd_18
+rename q50bdb_19     q50bd_19
+rename q50bdb_20     q50bd_20
+rename q50bdb_21     q50bd_21
+rename q50bdb_22     q50bd_22
+rename q50bdb_23     q50bd_23
+rename q50bdb_24     q50bd_24
+rename q50bdb_25     q50bd_25
+rename q50bdb_26     q50bd_26
+rename q50bdb_27     q50bd_27
+rename q50bdb_28     q50bd_28
+
+rename q40b          q40
+rename q40ab         q40a
+rename q40ab_text    q40a_text
+rename q40bb         q40b
+rename q40bb_text    q40b_text
+rename q40db         q40d
+rename q40db_text    q40d_text
+rename q42b_1        q42_1
+rename q42b_2        q42_2
+rename q42b_3        q42_3
+rename q42b_4        q42_4
+rename q42b_5        q42_5
+rename q42b_6        q42_6
+rename q42b_7        q42_7
+rename q42b_8        q42_8
+rename q42b_9        q42_9
+rename q42ab_text    q42a_text
+rename q43b_1        q43_1
+rename q43b_2        q43_2
+rename q43b_3        q43_3
+rename q43b_4        q43_4
+rename q43b_5        q43_5
+rename q43b_6        q43_6
+rename q43b_6_text   q43_6_text
+rename q43b_7        q43_7
+rename q44b_1        q44_1
+rename q44b_2        q44_2
+rename q44b_3        q44_3
+rename q44b_4        q44_4
+rename q44b_5        q44_5
+rename q44b_6        q44_6
+rename q44b_7        q44_7
+rename q44b_8        q44_8
+rename q44b_9        q44_9
+rename q44b_9_text   q44_9_text
+rename q44b_10       q44_10
+rename q44b_11       q44_11
+rename q45b          q45
+rename q45b_text     q45_text
+rename q45ab_1       q45a_1
+rename q45ab_2       q45a_2
+rename q45ab_3       q45a_3
+rename q45ab_4       q45a_4
+rename q45ab_5       q45a_5
+rename q45ab_6       q45a_6
+rename q45ab_7       q45a_7
+rename q45ab_8       q45a_8
+rename q45ab_9       q45a_9
+rename q45ab_10      q45a_10
+rename q45ab_11      q45a_11
+rename q45ab_12      q45a_12
+rename q45ab_13      q45a_13
+rename q45ab_14      q45a_14
+rename q45ab_15      q45a_15
+rename q45ab_16      q45a_16
+rename q45ab_17      q45a_17
+rename q45ab_18      q45a_18
+rename q45ab_19      q45a_19
+rename q45ab_20      q45a_20
+rename q45ab_21      q45a_21
+rename q45ab_22      q45a_22
+rename q45ab_23      q45a_23
+rename q45ab_24      q45a_24
+rename q45ab_25      q45a_25
+rename q45ab_26      q45a_26
+rename q45ab_26_text q45a_26_text
+
+* New in 2018 *
+rename q45ab_27      q45a_27
+rename q45ab_28      q45a_28
+rename q45ab_29      q45a_29
+rename q45ab_30      q45a_30
+rename q45ab_31      q45a_31
+rename q45ab_32      q45a_32
+rename q45ab_33      q45a_33
+rename q45ab_34      q45a_34
+rename q45ab_35      q45a_35
+rename q45ab_36      q45a_36
+rename q45ab_37      q45a_37
+rename q45ab_38      q45a_38
+rename q45ab_39      q45a_39
+rename q45ab_40      q45a_40
+rename q45ab_41      q45a_41
+rename q45ab_42      q45a_42
+rename q45ab_43      q45a_43
+rename q45ab_44      q45a_44
+rename q45ab_45      q45a_45
+rename q45ab_46      q45a_46
+rename q45ab_47      q45a_47
+rename q45ab_48      q45a_48
+rename q45ab_49      q45a_49
+rename q45ab_50      q45a_50
+
+rename q45cb_1       q45c_1
+rename q45cb_2       q45c_2
+rename q45cb_3       q45c_3
+rename q45cb_4       q45c_4
+rename q45cb_5       q45c_5
+rename q45cb_6       q45c_6
+rename q45cb_7       q45c_7
+rename q45cb_8       q45c_8
+rename q45cb_9       q45c_9
+rename q45cb_10      q45c_10
+rename q45cb_11      q45c_11
+rename q45cb_12      q45c_12
+rename q45cb_13      q45c_13
+rename q45cb_14      q45c_14
+rename q45cb_15      q45c_15
+rename q45cb_15_text q45c_15_text
+rename q45db         q45d
+* Q45E_1 - Q45E_13 SHOWN 2016-2017 *
+rename q45eb_1       q45e_1
+rename q45eb_2       q45e_2
+rename q45eb_3       q45e_3
+rename q45eb_4       q45e_4
+rename q45eb_5       q45e_5
+rename q45eb_6       q45e_6
+rename q45eb_7       q45e_7
+rename q45eb_8       q45e_8
+rename q45eb_9       q45e_9
+rename q45eb_10      q45e_10
+rename q45eb_11      q45e_11
+rename q45eb_12      q45e_12
+rename q45eb_13      q45e_13
+
+* New in 2018 Q45F *
+rename q45fb_1       q45f_1
+rename q45fb_2       q45f_2
+rename q45fb_3       q45f_3
+rename q45fb_4       q45f_4
+rename q45fb_5       q45f_5
+rename q45fb_6       q45f_6
+rename q45fb_7       q45f_7
+rename q45fb_8       q45f_8
+rename q45fb_9       q45f_9
+rename q45fb_10      q45f_10
+rename q45fb_11      q45f_11
+rename q45fb_12      q45f_12
+rename q45fb_13      q45f_13
+rename q45fb_14      q45f_14
+rename q45fb_15      q45f_15
+rename q45fb_16      q45f_16
+rename q45fb_17      q45f_17
+
+* New in 2019 *
+rename q45hb         q45h
+
+* New in 2018 Q45G *
+rename q45gb_1       q45g_1
+rename q45gb_2       q45g_2
+rename q45gb_3       q45g_3
+rename q45gb_4       q45g_4
+rename q45gb_5       q45g_5
+rename q45gb_6       q45g_6
+rename q45gb_7       q45g_7
+
+rename q46b          q46
+
+
+keep if occ2var<.
+
+
+gen piece = 2
+move piece zip
+save "`occ2'", replace
+
+
+* now, get rid of the second event data and name the first event vars with a generic name
+restore
+
+drop  q04b_1 - q36eb_7_text
+drop  event_b - q46b
+rename event_a       occ2var
+vlabel occ2var "Eating occasion event"
+
+* New in 2019 *
+rename qa1a          qa1
+
+rename qb0a          qb0
+rename qb0aa         qb0a
+rename qb0aa_1       qb0a_1
+rename qb0aa_2       qb0a_2
+rename qb0aa_3       qb0a_3
+rename qb0aa_4       qb0a_4
+rename qb0aa_5       qb0a_5
+rename qb0aa_6       qb0a_6
+rename qb0aa_7       qb0a_7
+rename qb0aa_8       qb0a_8
+rename qb0aa_9       qb0a_9
+rename qb0aa_10      qb0a_10
+rename qb0aa_11      qb0a_11
+rename qb0aa_12      qb0a_12
+rename qb0aa_13      qb0a_13
+rename qb0aa_14      qb0a_14
+rename qb0aa_15      qb0a_15
+rename qb0aa_16      qb0a_16
+rename qb0aa_17      qb0a_17
+rename qb0aa_17_text qb0a_17_text
+rename qb0aa_18      qb0a_18
+rename qb1aa_1       qb1a_1
+rename qb1aa_2       qb1a_2
+rename qb1aa_3       qb1a_3
+rename qb1aa_4       qb1a_4
+rename qb1aa_4_text  qb1a_4_text
+rename qb1ba         qb1b
+rename qb1ca         qb1c
+rename qb1da_1       qb1d_1
+rename qb1da_2       qb1d_2
+rename qb1da_3       qb1d_3
+rename qb1da_4       qb1d_4
+rename qb1da_5       qb1d_5
+rename qb1da_6       qb1d_6
+rename qb1ea         qb1e
+rename qb1fa_1       qb1f_1
+rename qb1fa_2       qb1f_2
+rename qb1fa_3       qb1f_3
+rename qb1fa_4       qb1f_4
+rename qb1fa_5       qb1f_5
+rename qb1fa_5_text  qb1f_5_text
+rename qb1ga         qb1g
+rename qb1ha_1       qb1h_1
+rename qb1ha_2       qb1h_2
+rename qb1ha_3       qb1h_3
+
+* qb1i added in SPRING 2016
+rename qb1ia_1		 qb1i_1
+rename qb1ia_2		 qb1i_2
+rename qb1ia_3		 qb1i_3
+rename qb1ia_4		 qb1i_4
+rename qb1ia_5		 qb1i_5
+rename qb1ia_6		 qb1i_6
+
+rename qb2aa         qb2a
+rename qb2ba_1       qb2b_1
+rename qb2ba_2       qb2b_2
+rename qb2ba_3       qb2b_3
+rename qb2ba_4       qb2b_4
+rename qb2ba_5       qb2b_5
+rename qb2ba_6       qb2b_6
+rename qb2ba_7       qb2b_7
+rename qb2ba_8       qb2b_8
+rename qb2ba_9       qb2b_9
+rename qb2ba_10      qb2b_10
+rename qb2ba_10_text qb2b_10_text
+
+* New in 2019 *
+rename qb2ba_12      qb2b_12
+
+rename qb2ba_11      qb2b_11
+rename qb2ca         qb2c
+rename qb2ca_text    qb2c_text
+rename qb2da_1       qb2d_1
+rename qb2da_2       qb2d_2
+rename qb2da_3       qb2d_3
+rename qb2da_4       qb2d_4
+rename qb2da_5       qb2d_5
+rename qb2da_6       qb2d_6
+rename qb2da_7       qb2d_7
+rename qb2da_8       qb2d_8
+rename qb2da_9       qb2d_9
+rename qb2da_10      qb2d_10
+rename qb2da_10_text qb2d_10_text
+rename qb2da_11      qb2d_11
+rename qb2ea         qb2e
+rename qb2ea_text    qb2e_text
+rename qb2fa         qb2f
+rename qb2fa_text    qb2f_text
+rename qb2ga         qb2g
+rename qb2ga_text    qb2g_text
+rename qb2ha         qb2h
+rename qb2ha_text    qb2h_text
+rename qb2ia         qb2i
+rename qb2ia_text    qb2i_text
+* New in 2018
+rename qb2ja_1       qb2j_1
+rename qb2ja_2       qb2j_2
+rename qb2ja_3       qb2j_3
+rename qb2ja_4       qb2j_4
+rename qb2ja_5       qb2j_5
+rename qb2ja_6       qb2j_6
+rename qb2ja_7       qb2j_7
+rename qb2ja_8       qb2j_8
+rename qb2ja_9       qb2j_9
+rename qb2ja_10      qb2j_10
+rename qb2ja_11      qb2j_11
+rename qb2ja_12      qb2j_12
+rename qb2ja_13      qb2j_13
+rename qb2ja_14      qb2j_14
+rename qb2ja_15      qb2j_15
+rename qb2ja_16      qb2j_16
+rename qb2ja_16_text qb2j_16_text
+rename qb2ja_17      qb2j_17
+rename qb3aa         qb3a
+rename qb3aa_text    qb3a_text
+rename qb3ba         qb3b
+rename qb3ba_text    qb3b_text
+rename qb3ca         qb3c
+rename qb3da_1       qb3d_1
+rename qb3da_2       qb3d_2
+rename qb3da_3       qb3d_3
+rename qb3da_4       qb3d_4
+rename qb3da_5       qb3d_5
+rename qb3da_6       qb3d_6
+rename qb3da_7       qb3d_7
+rename qb3da_8       qb3d_8
+rename qb3da_9       qb3d_9
+rename qb3da_10      qb3d_10
+rename qb3da_10_text qb3d_10_text
+* New in 2016
+rename qb3ea         qb3e
+rename qb4aa         qb4a
+rename qb4ba         qb4b
+rename qb4ca_1       qb4c_1
+rename qb4ca_2       qb4c_2
+rename qb4ca_3       qb4c_3
+rename qb4ca_4       qb4c_4
+rename qb4ca_5       qb4c_5
+rename qb4ca_6       qb4c_6
+rename qb4ca_7       qb4c_7
+rename qb4ca_8       qb4c_8
+rename qb4ca_9       qb4c_9
+rename qb4ca_10      qb4c_10
+rename qb4ca_11      qb4c_11
+rename qb4ca_12      qb4c_12
+rename qb4ca_13      qb4c_13
+
+* New in 2019 *
+rename qb4da         qb4d
+rename qb5aa         qb5a
+rename qb5ba         qb5b
+rename qb5ca_1       qb5c_1
+rename qb5ca_2       qb5c_2
+rename qb5ca_3       qb5c_3
+rename qb5ca_4       qb5c_4
+rename qb5ca_5       qb5c_5
+rename qb5da_43      qb5d_43
+rename qb5da_44      qb5d_44
+rename qb5da_45      qb5d_45
+rename qb5da_46      qb5d_46
+rename qb5da_47      qb5d_47
+rename qb5da_48      qb5d_48
+rename qb5da_49      qb5d_49
+rename qb5da_50      qb5d_50
+rename qb5da_51      qb5d_51
+rename qb5da_52      qb5d_52
+rename qb5da_53      qb5d_53
+rename qb5da_54      qb5d_54
+rename qb5da_55      qb5d_55
+rename qb5da_56      qb5d_56
+rename qb5da_57      qb5d_57
+rename qb5da_42      qb5d_42
+rename qb5da_3       qb5d_3
+rename qb5da_58      qb5d_58
+rename qb5da_21      qb5d_21
+rename qb5da_35      qb5d_35
+rename qb5da_59      qb5d_59
+rename qb5da_60      qb5d_60
+rename qb5da_62      qb5d_62
+rename qb5da_17      qb5d_17
+rename qb5da_19      qb5d_19
+rename qb5da_20      qb5d_20
+rename qb5da_63      qb5d_63
+rename qb5da_64      qb5d_64
+rename qb5da_26      qb5d_26
+rename qb5da_28      qb5d_28
+rename qb5da_2       qb5d_2
+rename qb5da_30      qb5d_30
+rename qb5da_31      qb5d_31
+rename qb5da_65      qb5d_65
+rename qb5da_34      qb5d_34
+rename qb5da_22      qb5d_22
+rename qb5da_66      qb5d_66
+rename qb5da_37      qb5d_37
+rename qb5da_38      qb5d_38
+rename qb5da_37_text qb5d_37_text
+
+rename q01a_1        q01_1
+rename q01a_2        q01_2
+rename q01a_3        q01_3
+rename q01a_4        q01_4
+rename q01a_5        q01_5
+rename q01a_6        q01_6
+rename q02a_1        q02_1
+rename q02a_2        q02_2
+rename q02a_3        q02_3
+rename q02a_4        q02_4
+rename q02a_5        q02_5
+rename q02a_6        q02_6
+rename q02a_7        q02_7
+rename q02a_8        q02_8
+rename q02a_9        q02_9
+rename q02a_10       q02_10
+rename q02a_11       q02_11
+rename q02a_12       q02_12
+rename q02a_13       q02_13
+rename q02a_14       q02_14
+rename q02a_15       q02_15
+rename q02a_15_text  q02_15_text
+rename q02a_16       q02_16
+rename q02a_17       q02_17
+rename q02a_18       q02_18
+rename q02a_19       q02_19
+rename q02a_20       q02_20
+rename q02aa_2       q02a_2
+rename q02aa_3       q02a_3
+rename q02aa_4       q02a_4
+rename q02aa_6       q02a_6
+rename q02aa_8       q02a_8
+rename q02aa_10      q02a_10
+rename q02aa_11      q02a_11
+rename q02aa_12      q02a_12
+rename q02aa_13      q02a_13
+rename q02aa_14      q02a_14
+rename q02aa_15      q02a_15
+rename q02aa_16      q02a_16
+rename q02aa_17      q02a_17
+rename q02aa_18      q02a_18
+rename q02aa_15_text q02a_15_text
+rename q02ba_1       q02b_1
+rename q02ba_2       q02b_2
+rename q02ba_3       q02b_3
+rename q02ba_4       q02b_4
+rename q02ba_5       q02b_5
+rename q02ba_6       q02b_6
+rename q02ba_6_text  q02b_6_text
+rename q02ba_7       q02b_7
+rename q03a_1        q03_1
+rename q03a_2        q03_2
+rename q03a_3        q03_3
+rename q03a_4        q03_4
+rename q03a_5        q03_5
+rename q03a_6        q03_6
+rename q03a_7        q03_7
+rename q03a_8        q03_8
+rename q03a_9        q03_9
+rename q03a_10       q03_10
+rename q03a_11       q03_11
+rename q03a_12       q03_12
+rename q03a_13       q03_13
+rename q03a_14       q03_14
+rename q03a_15       q03_15
+rename q03a_16       q03_16
+rename q03a_17       q03_17
+rename q03a_18       q03_18
+rename q03a_19       q03_19
+* New in 2018 *
+rename q03a_20       q03_20
+rename q03a_21       q03_21
+rename q03a_22       q03_22
+rename q03a_23       q03_23
+rename q03a_24       q03_24
+rename q03a_25       q03_25
+rename q03aa_1       q03a_1
+rename q03aa_2       q03a_2
+rename q03aa_3       q03a_3
+rename q03aa_4       q03a_4
+rename q03aa_5       q03a_5
+rename q03aa_6       q03a_6
+rename q03aa_7       q03a_7
+rename q03aa_8       q03a_8
+rename q03aa_9       q03a_9
+rename q03aa_10      q03a_10
+rename q03aa_11      q03a_11
+rename q03aa_12      q03a_12
+rename q03aa_13      q03a_13
+rename q03aa_14      q03a_14
+rename q03aa_15      q03a_15
+rename q03aa_16      q03a_16
+rename q03aa_17      q03a_17
+* New in 2018 *
+rename q03aa_18      q03a_18
+rename q03ba_1       q03b_1
+rename q03ba_2       q03b_2
+rename q03ba_3       q03b_3
+rename q03ba_4       q03b_4
+rename q03ba_5       q03b_5
+rename q03ba_6       q03b_6
+rename q03ba_7       q03b_7
+rename q03ba_8       q03b_8
+rename q03ca_1       q03c_1
+rename q03ca_2       q03c_2
+rename q03ca_3       q03c_3
+rename q03ca_4       q03c_4
+rename q03ca_5       q03c_5
+rename q03ca_6       q03c_6
+rename q03ca_7       q03c_7
+rename q03ca_8       q03c_8
+rename q03ca_9       q03c_9
+rename q03ca_10      q03c_10
+rename q03ca_11      q03c_11
+rename q03ca_12      q03c_12
+rename q03ca_13      q03c_13
+rename q03ca_14      q03c_14
+rename q03da_1       q03d_1
+rename q03da_2       q03d_2
+rename q03da_3       q03d_3
+rename q03da_4       q03d_4
+rename q03da_5       q03d_5
+rename q03da_6       q03d_6
+rename q03da_7       q03d_7
+rename q03da_8       q03d_8
+rename q03da_9       q03d_9
+rename q03da_10      q03d_10
+rename q03da_11      q03d_11
+rename q03ea_1       q03e_1
+rename q03ea_2       q03e_2
+rename q03ea_3       q03e_3
+rename q03ea_4       q03e_4
+rename q03ea_5       q03e_5
+rename q03ea_6       q03e_6
+rename q03ea_7       q03e_7
+rename q03fa_1       q03f_1
+rename q03fa_2       q03f_2
+rename q03fa_3       q03f_3
+rename q03fa_4       q03f_4
+rename q03fa_5       q03f_5
+rename q03fa_6       q03f_6
+rename q03fa_7       q03f_7
+rename q03fa_8       q03f_8
+rename q03fa_9       q03f_9
+rename q03fa_10      q03f_10
+rename q03ga_1       q03g_1
+rename q03ga_2       q03g_2
+rename q03ga_3       q03g_3
+rename q03ga_4       q03g_4
+rename q03ga_5       q03g_5
+rename q03ga_6       q03g_6
+rename q03ga_7       q03g_7
+rename q03ga_8       q03g_8
+rename q03ga_9       q03g_9
+rename q03ha_1       q03h_1
+rename q03ha_2       q03h_2
+rename q03ha_3       q03h_3
+rename q03ha_4       q03h_4
+rename q03ha_5       q03h_5
+rename q03ha_6       q03h_6
+rename q03ha_7       q03h_7
+rename q03ia_1       q03i_1
+rename q03ia_2       q03i_2
+rename q03ia_3       q03i_3
+rename q03ia_4       q03i_4
+rename q03ia_5       q03i_5
+
+* New in 2016 *
+rename q03ia_6       q03i_6
+
+* New in 2018 *
+rename q03ja_1       q03j_1
+rename q03ja_2       q03j_2
+rename q03ja_3       q03j_3
+rename q03ja_4       q03j_4
+rename q03ja_5       q03j_5
+rename q03ja_6       q03j_6
+rename q03ja_7       q03j_7
+rename q03ja_8       q03j_8
+rename q03ja_9       q03j_9
+rename q03ja_10      q03j_10
+rename q03ja_11      q03j_11
+rename q03ja_12      q03j_12
+rename q03ja_12_text q03j_12_text
+rename q03ka_1       q03k_1
+rename q03ka_2       q03k_2
+rename q03ka_3       q03k_3
+rename q03ka_4       q03k_4
+rename q03ka_5       q03k_5
+rename q03ka_6       q03k_6
+rename q03ka_7       q03k_7
+rename q03ka_8       q03k_8
+rename q03ka_9       q03k_9
+rename q03ka_10      q03k_10
+rename q03ka_11      q03k_11
+rename q03ka_12      q03k_12
+rename q03ka_13      q03k_13
+rename q03ka_14      q03k_14
+
+rename q04aa         q04a
+rename q04ba         q04b
+rename q04ca         q04c
+
+* New in 2016 *
+rename q04fa         q04f
+
+rename q04a_1        q04_1
+rename q04a_2        q04_2
+rename q04a_3        q04_3
+rename q04a_4        q04_4
+rename q04a_5        q04_5
+rename q04a_6        q04_6
+rename q04a_7        q04_7
+rename q04a_8        q04_8
+rename q04a_9        q04_9
+rename q04a_10       q04_10
+rename q04a_11       q04_11
+rename q04a_12       q04_12
+rename q04a_14       q04_14
+rename q04a_15       q04_15
+rename q04a_16       q04_16
+rename q04a_17       q04_17
+rename q04a_18       q04_18
+rename q04a_19       q04_19
+rename q04a_21       q04_21
+rename q04a_22       q04_22
+rename q04a_23       q04_23
+rename q04a_27       q04_27
+rename q04a_28       q04_28
+rename q04a_29       q04_29
+rename q04a_30       q04_30
+rename q04a_31       q04_31
+rename q04a_33       q04_33
+rename q04a_34       q04_34
+rename q04a_35       q04_35
+rename q04a_36       q04_36
+rename q04a_37       q04_37
+rename q04a_39       q04_39
+rename q04a_40       q04_40
+rename q04a_41       q04_41
+rename q04a_42       q04_42
+rename q04a_43       q04_43
+rename q04da_1       q04d_1
+rename q04da_2       q04d_2
+rename q04da_3       q04d_3
+rename q04da_4       q04d_4
+rename q04da_5       q04d_5
+rename q04ea_1       q04e_1
+rename q04ea_2       q04e_2
+rename q04ea_3       q04e_3
+rename q04ea_4       q04e_4
+rename q04ea_5       q04e_5
+rename q04ea_6       q04e_6
+rename q04ea_6_text  q04e_6_text
+rename q05a_1        q05_1
+rename q05a_4        q05_4
+rename q05a_5        q05_5
+rename q05a_6        q05_6
+rename q05a_6_text   q05_6_text
+rename q05aa_1       q05a_1
+rename q05aa_4       q05a_4
+rename q05aa_5       q05a_5
+rename q05aa_6       q05a_6
+rename q06a_1        q06_1
+rename q06a_2        q06_2
+rename q06a_3        q06_3
+rename q06a_4        q06_4
+rename q06a_5        q06_5
+rename q06a_6        q06_6
+rename q06a_7        q06_7
+rename q06a_8        q06_8
+rename q06a_9        q06_9
+rename q06a_10       q06_10
+rename q06a_11       q06_11
+rename q06a_12       q06_12
+rename q06a_13       q06_13
+rename q06a_14       q06_14
+rename q06a_15       q06_15
+rename q06a_16       q06_16
+rename q06a_17       q06_17
+rename q06a_18       q06_18
+rename q06a_19       q06_19
+rename q06a_20       q06_20
+rename q06a_21       q06_21
+rename q06a_22       q06_22
+rename q06a_23       q06_23
+rename q06a_24       q06_24
+rename q06a_25       q06_25
+rename q06a_25_text  q06_25_text
+rename q06aa_1       q06a_1
+rename q06aa_2       q06a_2
+rename q06aa_3       q06a_3
+rename q06aa_4       q06a_4
+rename q06aa_5       q06a_5
+rename q06aa_6       q06a_6
+rename q06aa_7       q06a_7
+rename q06aa_8       q06a_8
+rename q06aa_9       q06a_9
+rename q06aa_10      q06a_10
+rename q06aa_11      q06a_11
+rename q06aa_12      q06a_12
+rename q06aa_13      q06a_13
+rename q06aa_14      q06a_14
+rename q06aa_15      q06a_15
+rename q06aa_16      q06a_16
+rename q06aa_17      q06a_17
+rename q06aa_18      q06a_18
+rename q06aa_19      q06a_19
+rename q06aa_20      q06a_20
+rename q06aa_21      q06a_21
+rename q06aa_22      q06a_22
+rename q06aa_23      q06a_23
+rename q06aa_24      q06a_24
+rename q06aa_25      q06a_25
+rename q07a_1        q07_1
+rename q07a_2        q07_2
+rename q07a_3        q07_3
+rename q07a_4        q07_4
+rename q07a_5        q07_5
+rename q07a_6        q07_6
+rename q07a_7        q07_7
+rename q07a_8        q07_8
+rename q07a_9        q07_9
+rename q07a_10       q07_10
+rename q07a_10_text  q07_10_text
+rename q07aa_1       q07a_1
+rename q07aa_2       q07a_2
+rename q07aa_3       q07a_3
+rename q07aa_4       q07a_4
+rename q07aa_5       q07a_5
+rename q07aa_6       q07a_6
+rename q07aa_7       q07a_7
+rename q07aa_8       q07a_8
+rename q07aa_9       q07a_9
+rename q07aa_10      q07a_10
+rename q08a_1        q08_1
+rename q08a_2        q08_2
+rename q08a_3        q08_3
+rename q08a_4        q08_4
+rename q08a_5        q08_5
+rename q08a_6        q08_6
+rename q08a_7        q08_7
+rename q08a_8        q08_8
+rename q08a_9        q08_9
+rename q08a_10       q08_10
+rename q08a_11       q08_11
+rename q08a_12       q08_12
+rename q08a_13       q08_13
+rename q08a_13_text  q08_13_text
+rename q08aa_1       q08a_1
+rename q08aa_2       q08a_2
+rename q08aa_3       q08a_3
+rename q08aa_4       q08a_4
+rename q08aa_5       q08a_5
+rename q08aa_6       q08a_6
+rename q08aa_7       q08a_7
+rename q08aa_8       q08a_8
+rename q08aa_9       q08a_9
+rename q08aa_10      q08a_10
+rename q08aa_11      q08a_11
+rename q08aa_12      q08a_12
+rename q08aa_13      q08a_13
+rename q10a_1        q10_1
+rename q10a_2        q10_2
+rename q10a_3        q10_3
+rename q10a_4        q10_4
+rename q10a_5        q10_5
+rename q10a_5_text   q10_5_text
+rename q10aa_1       q10a_1
+rename q10aa_2       q10a_2
+rename q10aa_3       q10a_3
+rename q10aa_4       q10a_4
+rename q10aa_5       q10a_5
+rename q11a_1        q11_1
+rename q11a_2        q11_2
+rename q11a_3        q11_3
+rename q11a_4        q11_4
+rename q11a_5        q11_5
+rename q11a_6        q11_6
+rename q11a_7        q11_7
+rename q11a_8        q11_8
+rename q11a_9        q11_9
+rename q11a_10       q11_10
+rename q11a_11       q11_11
+rename q11a_12       q11_12
+rename q11a_13       q11_13
+rename q11a_14       q11_14
+rename q11a_15       q11_15
+rename q11a_16       q11_16
+rename q11a_17       q11_17
+rename q11a_18       q11_18
+rename q11a_19       q11_19
+rename q11a_20       q11_20
+rename q11a_20_text  q11_20_text
+rename q11aa_1       q11a_1
+rename q11aa_2       q11a_2
+rename q11aa_3       q11a_3
+rename q11aa_4       q11a_4
+rename q11aa_5       q11a_5
+rename q11aa_6       q11a_6
+rename q11aa_7       q11a_7
+rename q11aa_8       q11a_8
+rename q11aa_9       q11a_9
+rename q11aa_10      q11a_10
+rename q11aa_11      q11a_11
+rename q11aa_12      q11a_12
+rename q11aa_13      q11a_13
+rename q11aa_14      q11a_14
+rename q11aa_15      q11a_15
+rename q11aa_16      q11a_16
+rename q11aa_17      q11a_17
+rename q11aa_18      q11a_18
+rename q11aa_19      q11a_19
+rename q11aa_20      q11a_20
+
+* New in 2018 *
+rename q11ba_1       q11b_1
+rename q11ba_2       q11b_2
+rename q11ba_3       q11b_3
+rename q11ba_4       q11b_4
+rename q11ba_5       q11b_5
+rename q11ba_6       q11b_6
+rename q11ba_7       q11b_7
+rename q11ba_8       q11b_8
+rename q11ba_9       q11b_9
+rename q11ba_10      q11b_10
+rename q11ba_10_text q11b_10_text
+rename q11ba_11      q11b_11
+
+rename q12a_1        q12_1
+rename q12a_2        q12_2
+rename q12a_3        q12_3
+rename q12a_4        q12_4
+rename q12a_5        q12_5
+rename q12a_6        q12_6
+rename q12a_7        q12_7
+rename q12a_8        q12_8
+rename q12a_9        q12_9
+rename q12a_10       q12_10
+rename q12a_11       q12_11
+rename q12a_12       q12_12
+rename q12a_12_text  q12_12_text
+rename q13a_1        q13_1
+rename q13a_2        q13_2
+rename q13a_3        q13_3
+rename q13a_4        q13_4
+rename q13a_5        q13_5
+rename q13a_6        q13_6
+rename q13a_7        q13_7
+rename q13a_8        q13_8
+rename q13a_9        q13_9
+rename q13a_10       q13_10
+rename q13a_11       q13_11
+rename q13a_12       q13_12
+rename q13a_13       q13_13
+rename q13a_13_text  q13_13_text
+rename q14a_1        q14_1
+rename q14a_2        q14_2
+rename q14a_3        q14_3
+rename q14a_4        q14_4
+rename q14a_5        q14_5
+rename q14a_6        q14_6
+rename q14a_7        q14_7
+rename q14a_8        q14_8
+rename q14a_9        q14_9
+rename q14a_10       q14_10
+rename q14a_11       q14_11
+rename q14a_12       q14_12
+rename q14a_13       q14_13
+rename q14a_14       q14_14
+rename q14a_15       q14_15
+rename q14a_16       q14_16
+rename q14a_17       q14_17
+rename q14a_18       q14_18
+rename q14a_19       q14_19
+rename q14a_20       q14_20
+rename q14a_21       q14_21
+rename q14a_23       q14_23
+rename q14a_25       q14_25
+rename q14a_27       q14_27
+rename q14a_28       q14_28
+rename q14a_30       q14_30
+rename q14a_30_text  q14_30_text
+rename q14a_31       q14_31
+rename q14aa_1       q14a_1
+rename q14aa_2       q14a_2
+rename q14aa_3       q14a_3
+rename q14aa_4       q14a_4
+rename q14aa_5       q14a_5
+rename q14aa_6       q14a_6
+rename q14aa_7       q14a_7
+rename q14aa_8       q14a_8
+rename q14aa_9       q14a_9
+rename q14aa_10      q14a_10
+rename q14aa_11      q14a_11
+rename q14aa_12      q14a_12
+rename q14aa_13      q14a_13
+rename q14aa_14      q14a_14
+rename q14aa_15      q14a_15
+rename q14aa_16      q14a_16
+rename q14aa_17      q14a_17
+rename q14aa_18      q14a_18
+rename q14aa_19      q14a_19
+rename q14aa_20      q14a_20
+rename q14aa_21      q14a_21
+rename q14aa_23      q14a_23
+rename q14aa_25      q14a_25
+rename q14aa_27      q14a_27
+rename q14aa_28      q14a_28
+rename q14aa_30      q14a_30
+rename q14aa_31      q14a_31
+rename q15a_1        q15_1
+rename q15a_2        q15_2
+rename q15a_3        q15_3
+rename q15a_4        q15_4
+rename q15a_5        q15_5
+rename q15a_6        q15_6
+rename q15a_7        q15_7
+rename q15a_7_text   q15_7_text
+rename q15aa_1       q15a_1
+rename q15aa_2       q15a_2
+rename q15aa_3       q15a_3
+rename q15aa_4       q15a_4
+rename q15aa_5       q15a_5
+rename q15aa_6       q15a_6
+rename q15aa_7       q15a_7
+rename q16a_1        q16_1
+rename q16a_2        q16_2
+rename q16a_3        q16_3
+rename q16a_4        q16_4
+rename q16a_5        q16_5
+rename q16a_6        q16_6
+rename q16a_7        q16_7
+rename q16a_8        q16_8
+rename q16a_9        q16_9
+rename q16a_10       q16_10
+rename q16a_11       q16_11
+rename q16a_11_text  q16_11_text
+rename q16aa_1       q16a_1
+rename q16aa_2       q16a_2
+rename q16aa_3       q16a_3
+rename q16aa_4       q16a_4
+rename q16aa_5       q16a_5
+rename q16aa_6       q16a_6
+rename q16aa_7       q16a_7
+rename q16aa_8       q16a_8
+rename q16aa_9       q16a_9
+rename q16aa_10      q16a_10
+rename q16aa_11      q16a_11
+rename q17a_1        q17_1
+rename q17a_2        q17_2
+rename q17a_3        q17_3
+rename q17a_4        q17_4
+rename q17a_5        q17_5
+rename q17a_6        q17_6
+rename q17a_7        q17_7
+
+* New in 2018 *
+rename q17a_13       q17_13
+
+rename q17a_8        q17_8
+rename q17a_9        q17_9
+rename q17a_10       q17_10
+rename q17a_11       q17_11
+rename q17a_12       q17_12
+rename q17a_12_text  q17_12_text
+rename q17aa_1       q17a_1
+rename q17aa_2       q17a_2
+rename q17aa_3       q17a_3
+rename q17aa_4       q17a_4
+rename q17aa_5       q17a_5
+rename q17aa_10      q17a_10
+rename q17aa_11      q17a_11
+rename q17aa_12      q17a_12
+rename q18a_1        q18_1
+rename q18a_2        q18_2
+rename q18a_3        q18_3
+rename q18a_4        q18_4
+rename q18a_5        q18_5
+rename q18a_5_text   q18_5_text
+rename q18aa_1       q18a_1
+rename q18aa_2       q18a_2
+rename q18aa_3       q18a_3
+rename q18aa_4       q18a_4
+rename q18aa_5       q18a_5
+rename q19a_1        q19_1
+rename q19a_2        q19_2
+rename q19a_3        q19_3
+rename q19a_4        q19_4
+rename q19a_5        q19_5
+rename q19a_6        q19_6
+rename q19a_7        q19_7
+rename q19a_7_text   q19_7_text
+rename q19aa_1       q19a_1
+rename q19aa_2       q19a_2
+rename q19aa_3       q19a_3
+rename q19aa_4       q19a_4
+rename q19aa_5       q19a_5
+rename q19aa_6       q19a_6
+rename q19aa_7       q19a_7
+rename q20a_1        q20_1
+rename q20a_2        q20_2
+rename q20a_3        q20_3
+rename q20a_4        q20_4
+rename q20a_5        q20_5
+rename q20a_6        q20_6
+rename q20a_7        q20_7
+rename q20a_8        q20_8
+rename q20a_9        q20_9
+rename q20a_10       q20_10
+rename q20a_10_text  q20_10_text
+rename q20aa_1       q20a_1
+rename q20aa_2       q20a_2
+rename q20aa_3       q20a_3
+rename q20aa_4       q20a_4
+rename q20aa_5       q20a_5
+rename q20aa_6       q20a_6
+rename q20aa_7       q20a_7
+rename q20aa_8       q20a_8
+rename q20aa_9       q20a_9
+rename q20aa_10      q20a_10
+rename q21a_1        q21_1
+rename q21a_2        q21_2
+rename q21a_3        q21_3
+
+* New in 2019 *
+rename q21a_9        q21_9
+
+rename q21a_4        q21_4
+rename q21a_5        q21_5
+rename q21a_6        q21_6
+rename q21a_7        q21_7
+rename q21a_8        q21_8
+rename q21a_8_text   q21_8_text
+rename q22a_1        q22_1
+rename q22a_2        q22_2
+rename q22a_3        q22_3
+rename q22a_4        q22_4
+rename q22a_5        q22_5
+rename q22a_6        q22_6
+rename q22a_7        q22_7
+rename q22a_8        q22_8
+rename q22a_9        q22_9
+rename q22a_9_text   q22_9_text
+rename q22a_10       q22_10
+rename q22aa_1       q22a_1
+rename q22aa_2       q22a_2
+rename q22aa_3       q22a_3
+rename q22aa_4       q22a_4
+rename q22aa_5       q22a_5
+rename q22aa_6       q22a_6
+rename q22aa_7       q22a_7
+rename q22aa_8       q22a_8
+rename q22aa_9       q22a_9
+rename q23a          q23
+rename q23aa         q23a
+rename q25a_1        q25_1
+rename q25a_2        q25_2
+rename q25a_3        q25_3
+rename q25a_4        q25_4
+rename q25a_5        q25_5
+rename q25a_5_text   q25_5_text
+rename q25aa_1       q25a_1
+rename q25aa_2       q25a_2
+rename q25aa_3       q25a_3
+rename q25aa_4       q25a_4
+rename q25aa_5       q25a_5
+rename q26a_1        q26_1
+rename q26a_2        q26_2
+rename q26a_3        q26_3
+rename q26aa_1       q26a_1
+rename q26aa_2       q26a_2
+rename q26aa_3       q26a_3
+rename q27a_1        q27_1
+rename q27a_2        q27_2
+rename q27a_3        q27_3
+rename q27a_4        q27_4
+rename q27a_5        q27_5
+rename q27a_6        q27_6
+rename q27a_7        q27_7
+rename q27a_8        q27_8
+rename q27a_9        q27_9
+rename q27a_10       q27_10
+rename q27a_11       q27_11
+rename q27a_12       q27_12
+rename q27a_13       q27_13
+rename q27a_14       q27_14
+rename q27a_15       q27_15
+rename q27a_16       q27_16
+rename q27a_17       q27_17
+rename q27a_18       q27_18
+rename q27a_19       q27_19
+rename q27a_20       q27_20
+rename q27a_21       q27_21
+rename q27a_22       q27_22
+rename q27a_23       q27_23
+rename q27a_24       q27_24
+rename q27a_24_text  q27_24_text
+rename q27aa_1       q27a_1
+rename q27aa_3       q27a_3
+rename q27aa_4       q27a_4
+rename q27aa_9       q27a_9
+rename q27aa_10      q27a_10
+rename q27aa_11      q27a_11
+rename q27aa_17      q27a_17
+rename q27aa_18      q27a_18
+rename q27aa_19      q27a_19
+rename q27aa_20      q27a_20
+rename q27aa_21      q27a_21
+rename q27aa_22      q27a_22
+rename q27aa_23      q27a_23
+rename q27aa_24      q27a_24
+rename q28a_1        q28_1
+rename q28a_2        q28_2
+rename q28a_3        q28_3
+rename q28a_4        q28_4
+rename q28a_5        q28_5
+rename q28a_6        q28_6
+rename q28a_7        q28_7
+rename q28a_8        q28_8
+rename q28a_9        q28_9
+rename q28a_10       q28_10
+rename q28a_11       q28_11
+rename q28a_12       q28_12
+rename q28a_13       q28_13
+rename q28a_14       q28_14
+rename q28a_15       q28_15
+rename q28a_16       q28_16
+rename q28a_17       q28_17
+rename q28a_18       q28_18
+rename q28a_19       q28_19
+rename q28a_20       q28_20
+rename q28a_21       q28_21
+rename q28a_22       q28_22
+rename q28a_23       q28_23
+rename q28a_24       q28_24
+rename q28a_24_text  q28_24_text
+rename q28aa_1       q28a_1
+rename q28aa_2       q28a_2
+rename q28aa_3       q28a_3
+rename q28aa_4       q28a_4
+rename q28aa_5       q28a_5
+rename q28aa_6       q28a_6
+rename q28aa_7       q28a_7
+rename q28aa_8       q28a_8
+rename q28aa_9       q28a_9
+rename q28aa_10      q28a_10
+rename q28aa_11      q28a_11
+rename q28aa_12      q28a_12
+rename q28aa_13      q28a_13
+rename q28aa_14      q28a_14
+rename q28aa_15      q28a_15
+rename q28aa_16      q28a_16
+rename q28aa_17      q28a_17
+rename q28aa_18      q28a_18
+rename q28aa_19      q28a_19
+rename q28aa_20      q28a_20
+rename q28aa_21      q28a_21
+rename q28aa_22      q28a_22
+rename q28aa_23      q28a_23
+rename q28aa_24      q28a_24
+rename q29a_1        q29_1
+rename q29a_2        q29_2
+rename q29a_3        q29_3
+rename q29a_4        q29_4
+rename q29a_5        q29_5
+rename q29a_6        q29_6
+rename q29a_7        q29_7
+rename q29a_8        q29_8
+rename q29a_9        q29_9
+rename q29a_10       q29_10
+rename q29a_11       q29_11
+rename q29a_12       q29_12
+rename q29a_13       q29_13
+rename q29a_14       q29_14
+rename q29a_15       q29_15
+rename q29a_16       q29_16
+rename q29a_17       q29_17
+rename q29a_17_text  q29_17_text
+rename q29aa_1       q29a_1
+rename q29aa_2       q29a_2
+rename q29aa_3       q29a_3
+rename q29aa_4       q29a_4
+rename q29aa_5       q29a_5
+rename q29aa_6       q29a_6
+rename q29aa_7       q29a_7
+rename q29aa_8       q29a_8
+rename q29aa_9       q29a_9
+rename q29aa_10      q29a_10
+rename q29aa_11      q29a_11
+rename q29aa_12      q29a_12
+rename q29aa_13      q29a_13
+rename q29aa_14      q29a_14
+rename q29aa_15      q29a_15
+rename q29aa_16      q29a_16
+rename q29aa_17      q29a_17
+rename q30a_1        q30_1
+rename q30a_2        q30_2
+rename q30a_3        q30_3
+rename q30a_4        q30_4
+rename q30a_5        q30_5
+rename q30a_6        q30_6
+rename q30a_6_text   q30_6_text
+rename q30aa_1       q30a_1
+rename q30aa_2       q30a_2
+rename q30aa_3       q30a_3
+rename q30aa_4       q30a_4
+rename q30aa_5       q30a_5
+rename q30aa_6       q30a_6
+rename q30aa_7       q30a_7
+rename q30aa_8       q30a_8
+rename q30aa_9       q30a_9
+rename q30aa_10      q30a_10
+rename q30aa_11      q30a_11
+rename q30aa_12      q30a_12
+rename q30aa_13      q30a_13
+rename q30aa_14      q30a_14
+rename q30aa_15      q30a_15
+rename q30aa_16      q30a_16
+rename q30aa_17      q30a_17
+rename q30aa_18      q30a_18
+rename q30aa_19      q30a_19
+rename q30aa_20      q30a_20
+rename q30aa_21      q30a_21
+rename q30aa_22      q30a_22
+
+* New in 2019 *
+rename q30aa_28      q30a_28
+
+rename q30aa_23      q30a_23
+rename q30aa_24      q30a_24
+rename q30aa_25      q30a_25
+rename q30aa_26      q30a_26
+rename q30aa_27      q30a_27
+
+* New in 2019 *
+rename q31ca      	 q31c
+
+
+
+
+
+rename q31a_1        q31_1
+rename q31a_2        q31_2
+rename q31a_3        q31_3
+rename q31a_4        q31_4
+rename q31a_5        q31_5
+rename q31a_6        q31_6
+rename q31a_7        q31_7
+rename q31a_8        q31_8
+rename q31a_9        q31_9
+rename q31a_10       q31_10
+rename q31a_11       q31_11
+rename q31a_12       q31_12
+rename q31a_13       q31_13
+rename q31a_14       q31_14
+rename q31a_15       q31_15
+rename q31a_16       q31_16
+rename q31a_17       q31_17
+rename q31a_18       q31_18
+rename q31a_19       q31_19
+rename q31a_20       q31_20
+rename q31a_21       q31_21
+rename q31a_22       q31_22
+rename q31a_23       q31_23
+rename q31a_24       q31_24
+rename q31a_25       q31_25
+rename q31a_26       q31_26
+rename q31a_27       q31_27
+rename q31a_28       q31_28
+rename q31a_29       q31_29
+rename q31a_30       q31_30
+rename q31a_31       q31_31
+rename q31a_32       q31_32
+rename q31a_33       q31_33
+rename q31a_34       q31_34
+rename q31a_35       q31_35
+rename q31a_36       q31_36
+rename q31a_37       q31_37
+rename q31a_37_text  q31_37_text
+rename q31a_38       q31_38
+rename q31a_39       q31_39
+
+* New in 2018 *
+rename q31a_40       q31_40
+rename q31a_41       q31_41
+rename q31a_42       q31_42
+
+* New in 2019 *
+rename q31da_1       q31d_1
+rename q31da_2       q31d_2
+rename q31da_3       q31d_3
+rename q31da_6       q31d_6
+rename q31da_7       q31d_7
+rename q31da_39      q31d_39
+rename q31da_8       q31d_8
+rename q31da_9       q31d_9
+rename q31da_10      q31d_10
+rename q31da_11      q31d_11
+rename q31da_12      q31d_12
+rename q31da_13      q31d_13
+rename q31da_14      q31d_14
+rename q31da_15      q31d_15
+rename q31da_16      q31d_16
+rename q31da_17      q31d_17
+rename q31da_18      q31d_18
+rename q31da_19      q31d_19
+rename q31da_20      q31d_20
+rename q31da_21      q31d_21
+rename q31da_22      q31d_22
+rename q31da_23      q31d_23
+rename q31da_24      q31d_24
+rename q31da_25      q31d_25
+rename q31da_26      q31d_26
+rename q31da_27      q31d_27
+rename q31da_28      q31d_28
+rename q31da_29      q31d_29
+rename q31da_30      q31d_30
+rename q31da_31      q31d_31
+rename q31da_32      q31d_32
+rename q31da_33      q31d_33
+rename q31da_34      q31d_34
+rename q31da_35      q31d_35
+rename q31da_36      q31d_36
+rename q31da_40      q31d_40
+rename q31da_42      q31d_42
+rename q31da_43      q31d_43
+rename q31da_44      q31d_44
+rename q31da_46      q31d_46
+rename q31da_49      q31d_49
+rename q31da_51      q31d_51
+rename q31da_52      q31d_52
+rename q31da_55      q31d_55
+rename q31da_56      q31d_56
+rename q31da_57      q31d_57
+rename q31da_60      q31d_60
+rename q31da_61      q31d_61
+rename q31da_65      q31d_65
+rename q31da_37      q31d_37
+rename q31da_38      q31d_38
+rename q31da_37_text      q31d_37_text
+
+rename q31aa_1       q31a_1
+rename q31aa_2       q31a_2
+rename q31aa_3       q31a_3
+rename q31aa_4       q31a_4
+rename q31aa_5       q31a_5
+rename q31aa_6       q31a_6
+rename q31aa_7       q31a_7
+rename q31aa_8       q31a_8
+rename q31aa_9       q31a_9
+rename q31aa_10      q31a_10
+rename q31aa_11      q31a_11
+rename q31aa_12      q31a_12
+rename q31aa_13      q31a_13
+rename q31aa_14      q31a_14
+rename q31aa_15      q31a_15
+rename q31aa_16      q31a_16
+rename q31aa_17      q31a_17
+rename q31aa_18      q31a_18
+rename q31aa_19      q31a_19
+rename q31aa_20      q31a_20
+rename q31aa_21      q31a_21
+rename q31aa_22      q31a_22
+rename q31aa_23      q31a_23
+rename q31aa_24      q31a_24
+rename q31aa_25      q31a_25
+rename q31aa_26      q31a_26
+rename q31aa_27      q31a_27
+rename q31aa_28      q31a_28
+rename q31aa_29      q31a_29
+rename q31aa_30      q31a_30
+rename q31aa_31      q31a_31
+rename q31aa_32      q31a_32
+rename q31aa_33      q31a_33
+rename q31aa_34      q31a_34
+rename q31aa_35      q31a_35
+rename q31aa_36      q31a_36
+rename q31aa_37      q31a_37
+rename q31aa_39      q31a_39
+* New in 2018 *
+rename q31aa_40      q31a_40
+rename q31aa_41      q31a_41
+rename q31aa_42      q31a_42
+
+* New in 2019 *
+rename q31aa_43      q31a_43
+rename q31aa_44      q31a_44
+rename q31aa_46      q31a_46
+rename q31aa_49      q31a_49
+rename q31aa_51      q31a_51
+rename q31aa_52      q31a_52
+rename q31aa_55      q31a_55
+rename q31aa_56      q31a_56
+rename q31aa_57      q31a_57
+rename q31aa_60      q31a_60
+rename q31aa_61      q31a_61
+rename q31aa_65      q31a_65
+
+* New in 2018 *
+rename q31ba_1       q31b_1
+rename q31ba_2       q31b_2
+rename q31ba_3       q31b_3
+rename q31ba_4       q31b_4
+rename q31ba_5       q31b_5
+rename q31ba_6       q31b_6
+rename q31ba_7       q31b_7
+rename q31ba_7_text  q31b_7_text
+rename q32a          q32
+rename q33a_1        q33_1
+rename q33a_2        q33_2
+rename q33a_3        q33_3
+rename q33a_4        q33_4
+rename q33a_5        q33_5
+rename q33a_6        q33_6
+rename q33a_7        q33_7
+rename q33a_8        q33_8
+rename q33a_10       q33_10
+rename q33a_11       q33_11
+rename q33a_12       q33_12
+rename q33a_13       q33_13
+rename q33a_14       q33_14
+rename q33a_15       q33_15
+rename q33a_16       q33_16
+rename q33a_17       q33_17
+rename q33a_18       q33_18
+rename q33a_19       q33_19
+rename q33a_20       q33_20
+rename q33a_21       q33_21
+rename q33a_22       q33_22
+rename q33a_23       q33_23
+rename q33a_25       q33_25
+rename q33a_26       q33_26
+rename q33a_27       q33_27
+rename q33a_28       q33_28
+rename q33a_29       q33_29
+rename q33a_30       q33_30
+rename q33a_31       q33_31
+rename q33aa_1       q33a_1
+rename q33aa_2       q33a_2
+rename q33aa_3       q33a_3
+rename q33aa_4       q33a_4
+rename q33aa_5       q33a_5
+rename q33aa_6       q33a_6
+rename q33aa_7       q33a_7
+rename q33aa_8       q33a_8
+rename q33aa_10      q33a_10
+rename q33aa_11      q33a_11
+rename q33aa_12      q33a_12
+rename q33aa_13      q33a_13
+rename q33aa_14      q33a_14
+rename q33aa_15      q33a_15
+rename q33aa_16      q33a_16
+rename q33aa_17      q33a_17
+rename q33aa_18      q33a_18
+rename q33aa_19      q33a_19
+rename q33aa_20      q33a_20
+rename q33aa_21      q33a_21
+rename q33aa_22      q33a_22
+rename q33aa_23      q33a_23
+rename q33aa_25      q33a_25
+rename q33aa_26      q33a_26
+rename q33aa_27      q33a_27
+rename q33aa_28      q33a_28
+rename q33aa_29      q33a_29
+rename q33aa_30      q33a_30
+rename q33aa_31      q33a_31
+rename q33aa_32      q33a_32
+rename q33aa_33      q33a_33
+rename q33aa_34      q33a_34
+rename q33aa_35      q33a_35
+rename q33aa_36      q33a_36
+
+* New in 2019 *
+rename q33aa_37      q33a_37
+rename q33aa_38      q33a_38
+rename q33aa_39      q33a_39
+
+rename q33ba_1       q33b_1
+rename q33ba_2       q33b_2
+rename q33ba_3       q33b_3
+rename q33ba_4       q33b_4
+rename q33ba_5       q33b_5
+rename q33ba_6       q33b_6
+rename q33ba_7       q33b_7
+rename q33ba_8       q33b_8
+rename q33ba_9       q33b_9
+rename q33ba_10      q33b_10
+rename q33ba_11      q33b_11
+rename q33ba_12      q33b_12
+rename q33ba_13      q33b_13
+rename q33ba_14      q33b_14
+rename q33ba_15      q33b_15
+rename q33ba_16      q33b_16
+rename q33ca_1       q33c_1
+rename q33ca_2       q33c_2
+rename q33ca_3       q33c_3
+rename q33ca_4       q33c_4
+rename q33ca_5       q33c_5
+rename q33ca_6       q33c_6
+rename q33ca_7       q33c_7
+rename q33ca_8       q33c_8
+rename q33ca_9       q33c_9
+rename q33ca_10      q33c_10
+rename q33ca_11      q33c_11
+rename q33ca_12      q33c_12
+rename q33ca_13      q33c_13
+rename q33ca_13_text q33c_13_text
+
+* New in 2019 *
+rename q33ca_14      q33c_14
+rename q33ca_15      q33c_15
+rename q33ca_16      q33c_16
+
+rename q34a_1        q34_1
+rename q34a_2        q34_2
+rename q34a_3        q34_3
+rename q34a_4        q34_4
+rename q34a_5        q34_5
+rename q34a_6        q34_6
+rename q34a_7        q34_7
+rename q34a_8        q34_8
+rename q34a_9        q34_9
+rename q34a_10       q34_10
+rename q34a_10_text  q34_10_text
+* New in 2018 *
+rename q34a_11       q34_12
+rename q34a_12       q34_13
+rename q34a_13       q34_14
+rename q35a_1        q35_1
+rename q35a_2        q35_2
+rename q35a_3        q35_3
+rename q35a_4        q35_4
+rename q35a_5        q35_5
+rename q35a_6        q35_6
+rename q35a_7        q35_7
+rename q35a_8        q35_8
+rename q35a_9        q35_9
+rename q35a_10       q35_10
+rename q35a_11       q35_11
+rename q35a_12       q35_12
+rename q35a_13       q35_13
+rename q35a_14       q35_14
+rename q35a_15       q35_15
+rename q35a_15_text  q35_15_text
+rename q36aa_1       q36a_1
+rename q36aa_2       q36a_2
+rename q36aa_3       q36a_3
+rename q36aa_4       q36a_4
+rename q36aa_5       q36a_5
+rename q36aa_6       q36a_6
+rename q36aa_6_text  q36a_6_text
+
+* New in 2019 *
+rename q36aa_7       q36a_7
+rename q36aa_8       q36a_8
+rename q36aa_9       q36a_9
+
+rename q36ba_1       q36b_1
+rename q36ba_2       q36b_2
+rename q36ba_3       q36b_3
+rename q36ba_4       q36b_4
+rename q36ba_5       q36b_5
+rename q36ba_6       q36b_6
+rename q36ba_7       q36b_7
+rename q36ba_8       q36b_8
+rename q36ba_8_text  q36b_8_text
+rename q36ca_1       q36c_1
+rename q36ca_2       q36c_2
+rename q36ca_3       q36c_3
+rename q36ca_4       q36c_4
+rename q36ca_5       q36c_5
+rename q36ca_6       q36c_6
+rename q36ca_7       q36c_7
+rename q36ca_8       q36c_8
+rename q36ca_9       q36c_9
+rename q36ca_10      q36c_10
+rename q36ca_11      q36c_11
+rename q36ca_12      q36c_12
+rename q36ca_13      q36c_13
+rename q36ca_14      q36c_14
+rename q36ca_15      q36c_15
+rename q36ca_15_text q36c_15_text
+rename q36da_1       q36d_1
+rename q36da_14      q36d_14
+rename q36da_15      q36d_15
+rename q36da_26      q36d_26
+rename q36da_27      q36d_27
+rename q36ea_1       q36e_1
+rename q36ea_2       q36e_2
+rename q36ea_3       q36e_3
+rename q36ea_4       q36e_4
+rename q36ea_5       q36e_5
+rename q36ea_6       q36e_6
+rename q36ea_7       q36e_7
+rename q36ea_7_text  q36e_7_text
+
+*Q50 added Spring 2016
+*Q50 Version 1 Reformating only for Spring 2016 wave
+if `yyyy'==2016 & "`sesn'"=="Spring" {
+   rename q50fpa_1 q50fp_1
+   rename q50fpa_2 q50fp_2
+   rename q50fpa_3 q50fp_3
+   rename q50fpa_4 q50fp_4
+   rename q50fpa_5 q50fp_5
+   rename q50fpa_6 q50fp_6
+   rename q50fpa_7 q50fp_7
+   rename q50fpa_8 q50fp_8
+   rename q50fpa_9 q50fp_9
+   rename q50fpa_10 q50fp_10
+   rename q50fpa_11 q50fp_11
+   rename q50fpa_12 q50fp_12
+   rename q50fpa_13 q50fp_13
+   rename q50fpa_14 q50fp_14
+   rename q50fpa_15 q50fp_15
+   rename q50fpa_16 q50fp_16
+   rename q50fpa_17 q50fp_17
+   rename q50fpa_18 q50fp_18
+   rename q50fpa_19 q50fp_19
+   rename q50fpa_20 q50fp_20
+   rename q50fpa_21 q50fp_21
+   rename q50fpa_22 q50fp_22
+   rename q50fpa_23 q50fp_23
+   rename q50fpa_24 q50fp_24
+   rename q50fpa_25 q50fp_25
+   rename q50fpa_26 q50fp_26
+   rename q50fpa_27 q50fp_27
+   rename q50fpa_28 q50fp_28
+   rename q50fpa_29 q50fp_29
+   rename q50foa_1 q50fo_1
+   rename q50foa_2 q50fo_2
+   rename q50foa_3 q50fo_3
+   rename q50foa_4 q50fo_4
+   rename q50foa_5 q50fo_5
+   rename q50foa_6 q50fo_6
+   rename q50foa_7 q50fo_7
+   rename q50foa_8 q50fo_8
+   rename q50foa_9 q50fo_9
+   rename q50foa_10 q50fo_10
+   rename q50foa_11 q50fo_11
+   rename q50foa_12 q50fo_12
+   rename q50foa_13 q50fo_13
+   rename q50foa_14 q50fo_14
+   rename q50foa_15 q50fo_15
+   rename q50foa_16 q50fo_16
+   rename q50foa_17 q50fo_17
+   rename q50foa_18 q50fo_18
+   rename q50foa_19 q50fo_19
+   rename q50foa_20 q50fo_20
+   rename q50foa_21 q50fo_21
+   rename q50foa_22 q50fo_22
+   rename q50foa_23 q50fo_23
+   rename q50foa_24 q50fo_24
+   rename q50foa_25 q50fo_25
+   rename q50foa_26 q50fo_26
+   rename q50foa_27 q50fo_27
+   rename q50foa_28 q50fo_28
+   rename q50foa_29 q50fo_29
+   rename q50fpda_1 q50fpd_1
+   rename q50fpda_2 q50fpd_2
+   rename q50fpda_3 q50fpd_3
+   rename q50fpda_4 q50fpd_4
+   rename q50fpda_5 q50fpd_5
+   rename q50fpda_6 q50fpd_6
+   rename q50fpda_7 q50fpd_7
+   rename q50fpda_8 q50fpd_8
+   rename q50fpda_9 q50fpd_9
+   rename q50fpda_10 q50fpd_10
+   rename q50fpda_11 q50fpd_11
+   rename q50fpda_12 q50fpd_12
+   rename q50fpda_13 q50fpd_13
+   rename q50fpda_14 q50fpd_14
+   rename q50fpda_15 q50fpd_15
+   rename q50fpda_16 q50fpd_16
+   rename q50fpda_17 q50fpd_17
+   rename q50fpda_18 q50fpd_18
+   rename q50fpda_19 q50fpd_19
+   rename q50fpda_20 q50fpd_20
+   rename q50fpda_21 q50fpd_21
+   rename q50fpda_22 q50fpd_22
+   rename q50fpda_23 q50fpd_23
+   rename q50fpda_24 q50fpd_24
+   rename q50fpda_25 q50fpd_25
+   rename q50fpda_26 q50fpd_26
+   rename q50fpda_27 q50fpd_27
+   rename q50fpda_28 q50fpd_28
+   rename q50fpda_29 q50fpd_29
+   rename q50bpa_1 q50bp_1
+   rename q50bpa_2 q50bp_2
+   rename q50bpa_3 q50bp_3
+   rename q50bpa_4 q50bp_4
+   rename q50bpa_5 q50bp_5
+   rename q50bpa_6 q50bp_6
+   rename q50bpa_7 q50bp_7
+   rename q50bpa_8 q50bp_8
+   rename q50bpa_9 q50bp_9
+   rename q50bpa_10 q50bp_10
+   rename q50bpa_11 q50bp_11
+   rename q50bpa_12 q50bp_12
+   rename q50bpa_13 q50bp_13
+   rename q50bpa_14 q50bp_14
+   rename q50bpa_15 q50bp_15
+   rename q50bpa_16 q50bp_16
+   rename q50bpa_17 q50bp_17
+   rename q50bpa_18 q50bp_18
+   rename q50bpa_19 q50bp_19
+   rename q50bpa_20 q50bp_20
+   rename q50bpa_21 q50bp_21
+   rename q50bpa_22 q50bp_22
+   rename q50bpa_23 q50bp_23
+   rename q50bpa_24 q50bp_24
+   rename q50bpa_25 q50bp_25
+   rename q50bpa_26 q50bp_26
+   rename q50bpa_27 q50bp_27
+   rename q50bpa_28 q50bp_28
+   rename q50boa_1 q50bo_1
+   rename q50boa_2 q50bo_2
+   rename q50boa_3 q50bo_3
+   rename q50boa_4 q50bo_4
+   rename q50boa_5 q50bo_5
+   rename q50boa_6 q50bo_6
+   rename q50boa_7 q50bo_7
+   rename q50boa_8 q50bo_8
+   rename q50boa_9 q50bo_9
+   rename q50boa_10 q50bo_10
+   rename q50boa_11 q50bo_11
+   rename q50boa_12 q50bo_12
+   rename q50boa_13 q50bo_13
+   rename q50boa_14 q50bo_14
+   rename q50boa_15 q50bo_15
+   rename q50boa_16 q50bo_16
+   rename q50boa_17 q50bo_17
+   rename q50boa_18 q50bo_18
+   rename q50boa_19 q50bo_19
+   rename q50boa_20 q50bo_20
+   rename q50boa_21 q50bo_21
+   rename q50boa_22 q50bo_22
+   rename q50boa_23 q50bo_23
+   rename q50boa_24 q50bo_24
+   rename q50boa_25 q50bo_25
+   rename q50boa_26 q50bo_26
+   rename q50boa_27 q50bo_27
+   rename q50boa_28 q50bo_28
+   rename q50bpda_1 q50bpd_1
+   rename q50bpda_2 q50bpd_2
+   rename q50bpda_3 q50bpd_3
+   rename q50bpda_4 q50bpd_4
+   rename q50bpda_5 q50bpd_5
+   rename q50bpda_6 q50bpd_6
+   rename q50bpda_7 q50bpd_7
+   rename q50bpda_8 q50bpd_8
+   rename q50bpda_9 q50bpd_9
+   rename q50bpda_10 q50bpd_10
+   rename q50bpda_11 q50bpd_11
+   rename q50bpda_12 q50bpd_12
+   rename q50bpda_13 q50bpd_13
+   rename q50bpda_14 q50bpd_14
+   rename q50bpda_15 q50bpd_15
+   rename q50bpda_16 q50bpd_16
+   rename q50bpda_17 q50bpd_17
+   rename q50bpda_18 q50bpd_18
+   rename q50bpda_19 q50bpd_19
+   rename q50bpda_20 q50bpd_20
+   rename q50bpda_21 q50bpd_21
+   rename q50bpda_22 q50bpd_22
+   rename q50bpda_23 q50bpd_23
+   rename q50bpda_24 q50bpd_24
+   rename q50bpda_25 q50bpd_25
+   rename q50bpda_26 q50bpd_26
+   rename q50bpda_27 q50bpd_27
+   rename q50bpda_28 q50bpd_28
+}
+
+rename q50fa_1       q50f_1
+rename q50fa_2       q50f_2
+rename q50fa_3       q50f_3
+rename q50fa_4       q50f_4
+rename q50fa_5       q50f_5
+rename q50fa_6       q50f_6
+rename q50fa_7       q50f_7
+rename q50fa_8       q50f_8
+rename q50fa_9       q50f_9
+rename q50fa_10      q50f_10
+rename q50fa_11      q50f_11
+rename q50fa_12      q50f_12
+rename q50fa_13      q50f_13
+rename q50fa_14      q50f_14
+rename q50fa_15      q50f_15
+rename q50fa_16      q50f_16
+rename q50fa_17      q50f_17
+rename q50fa_18      q50f_18
+rename q50fa_19      q50f_19
+rename q50fa_20      q50f_20
+rename q50fa_21      q50f_21
+rename q50fa_22      q50f_22
+rename q50fa_23      q50f_23
+rename q50fa_24      q50f_24
+rename q50fa_25      q50f_25
+rename q50fa_26      q50f_26
+rename q50fa_27      q50f_27
+rename q50fa_28      q50f_28
+rename q50fa_29      q50f_29
+rename q50fda_1      q50fd_1
+rename q50fda_2      q50fd_2
+rename q50fda_3      q50fd_3
+rename q50fda_4      q50fd_4
+rename q50fda_5      q50fd_5
+rename q50fda_6      q50fd_6
+rename q50fda_7      q50fd_7
+rename q50fda_8      q50fd_8
+rename q50fda_9      q50fd_9
+rename q50fda_10     q50fd_10
+rename q50fda_11     q50fd_11
+rename q50fda_12     q50fd_12
+rename q50fda_13     q50fd_13
+rename q50fda_14     q50fd_14
+rename q50fda_15     q50fd_15
+rename q50fda_16     q50fd_16
+rename q50fda_17     q50fd_17
+rename q50fda_18     q50fd_18
+rename q50fda_19     q50fd_19
+rename q50fda_20     q50fd_20
+rename q50fda_21     q50fd_21
+rename q50fda_22     q50fd_22
+rename q50fda_23     q50fd_23
+rename q50fda_24     q50fd_24
+rename q50fda_25     q50fd_25
+rename q50fda_26     q50fd_26
+rename q50fda_27     q50fd_27
+rename q50fda_28     q50fd_28
+rename q50fda_29     q50fd_29
+rename q50ba_1       q50b_1
+rename q50ba_2       q50b_2
+rename q50ba_3       q50b_3
+rename q50ba_4       q50b_4
+rename q50ba_5       q50b_5
+rename q50ba_6       q50b_6
+rename q50ba_7       q50b_7
+rename q50ba_8       q50b_8
+rename q50ba_9       q50b_9
+rename q50ba_10      q50b_10
+rename q50ba_11      q50b_11
+rename q50ba_12      q50b_12
+rename q50ba_13      q50b_13
+rename q50ba_14      q50b_14
+rename q50ba_15      q50b_15
+rename q50ba_16      q50b_16
+rename q50ba_17      q50b_17
+rename q50ba_18      q50b_18
+rename q50ba_19      q50b_19
+rename q50ba_20      q50b_20
+rename q50ba_21      q50b_21
+rename q50ba_22      q50b_22
+rename q50ba_23      q50b_23
+rename q50ba_24      q50b_24
+rename q50ba_25      q50b_25
+rename q50ba_26      q50b_26
+rename q50ba_27      q50b_27
+rename q50ba_28      q50b_28
+rename q50bda_1      q50bd_1
+rename q50bda_2      q50bd_2
+rename q50bda_3      q50bd_3
+rename q50bda_4      q50bd_4
+rename q50bda_5      q50bd_5
+rename q50bda_6      q50bd_6
+rename q50bda_7      q50bd_7
+rename q50bda_8      q50bd_8
+rename q50bda_9      q50bd_9
+rename q50bda_10     q50bd_10
+rename q50bda_11     q50bd_11
+rename q50bda_12     q50bd_12
+rename q50bda_13     q50bd_13
+rename q50bda_14     q50bd_14
+rename q50bda_15     q50bd_15
+rename q50bda_16     q50bd_16
+rename q50bda_17     q50bd_17
+rename q50bda_18     q50bd_18
+rename q50bda_19     q50bd_19
+rename q50bda_20     q50bd_20
+rename q50bda_21     q50bd_21
+rename q50bda_22     q50bd_22
+rename q50bda_23     q50bd_23
+rename q50bda_24     q50bd_24
+rename q50bda_25     q50bd_25
+rename q50bda_26     q50bd_26
+rename q50bda_27     q50bd_27
+rename q50bda_28     q50bd_28
+rename q40a          q40
+rename q40aa         q40a
+rename q40aa_text    q40a_text
+rename q40ba         q40b
+rename q40ba_text    q40b_text
+rename q40da         q40d
+rename q40da_text    q40d_text
+rename q42a_1        q42_1
+rename q42a_2        q42_2
+rename q42a_3        q42_3
+rename q42a_4        q42_4
+rename q42a_5        q42_5
+rename q42a_6        q42_6
+rename q42a_7        q42_7
+rename q42a_8        q42_8
+rename q42a_9        q42_9
+rename q42aa_text    q42a_text
+rename q43a_1        q43_1
+rename q43a_2        q43_2
+rename q43a_3        q43_3
+rename q43a_4        q43_4
+rename q43a_5        q43_5
+rename q43a_6        q43_6
+rename q43a_6_text   q43_6_text
+rename q43a_7        q43_7
+rename q44a_1        q44_1
+rename q44a_2        q44_2
+rename q44a_3        q44_3
+rename q44a_4        q44_4
+rename q44a_5        q44_5
+rename q44a_6        q44_6
+rename q44a_7        q44_7
+rename q44a_8        q44_8
+rename q44a_9        q44_9
+rename q44a_9_text   q44_9_text
+rename q44a_10       q44_10
+rename q44a_11       q44_11
+rename q45a          q45
+rename q45a_text     q45_text
+rename q45aa         q45a
+rename q45aa_1       q45a_1
+rename q45aa_2       q45a_2
+rename q45aa_3       q45a_3
+rename q45aa_4       q45a_4
+rename q45aa_5       q45a_5
+rename q45aa_6       q45a_6
+rename q45aa_7       q45a_7
+rename q45aa_8       q45a_8
+rename q45aa_9       q45a_9
+rename q45aa_10      q45a_10
+rename q45aa_11      q45a_11
+rename q45aa_12      q45a_12
+rename q45aa_13      q45a_13
+rename q45aa_14      q45a_14
+rename q45aa_15      q45a_15
+rename q45aa_16      q45a_16
+rename q45aa_17      q45a_17
+rename q45aa_18      q45a_18
+rename q45aa_19      q45a_19
+rename q45aa_20      q45a_20
+rename q45aa_21      q45a_21
+rename q45aa_22      q45a_22
+rename q45aa_23      q45a_23
+rename q45aa_24      q45a_24
+rename q45aa_25      q45a_25
+rename q45aa_26      q45a_26
+rename q45aa_26_text q45a_26_text
+
+* New in 2018 *
+rename q45aa_27      q45a_27
+rename q45aa_28      q45a_28
+rename q45aa_29      q45a_29
+rename q45aa_30      q45a_30
+rename q45aa_31      q45a_31
+rename q45aa_32      q45a_32
+rename q45aa_33      q45a_33
+rename q45aa_34      q45a_34
+rename q45aa_35      q45a_35
+rename q45aa_36      q45a_36
+rename q45aa_37      q45a_37
+rename q45aa_38      q45a_38
+rename q45aa_39      q45a_39
+rename q45aa_40      q45a_40
+rename q45aa_41      q45a_41
+rename q45aa_42      q45a_42
+rename q45aa_43      q45a_43
+rename q45aa_44      q45a_44
+rename q45aa_45      q45a_45
+rename q45aa_46      q45a_46
+rename q45aa_47      q45a_47
+rename q45aa_48      q45a_48
+rename q45aa_49      q45a_49
+rename q45aa_50      q45a_50
+
+rename q45ca_1       q45c_1
+rename q45ca_2       q45c_2
+rename q45ca_3       q45c_3
+rename q45ca_4       q45c_4
+rename q45ca_5       q45c_5
+rename q45ca_6       q45c_6
+rename q45ca_7       q45c_7
+rename q45ca_8       q45c_8
+rename q45ca_9       q45c_9
+rename q45ca_10      q45c_10
+rename q45ca_11      q45c_11
+rename q45ca_12      q45c_12
+rename q45ca_13      q45c_13
+rename q45ca_14      q45c_14
+rename q45ca_15      q45c_15
+rename q45ca_15_text q45c_15_text
+rename q45da         q45d
+* Q45E_1 - Q45E_13 SHOWN 2016-2017 *
+rename q45ea_1       q45e_1
+rename q45ea_2       q45e_2
+rename q45ea_3       q45e_3
+rename q45ea_4       q45e_4
+rename q45ea_5       q45e_5
+rename q45ea_6       q45e_6
+rename q45ea_7       q45e_7
+rename q45ea_8       q45e_8
+rename q45ea_9       q45e_9
+rename q45ea_10      q45e_10
+rename q45ea_11      q45e_11
+rename q45ea_12      q45e_12
+rename q45ea_13      q45e_13
+* New in 2018 Q45F *
+rename q45fa_1       q45f_1
+rename q45fa_2       q45f_2
+rename q45fa_3       q45f_3
+rename q45fa_4       q45f_4
+rename q45fa_5       q45f_5
+rename q45fa_6       q45f_6
+rename q45fa_7       q45f_7
+rename q45fa_8       q45f_8
+rename q45fa_9       q45f_9
+rename q45fa_10      q45f_10
+rename q45fa_11      q45f_11
+rename q45fa_12      q45f_12
+rename q45fa_13      q45f_13
+rename q45fa_14      q45f_14
+rename q45fa_15      q45f_15
+rename q45fa_16      q45f_16
+rename q45fa_17      q45f_17
+
+* New in 2019 *
+rename q45ha         q45h
+
+* New in 2018 Q45G *
+rename q45ga_1       q45g_1
+rename q45ga_2       q45g_2
+rename q45ga_3       q45g_3
+rename q45ga_4       q45g_4
+rename q45ga_5       q45g_5
+rename q45ga_6       q45g_6
+rename q45ga_7       q45g_7
+rename q46a          q46
+
+gen piece = 1
+move piece zip
+vlabel piece "Occasion 1 or 2"
+
+* next tack the second event data to the bottom of the first event data
+append using "`occ2'", nolabel
+
+gen piece1 = piece==1
+move piece1 zip
+vlabel piece1 "Occasion 1"
+label val piece1 YESNO
+
+replace popwgt = 0 if piece==2
+
+
+
+
+* ROBERT
+* Taken from input Compass 2012-2018 all Waves 091319
+* Q50 drop unstacked variables
+drop q50fa_*
+drop q50fb_*
+drop q50fda_*
+drop q50fdb_*
+drop q50ba_*
+drop q50bb_*
+drop q50bda_*
+drop q50bdb_*
+
+drop eatingevent_occasion2_qb1i1
+drop eatingevent_occasion2_qb1i2
+drop eatingevent_occasion2_qb1i3
+drop eatingevent_occasion2_qb1i4
+drop eatingevent_occasion2_qb1i5
+drop eatingevent_occasion2_qb1i6 
+
+
