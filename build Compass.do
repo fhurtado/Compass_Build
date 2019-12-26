@@ -15,21 +15,25 @@ set maxvar 6000
 set varabbrev off
 set more off
 
+* Set the year and season variables
+local yyyy 2019
+local sesn "Fall"
+
 *cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass 2019\Prep & Build\2019\Spring
 *cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass 2019\Prep & Build\2019\Summer
-cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass 2019\Prep & Build\2019\Fall
+cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass `yyyy'\Prep & Build\\`yyyy'\\`sesn'"
 
-local dir "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass 2019\Prep & Build\Compass code"
+local dir "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass `yyyy'\Prep & Build\Compass code"
 
 *determine year and season from standard naming convention for "current" directory
-tokenize `c(pwd)', parse("\/")
+/* tokenize `c(pwd)', parse("\/")
 forvalues i=1/100 {
    local j = `i'+2
    local k = `i'+3
    local yyyy ``i''
    local sesn ``j''
    if "``k''"=="" continue, break
-}
+} */
 * set up current ages of the generations based upon current year
 local zy = `yyyy' - 2006   //youngest gen-z    *** 2019 ***
 *local zy = `yyyy' - 2005   //youngest gen-z    *** 2018 ***
