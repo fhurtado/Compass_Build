@@ -106,7 +106,7 @@ t age ownkids
 
 *age (2019: Update maximum age to 73)
 drop agegrp
-recode age (13/17=0 "13 - 17") (18/24=1 "18 - 24") (25/34=2 "25 - 34") (35/44=3 "35 - 44") (45/54=4 "45 - 54") (55/64=5 "55 - 64") (65/73=6 "65 - 73"), gen(agegrp) label(AGEGRP)
+recode age (13/17=0 "13 - 17") (18/24=1 "18 - 24") (25/34=2 "25 - 34") (35/44=3 "35 - 44") (45/54=4 "45 - 54") (55/64=5 "55 - 64") (65/`bo'=6 "65 - `bo'"), gen(agegrp) label(AGEGRP)
 move agegrp gender
 vlabel agegrp "Age"
 

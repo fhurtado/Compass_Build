@@ -95,7 +95,7 @@ foreach var of varlist count_teen_2 - count_teen_37 {
 
 * 010918 Create agegrp2 to for weighing purposes (bring down weight of Boomers)
 *age - Age max 72 in 2018
-recode age (13/17=0 "13 - 17") (18/29=1 "18 - 29") (30/44=2 "30 - 44") (45/59=3 "45 - 59") (60/73=4 "60 - 73"), gen(agegrp2) label(AGEGRP2)
+recode age (13/17=0 "13 - 17") (18/29=1 "18 - 29") (30/44=2 "30 - 44") (45/59=3 "45 - 59") (60/`bo'=4 "60 - `bo'"), gen(agegrp2) label(AGEGRP2)
 vlabel agegrp2 "Age"
 
 gen occasion = (kidocc & selfreportedteen==0) + 2*selfreportedteen + 3*adult

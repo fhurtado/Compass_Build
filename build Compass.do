@@ -19,8 +19,7 @@ set more off
 local yyyy 2019
 local sesn "Fall"
 
-*cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass 2019\Prep & Build\2019\Spring
-*cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass 2019\Prep & Build\2019\Summer
+* Define the master directory and set working directory to the season directory
 cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass `yyyy'\Prep & Build\\`yyyy'\\`sesn'"
 
 local dir "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass `yyyy'\Prep & Build\Compass code"
@@ -34,6 +33,7 @@ forvalues i=1/100 {
    local sesn ``j''
    if "``k''"=="" continue, break
 } */
+
 * set up current ages of the generations based upon current year
 local zy = `yyyy' - 2006   //youngest gen-z    *** 2019 ***
 *local zy = `yyyy' - 2005   //youngest gen-z    *** 2018 ***
@@ -80,9 +80,9 @@ include "`dir'\finwgt.do"
 
 
 * save the final stacked and weighted file, including an SPSS readable file
-if "`sesn'"=="Spring" gen season = 1
-if "`sesn'"=="Summer" gen season = 2
-if "`sesn'"=="Fall"   gen season = 3
+if "`sesn'" == "Spring" gen season = 1
+if "`sesn'" == "Summer" gen season = 2
+if "`sesn'" == "Fall"   gen season = 3
 move season year
 vlabel season "Survey season"
 label val season SEASON
@@ -94,7 +94,6 @@ describe, short
 
 *vname using "Compass 3.0 codebook.txt", cbook val
 
-*
 * create a file for export to SPSS
 replace time_entered = (time_entered - tc(14oct1582 00:00)) / 1000
 replace time_completed = (time_completed - tc(14oct1582 00:00)) / 1000

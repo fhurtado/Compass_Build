@@ -55,7 +55,7 @@ vlabel weekday "Day of week"
 
 * New in 2019 *
 *age - Age max 73 in 2019
-recode age (13/17=0 "13 - 17") (18/24=1 "18 - 24") (25/34=2 "25 - 34") (35/44=3 "35 - 44") (45/54=4 "45 - 54") (55/64=5 "55 - 64") (65/73=6 "65 - 73"), gen(agegrp) label(AGEGRP)
+recode age (13/17=0 "13 - 17") (18/24=1 "18 - 24") (25/34=2 "25 - 34") (35/44=3 "35 - 44") (45/54=4 "45 - 54") (55/64=5 "55 - 64") (65/`bo'=6 "65 - `bo'"), gen(agegrp) label(AGEGRP)
 move agegrp gender
 vlabel agegrp "Age"
 

@@ -19,8 +19,8 @@ recode prtage (min/17=0 "Too young")
               (35/44=3  "35 - 44")
               (45/54=4  "45 - 54")
               (55/64=5  "55 - 64")
-              (65/73=6  "65 - 73")
-              (74/max=7 "74 +"),
+              (65/`bo'=6  "65 - `bo'")
+              (`sy'/max=7 "`sy' +"),
            gen(agegrp) label(AGEGRP);
 vlabel agegrp "Age";
 
@@ -63,8 +63,8 @@ recode prtage (min/12=0 "Too young")
               (35/44=4  "35 - 44")
               (45/54=5  "45 - 54")
               (55/64=6  "55 - 64")
-              (65/73=7  "65 - 73")
-              (74/max=8 "74 +"),
+              (65/`bo'=7  "65 - `bo'")
+              (`sy'/max=8 "`sy' +"),
            gen(agegrp4) label(AGEGRP4);
 vlabel agegrp4 "Age";
 
@@ -81,8 +81,8 @@ label val agef AGEGRP3;
 capture label drop ADULT;
 capture drop adult;
 recode prtage (min/17=0 "0 - 17")
-              (18/73=1  "18 - 73")
-              (74/max=2 "74 +"),
+              (18/`bo'=1  "18 - `bo'")
+              (`sy'/max=2 "`sy' +"),
            gen(adult) label(ADULT);
 vlabel adult "Age group";
 
@@ -91,8 +91,8 @@ capture label drop ADULT2;
 capture drop adult2;
 recode prtage (min/12=0 "0 - 12")
               (13/17=1  "13 - 17")
-              (18/73=2  "18 - 73")
-              (74/max=3 "74 +"),
+              (18/`bo'=2  "18 - `bo'")
+              (`sy'/max=3 "`sy' +"),
            gen(adult2) label(ADULT2);
 vlabel adult2 "Age group";
 
