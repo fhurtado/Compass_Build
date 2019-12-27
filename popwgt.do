@@ -7,7 +7,7 @@
 *use "D:\All My Documents\Projects\HOBM\Compass 2.1\Analysis\Prep & Build\Spring\clipped clean Compass 2.1.dta", clear
 *CPS demos in "demos from MMM YYYY CPS.txt"
 
-include "marg_pop.do"
+include "`sdir'\marg_pop.do"
 
 gen female = 10 * (gender==2)
 gen     wgt = 1
@@ -110,7 +110,7 @@ recode age (13/17=0 "13 - 17") (18/24=1 "18 - 24") (25/34=2 "25 - 34") (35/44=3 
 move agegrp gender
 vlabel agegrp "Age"
 
-include "marg_pop.do"
+include "`sdir'\marg_pop.do"
 
 drop popwgt
 
@@ -186,7 +186,7 @@ gen income2 = income3 + female
 
 gen hisp2 = hisp + female
 
-include "marg_pop_teen.do"
+include "`sdir'\marg_pop_teen.do"
 
 preserve
 keep if age<18

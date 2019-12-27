@@ -3,11 +3,11 @@
 //    it is called by the initial cleanup program
 ***
 * recover the "other" write-ins where possible
-include "qp04.do"
-include "q44.do"
-include "q45.do"
-include "se2.do"
-include "se6.do"
+include "`sdir'\qp04.do"
+include "`sdir'\q44.do"
+include "`sdir'\q45.do"
+include "`sdir'\se2.do"
+include "`sdir'\se6.do"
 
 * New in 2018, use us09kid because dchild_1 is blank in Summer/Fall *
 * identify the child used for the kid occasions

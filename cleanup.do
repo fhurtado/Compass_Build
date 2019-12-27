@@ -26,7 +26,7 @@ export excel respondent_serial qa1 qa2 using "QA12.xlsx", sheet("QA12") firstrow
 `exit'
 
 ** New in 2016 Spring - Remove uncareful respondents
-include "qcremoval.do"
+include "`sdir'\qcremoval.do"
 
 * pitch variables not part of this survey
 include "`dir'\drop vars.do"

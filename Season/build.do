@@ -32,9 +32,11 @@ local fexit error 1    //set to break after fin weights are created (finwgt.do l
 
 
 /* Don't modify this part */
-* Define the master directory and set working directory to the season directory
-cd "`dirstub'\HOBM\Compass `yyyy'\Prep & Build\\`yyyy'\\`sesn'"
-local dir "`dirstub'\HOBM\Compass `yyyy'\Prep & Build\Compass code"
+* Set working directory where data will be stored and modified
+cd "`dirstub'\HOBM\Compass `yyyy'\Prep & Build\Data_Files\\`sesn'"
+* Define the code directory
+local dir "`dirstub'\HOBM\Compass `yyyy'\Prep & Build\Code"
+local sdir "`dir'\\`sesn'"
 
 * Call build Compass.do
 include "`dir'\build Compass.do"

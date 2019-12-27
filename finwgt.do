@@ -5,7 +5,7 @@
 //    it is called at the end of the "build Compass.do" program
 ***
 * get the marginals for raking
-include "marg_fin.do"
+include "`sdir'\marg_fin.do"
 
 * these are for the marginal distributions nested in parenthood
 foreach var of varlist sd2 gender weekday agegrp2 occ2var {
@@ -63,7 +63,7 @@ gen aget2 = aget + 10*(gendert-1)
 gen occ2vart2 = occ2vart + 100*(gendert-1)
 
 * TEEN get the marginals for raking
-include "marg_fin_teen.do"
+include "`sdir'\marg_fin_teen.do"
 
 
 survwgt rake wgt if  occasion==2, by(gendert weekdayt2 aget2 occ2vart2) totvar(marg_sex marg_day marg_age marg_occ) generate(twgt)

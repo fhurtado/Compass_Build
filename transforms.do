@@ -386,7 +386,7 @@ vlabel retailers, from(qp04)
 label val retailers QP04
 
 * custom program with "other" write-in recodes
-include "retailers.do"
+include "`sdir'\retailers.do"
 
 ******* ZONE ********
 //CHANGED TO ADJUST FOR EXTREME INSTRUMENTAL PREDICTION FOR KID OCCASIONS
