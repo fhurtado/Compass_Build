@@ -29,7 +29,7 @@ pcent   piece        [pw=popwgt], inc(all) by(season) out(Rescaling finwgt.txt) 
 
 * reweight to allow reasonable pooling of waves
 * adjust finwgt to make each round properly represent its pop size relative to the other two rounds
-include "`sdir'\rescale wgts.do"
+include "rescale wgts.do"
 quietly {
    summ finwgt if adult
    replace finwgt = finwgt / r(mean) if adult
