@@ -88,7 +88,7 @@ svycent adult occ2var, inc(all) by(sd2) out(weighted occ2var.txt) n("W E I G H T
 * Generate final unweighted counts for teens for final weighting
 svycent selfreportedteen, inc(all) by(piece) out(selfreportedteen.txt) n("W E I G H T E D")
 
-*`fexit' //set this to break before the finwgt control margins are determined
+`fexit' //set this to break before the finwgt control margins are determined
 
 * Adjust proportion of teens to CPS
 if "`sesn'"=="Spring" replace finwgt = finwgt * 00.873671624702834 if selfreportedteen==0

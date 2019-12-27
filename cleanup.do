@@ -23,7 +23,7 @@ include "`dir'\other write-ins.do"
 export excel respondent_serial qa1 qa2 using "QA12.xlsx", sheet("QA12") firstrow(variables) nolabel replace
 *export excel respondent_serial eatingevent_occasion1_grid_q50_v - eatingevent_occasion2grid_q50_23 using "Q50.xlsx", sheet("Q50") firstrow(variables) nolabel replace
 
-* `exit'
+`exit'
 
 ** New in 2016 Spring - Remove uncareful respondents
 include "qcremoval.do"

@@ -9,35 +9,8 @@
 *Assumes current directory is in proper year and season
 * that is, something like this directory
 
-* Set the max number of variables so that Stata doesn't freak out
-set maxvar 6000
-* Turn off variable abbreviation so that Stata doesn't delete things it should not
-set varabbrev off
-set more off
-
-* Set the year and season variables
-local yyyy 2019
-local sesn "Fall"
-
-* Define the master directory and set working directory to the season directory
-cd "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass `yyyy'\Prep & Build\\`yyyy'\\`sesn'"
-
-local dir "C:\Users\felipe.hurtado-ferro\Documents\HOBM\Compass `yyyy'\Prep & Build\Compass code"
-
-*determine year and season from standard naming convention for "current" directory
-/* tokenize `c(pwd)', parse("\/")
-forvalues i=1/100 {
-   local j = `i'+2
-   local k = `i'+3
-   local yyyy ``i''
-   local sesn ``j''
-   if "``k''"=="" continue, break
-} */
-
 * set up current ages of the generations based upon current year
-local zy = `yyyy' - 2006   //youngest gen-z    *** 2019 ***
-*local zy = `yyyy' - 2005   //youngest gen-z    *** 2018 ***
-*local zy = `yyyy' - 2003   //youngest gen-z    *** 2016 ***
+local zy = `yyyy' - 2006   //youngest gen-z    
 local zo = `yyyy' - 2001   //oldest gen-z
 local my = `yyyy' - 2000   //youngest millennial
 local mo = `yyyy' - 1979   //oldest millennial
@@ -55,9 +28,6 @@ local silent    "`sy'/`so'"
 
 mylog "build.smcl", replace
 
-* Get the build from the season file
-include "build.do"
-
 * prep the file: drop, rename, recode, rearrange, and label vars
 include "`dir'\cleanup.do"
 
@@ -73,7 +43,7 @@ describe, short
 * restructure the file and generate all the new vars
 include "`dir'\reform vars.do"
 
-*`wexit' //set this to break before the finwgt control margins are determined
+`wexit' //set this to break before the finwgt control margins are determined
 
 * last step is to weight the valid completes by occasion incidence
 include "`dir'\finwgt.do"

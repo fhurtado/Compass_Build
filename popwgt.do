@@ -83,7 +83,7 @@ svycent agegrp race hisp division educ income ownkids day weekday2 weekday, inc(
 svycent gender if ownkids1317,                                              inc(all)            nop out(demos from survey.txt) n("W E I G H T E D   D E M O S  P A R E N T S  O F  K I D S  1 3  -  1 7") app
 svycent agegrp race hisp region educhs income3 kids2 ownkids day weekday2 weekday if ownkids1317, inc(all) by(gender) nop out(demos from survey.txt) app
 
-*`dexit' //set this to break after "demos from survey.txt" created
+`dexit' //set this to break after "demos from survey.txt" created
 
 
 summ popwgt
